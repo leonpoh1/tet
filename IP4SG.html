@@ -1,458 +1,1361 @@
-<!doctype html>
-<html lang="en">
+<html lang="en"><head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="National Intellectual Property (IP) Registries System">
+  <meta name="robots" content="noindex">
 
-<head>
-    <title>PF1 Demo</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-    <meta name="format-detection" content="telephone=no">
-    <!-- Internal CSS -->
-    <link rel="stylesheet" href="css/style.css">
+  <title>IP4SG</title>
+  
+  <script async="" src="https://assets.dcube.cloud/snowplow/2.14.0/sp.js"></script><script src="/FAMN/JavaScriptServlet?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY"></script>
+  
 
-    <!-- Bootstrap CSS -->
-    <!--   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+  <link rel="shortcut icon" type="image/x-icon" href="/FAMN/img/favicon.ico">
 
-    <!-- Asset from Template by GFXDesigner -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,800;1,400;1,500;1,600;1,800&display=swap"
-        rel="stylesheet">
+  <link rel="stylesheet" href="/FAMN/css/google-fonts.css">
+  <link rel="stylesheet" href="/FAMN/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/FAMN/css/bootstrap-datetimepicker.css">
+  <link rel="stylesheet" href="/FAMN/css/framework.css">
+  <link rel="stylesheet" href="/FAMN/css/custom.css">
+  <link rel="stylesheet" href="/FAMN/css/section-boxing.css">
+  <link rel="stylesheet" href="/FAMN/css/jquery-ui.min.css">
+  <link rel="stylesheet" href="/FAMN/css/print.css" media="print">
+  <link rel="stylesheet" href="/FAMN/css/jquery.mCustomScrollbar.min.css">
+  <link rel="stylesheet" href="/FAMN/css/menukit.css">
+  <link rel="stylesheet" href="/FAMN/css/toastr.min.css">
+  <link rel="stylesheet" href="/FAMN/css/website.css">
+  
+  <link rel="stylesheet" href="/FAMN/css/jquery.bxslider.css">
+  <link rel="stylesheet" href="/FAMN/css/datatables.min.css">
+  <link rel="stylesheet" href="/FAMN/css/website.css">
+  <link rel="stylesheet" href="/FAMN/css/cropper.min.css">
 
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
-    <link rel="stylesheet" href="assets/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css">
-    <link rel="stylesheet" href="assets/css/framework.css">
-    <link rel="stylesheet" href="assets/css/custom.css">
-    <link rel="stylesheet" href="myassets/css/custom.css">
-    <link rel="stylesheet" href="myassets/css/section-boxing.css">
-    <link rel="stylesheet" href="myassets/css/customAlert.css">
-    <link rel="stylesheet" href="assets/dropzone/dist/dropzone.css">
-    <link href="assets/css/print.css" rel="stylesheet" media="print">
+  <style>
+  .button {
+  display: inline-flex; /* Use inline-flex for dynamic width */
+  height: 34px; /* Adjust the height as needed */
+  background-color: #515b61; /* Apply the desired background color */
+  border: 1px solid #ccc; /* Apply the desired border style */
+  border-radius: 4px; /* Apply the desired border radius */
+  margin-left: 0px; /* Add any desired margin */
+  vertical-align: middle; /* Align the button vertically */
+}
 
-    <!-- AutoComplete CSS-->
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+.button a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 8px; /* Add padding to adjust the width */
+  color: white; /* Apply the desired text color */
+  text-decoration: none; /* Remove underline from the anchor element */
+}
 
-        /*the container must be positioned relative:*/
+.button a .badge {
+  position: relativee;
+  padding: 2px 6px; /* Adjust padding as needed */
+  background-color: #e34a21; /* Apply the desired background color */
+  color: white; /* Apply the desired text color */
+  border-radius: 50px; /* Apply the desired border radius */
+  font-size: 14px; /* Apply the desired font size */
+  bottom: 25px; 
+}
+    .align-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+    .button.cart-button {
+  margin-right: 0;
+}
+@media (min-width: 768px) {
+  .usericons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+  }
+}
 
-          .process .step-indicator {
-            height: 71px;
-        }
-
-        .autocomplete-items {
-            position: absolute;
-            border: 1px solid #d4d4d4;
-            border-bottom: none;
-            border-top: none;
-            z-index: 99;
-            /*position the autocomplete items to be the same width as the container:*/
-            top: 100%;
-            left: 0;
-            right: 0;
-        }
-
-        .autocomplete-items div {
-            padding: 10px;
-            cursor: pointer;
-            background-color: #fff;
-            border-bottom: 1px solid #d4d4d4;
-        }
-
-        /*when hovering an item:*/
-        .autocomplete-items div:hover {
-            background-color: #e9e9e9;
-        }
-
-        /*when navigating through the items using the arrow keys:*/
-        .autocomplete-active {
-            background-color: DodgerBlue !important;
-            color: #ffffff;
-
-        }
-/*
-        th, td {
-            font-size:x-small;
-        }*/
-    </style>
-
+</style>
+    <script src="https://assets.dcube.cloud/scripts/wogaa.js"></script><script async="" src="https://assets.dcube.cloud/scripts/wogaa.js?url=https%3A%2F%2F192.168.88.230%2FFAMN%2Feservice%2FIP4SG%2FMN_Home%3FOWASP_CSRFTOKEN%3DRTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY"></script>
+  
 </head>
 
 <body>
+  <!-- Header and Header Title-->
+  <header>
     <section class="logo">
-        <div class="container" style="width: 100% !important; max-width: 100% !important; padding-left: 30px;">
-            <div class="row">
-                <div class="logo-ssg">
-                    <a href="https://www.gov.sg/" target="_blank" rel="noreferrer"
-                        style="color:#484848; text-decoration: none">
-                        <img
-                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAnCAYAAABjYToLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAcASURBVFhH7Zh7bFN1FMfvq4/bdV1Lt8EYj8FQEIUpxMAfqBM0gkLkJcmUSNSoCAnKQxSVQFRiID4mMAbBBxBFYrIgAQkqb3EB55gJMh6Dscm6Utqtt+3a3tv23us5N7826x5th48/1E9y9rvn/O7W78753fP73VL/8z//VWgy3jKuwuK3OZp6maZoCwlpKJR6XaLUUyfD0qdlbY5qCEXAZG0yA25ZWEP+iGKTXnmHp5gyEqKccuzCiZB4YmuH7zD64wwGeUdIuAiXLjA/2N8jzFEwYhzFKLt5mhlJQhqSqop7gx2Hj0dC55Zn2yYU6XQTdRRtItOUX5EPR1S16nZn05fghsDSCuxrxlgwK1ghGfHDzWAGMAnsJpiwymIvGc5yg8fqDVM6iwyryqWTorQ4k9KmFOYaNHw2pdJL8TpGURyO9THps9GcfnnXrCHbA74n5psty400NdqnyFdBxPE9wcCV5RbrjPEG41S8J0qpoR0B/4LXfO4fwO0A61FcSmHaOtKpX/A0PZGEekWQ5aaZN2+seMDIBx7hTRPvNRpew0yhkFNieHdjNOJ9OjtncTyWThyWplfW2mxNOpouJm6P/CyJdR/7ffvX+NoPrLLaxiy05FTAEykua/d8UGrgS7IYJm8YpxuXzTDSh35hywM8fz+KG2swTK8Nxb5rUiLt8GewrEkwZLxl+rNsToRSms8MHLTuUixSB+vINZTTTSu35a5+xet5BzOJ992m00+eazJP/UjwbkAfxb1hy3kL/4TmdiGlsO/D4uxSp2Nuv5Yrz81xO1e65JiTTCUxkGF1+EHzTOay05K4H2NWli16z2Zfsd7vLdduAnCd2VkmqyEaORr3x7J8CVwm9UAkpbAxBkP+EEZ/DS6rsxTuiIVhsBclcT4abSzW6e14rafpohpRbNEmgAKWu6OEM476XYmdJiFqblb28+t8XmwbGgvNOQ/BgL+flLWUwvJoetHO/rnHHIXFn+PY9UnEDG4LCCenGPkZJNSNe3n9hJqwWENcKodhrVaGGRAv8SiD7m4YbGBG9OOkXWOiqobrI5IAi/zgGSm852g4tO+QGDy03tf++TSXc8NOe/9nsWx4b0hVRCyV9osEjqJzrkYjbcTVKDXyJW5FbsRrG8Pkw5ADpkc/TkphVR2+VwodjXMedrdUTnM7PgGrnNvWWv6kx7meoeljPxUULoyLQo6Gw5fuN5rGE7dXjAxtaVdkbMZxMFuZl3KRz1MPw1WwWrBfwc69brU2NRYOK3vVYtvVubTQUIUD4WA9Pn0kpHEtFmudAn2NuN3wyPJlcplEulKGwdxgDrA22CuHrTDbT1pp9gWc7MwSr3vXh/1yZxFXA/fQ9/3eE6P1+ntIqBv7Qh0XYAiC4ZaWIO0aA7SufLmgaCHPUrUMRQ/Wop2oDPiqZvHmAcVcsgDc2JdlW++CzGKvSlAdDl8YwulK8DSyOSicgRCuQVGbJGQiTDtz5bJcJXGTwM4Ppwf/TJN5HglpYLw+KjVM5k2Pk5AGZnFbJHgxl2WHlt10rYaQBwzXW1L3T7klIS2FxZONNP0pcZNojkUby33CwXf75T7DUnRi8cbjG+x5L3WOI2cj0jlKVpvqo5HdVaK/GUI3wLBxR3E+TtpjD2TrR9gvJxE3AS72FW2eT7bk5S/Crk/CWvwpj6tib37B0s5xBLMFO8gH1ZHQKXCvgOHZLEAsiZSlbB4yxNaTKGRrwLf37X72x7p++DpB+Hq7PX921zhS7vd+BaJwsWNzxVMtPlgorhsphbGyrsenCUsVVBQBtxwS0sCdwE/F2rrGcb1Nv9m6bn2g/Qi4l8CwdJglLF+P57GMFn9XDoZDdQuyLaXETdAci92Yx2ePJm5C0FR3y2ZSPuyHDWB4BktJujWmax80ottZaXzr9ZW1Awdrx5fOgODDPE01mWjavKTNc7xBkbAFYHZawfDJ84El9aveSJcxBV8kyHWCFlbBD+iGIxb1zPO6voGtqxxEYXawR8WzhMIyEoWkEybDllJBrhNMYvS46SbAJ3FB242NcFQ+IMsyZgiPSriWcDvD5pmxoDhp+9jOoL/5RbPlUSPNFJAQPvYOKFe7nWWH4YK/L9pRcdYv1MFU/IkTwLCMCtgtkVYYoI5kuJqRBsP8eLMs4riiTQHftjv1+qGPupwbnWKoQVXV32AKM4X7Xq+vZZmSkbBvpZBQqs9SB3PcgxiA7BnhHEVNdP2+VlDlJhCFZ6vrYNiTVLznz5JpuwhP97RsqhbFNcSn3KqWFPyBpUNReBL5y+hLH/ODuIqqYOBNfC/EEwLEsEFiT+rz4k5HJqWMgyWK7BeD5z0x9ZfTktTiUmOYLXwvhBf1v5a+fneB4D+D31fg2R7L16dvcf4JUGBfMv5vgKL+ABc6C2QpTdaQAAAAAElFTkSuQmCC">
-                        <span>A Singapore Government Agency Website</span>
-                    </a>
-                </div>
-            </div>
+      <div class="container">
+        <div class="row">
+          <div class="logo-ssg">
+            <a href="https://www.gov.sg/" target="_blank" rel="noopener noreferrer" style="color: #484848; text-decoration: none"> <img src="/FAMN/img/logo-sg.png" alt="Singapore Logo"> <span>A Singapore Government Agency Website</span></a>
+          </div>
         </div>
+      </div>
     </section>
-
-    <!-- Header and Header Title-->
-    <!-- Print Header-->
     <div class="print-header visible-print-block">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12"><img src="assets//images/ip4-logo.jpg"></div>
-
-            </div>
-        </div>
-    </div>
-    <div class="inside-header">
-        <div class="header-top hidden-print">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-4 col-xs-12">
-                        <div><a class="ip4Logo" href="./"></a></div>
-                    </div>
-                    <div class="col-sm-8 col-xs-12 text-right">
-                        <div class="dropdown user-menu"><a class="dropdown-toggle" href="#" id="userMenu"
-                                data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome!
-                                Joseph</a>
-                            <ul class="dropdown-menu" id="userDropdown" aria-labelledby="userMenu">
-                                <li><a href="./">Edit Profile</a></li>
-                                <li><a href="./">My Dashboard</a></li>
-                                <li><a href="./">Logout</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="headerLeftDesktop header-title">
-                        <div class="header-title-content">
-                            <div class="row">
-                                <div class="col-md-8">
-<!--                                     <h1>Correspondence</h1> -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- Main Content -->
-    <div class="container bg-light">
-
-        <div class="content">
-
-            <!-- Main Content -->
-            <h4>Inbox</h4>
-
-            <!-- Start copy from here --> 
-            <div class="row">
-                <div class="col-sm-12">
-                <div class="form-group text-right">
-                <button type="button" class="btn btn-secondary btn-sm">Delete</button>
-                <button type="button" class="btn btn-primary btn-sm">Mark as Read</button>
-                <button type="button" class="btn btn-primary btn-sm">Mark as Unread</button>
-                <button type="button" class="btn btn-primary btn-sm">Archive</button>
-                <button type="button" class="btn btn-primary btn-sm">Download Correspondence</button>
-              </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <img src="/FAMN/img/ipos-digihub-logo.png" class="img-fluid" width="100" height="32" alt="">
           </div>
-          <div class="col-sm-12">
-            <div class="form-group form-inline text-right inbox-action">
-                <label>Move To </label>
-                <select class="form-control" id="moveTo" name="moveTo">
-                  <option value="">Please Select</option>
-                </select>
-                <button type="button" class="btn btn-primary btn-sm">Move</button>
-                <label> Assign To </label>
-                <select class="form-control" id="assignTo" name="assignTo">
-                  <option value="">Please Select</option>
-                </select>
-                <button type="button" class="btn btn-primary btn-sm">Assign</button>
+        </div>
+      </div>
+    </div>
+    <div id="mainPageHeader" class="">
+      <div class="header-top hidden-print">
+        <div class="container">
+          <div class="row">
+            
+              <div class="col-sm-6 col-xs-4 col-md-4 col-lg-4">
+                <div>
+                  <ul class="list-unstyled main-logo-list">
+                    <li><a class="ip4Logo" href="/FAMN/eservice/IP4SG/MN_Home?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY" style="background-size: 100% 100%;"></a></li>
+                    <!--li><a class="iposLogo" href="./"></a></li-->
+                  </ul>
+                </div>
               </div>
+
+              <div class="col-sm-6 col-xs-8 col-md-8 text-right usericons">
+                <!-- Place for search
+                <div class="search-container">
+                  <input class="searchtop placeholder" name="search" id="search" type="text" value="" placeholder="Search" alt="Search">
+                </div> -->
+                <div class="navbar-dark" style="position: relative;">
+                  
+                </div>
+
+    <div class="col-sm-12 col-md-7 col-lg-7 text-right usericons">
+                <div style="width: 100px;" class="dropdown user-menu">
+                      <a class="dropdown-toggle" href="#" id="userMenu" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">cindyng</a>
+                      <ul class="dropdown-menu" id="userDropdown" aria-labelledby="userMenu" style="">
+                        <li><a href="/FAMN/eservice/IP4SG/MN_UserAccount?OWASP_CSRFTOKEN=Z8V8-M6FK-HW5W-FT2B-TF7P-1A6M-J2DG-VY3F">Edit Profile</a></li>
+                        
+                        <li><a href="/FAMN/eservice/IP4SG/MN_Logout?OWASP_CSRFTOKEN=Z8V8-M6FK-HW5W-FT2B-TF7P-1A6M-J2DG-VY3F">Logout</a></li>
+                      </ul>
+                    </div></div>
+    <div class="col-sm-12 col-md-5 col-lg-5 mailcart">
+<div class="button mail-button"><a class="" href="/FACR/eservice/IP4SG/CR_CorrespondenceFolder?fGuid=FEEAB3BF-A05B-4E38-BE65-FE9FCC4561AB&amp;OWASP_CSRFTOKEN=Z8V8-M6FK-HW5W-FT2B-TF7P-1A6M-J2DG-VY3F" data-toggle="link" role="button" aria-haspopup="true" aria-expanded="false"> <img src="/FAMN/img/icon-mail.png" class="img-fluid" alt=""><span class="badge badge-mail">86</span></a></div><div class="button cart-button"><a class="" href="/FAMN/eservice/IP4SG/MN_Payment/PreCart?OWASP_CSRFTOKEN=Z8V8-M6FK-HW5W-FT2B-TF7P-1A6M-J2DG-VY3F" data-toggle="link" role="button" aria-haspopup="true" aria-expanded="false"> <img src="/FAMN/img/icon-cart.png" class="img-fluid" alt=""><span class="badge badge-cart">0</span></a></div>
+
+
+              </div></div>
+            
+            
+            <!-- testing -->
           </div>
+        </div>
+      </div>
+      <!-- mega menu -->
+      <div class="megamenu-placeholder">
+        <div class="navmenubar">
+          <!-- <p>Mega Menu Placeholder </p> -->
+          <nav class="navbar navbar-expand-lg navbar-dark mainnav">
+            <div class="container" style="position: relative;">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav5" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="main_nav5">
+                
+                  <ul class="navbar-nav">
+                    <li class="nav-item dropdown"><a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">
+                      Favourites </a>
+                      <ul class="dropdown-menu" style="display: block;">
+                        
+                          <li><a class="dropdown-item" href="/app-corr-fe/eservice/IP4SG/CR_ComposeNewMessage?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY">Compose Correspondence</a></li>
+                        
+                          <li><a class="dropdown-item" href="/FACR/eservice/IP4SG/CR_CorrespondenceFolder?fGuid=FEEAB3BF-A05B-4E38-BE65-FE9FCC4561AB&amp;OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY">Inbox</a></li>
+                        
+                        <li><a class="dropdown-item" href="/FAMN/eservice/IP4SG/MN_ManageFavourites?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY">Manage Favourites</a></li>
+                      </ul></li>
+                    <li class="nav-item dropdown"><a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">Correspondence </a>
+                      <ul class="dropdown-menu" id="CorrMenu" style="display: none;">
+                        
+                          
+                            
+                          
+                          <li><a class="dropdown-item" href="/FACR/eservice/IP4SG/CR_CorrespondenceFolder?fGuid=FEEAB3BF-A05B-4E38-BE65-FE9FCC4561AB&amp;OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY">Inbox</a></li>
+                        
+                          
+                          <li><a class="dropdown-item" href="/FACR/eservice/IP4SG/CR_CorrespondenceFolder?fGuid=86F2EA39-E791-4542-B158-4D887B9529F8&amp;OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY">Sent</a></li>
+                        
+                          
+                          <li><a class="dropdown-item" href="/FACR/eservice/IP4SG/CR_CorrespondenceFolder?fGuid=74942F4D-1325-47C6-9308-6BAFEB2ED641&amp;OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY">Draft</a></li>
+                        
+                          
+                          <li><a class="dropdown-item" href="/FACR/eservice/IP4SG/CR_CorrespondenceFolder?fGuid=47101F9B-36FD-4B26-B001-1D9D2ED9AEFD&amp;OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY">Archived</a></li>
+                        
+                          
+                          <li><a class="dropdown-item" href="/FACR/eservice/IP4SG/CR_CorrespondenceFolder?fGuid=F9295C13-41DE-4793-BF8A-29509689F502&amp;OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY">Other Folder</a></li>
+                        
+                          
+                          <li><a class="dropdown-item" href="/FACR/eservice/IP4SG/CR_ComposeNewMessage?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY">Compose Correspondence</a></li>
+                        
+                          
+                          <li><a class="dropdown-item" href="/FACR/eservice/IP4SG/CR_ManageSearchCorrespondence?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY">Manage / Search Correspondence</a></li>
+                        
+                          
+                          <li><a class="dropdown-item" href="/FACR/eservice/IP4SG/CR_CorrespondenceSettings?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY">Correspondence Settings</a></li>
+                        
+                          
+                          <li><a class="dropdown-item" href="/FACR/eservice/IP4SG/CR_CorrespondenceAuditTrail?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY">Correspondence Audit Trail</a></li>
+                        
+                      </ul></li>
+                    <li class="nav-item dropdown"><a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false"> IP
+                      Portfolio </a>
+                      <ul class="dropdown-menu" style="display: none;">
+                        <li><a class="dropdown-item" href="/FAMN/eservice/IP4SG/MN_MyIPs?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY">IP / Clients' IP</a></li>
+                        <li><a class="dropdown-item" href="/FAMN/eservice/IP4SG/MN_FilingHistory?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY">Filing History / Clients'
+                          Filing History</a></li>
+                        <li><a class="dropdown-item" href="/FAMN/eservice/IP4SG/MN_Deadlines?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY">Deadlines</a></li>
+                        <li><a class="dropdown-item" href="/FAMN/eservice/IP4SG/MN_DnrSearch?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY">Domain Names Reserved</a></li>
+                        
+                         <li><a class="dropdown-item" href="/FADA/eservice/IP4SG/MN_Dashboard?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY">My Dashboard </a></li>
+                        <li><a class="dropdown-item" href="/FADA/eservice/IP4SG/MN_DashConfig?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY">Configure Dashboard </a></li>
+                      	
+                      </ul></li>
+                    <li class="nav-item dropdown"><a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
+                      Forms </a>
+                      <ul class="dropdown-menu" style="display: none;">
+                        <li><a class="dropdown-item" href="/FAMN/eservice/IP4SG/MN_Forms?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY">Forms</a></li>
+                        <li><a class="dropdown-item" href="/FAMN/eservice/IP4SG/MN_Draft?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY">Draft</a></li>
+                        <!--<li><a class="dropdown-item" href="#">Online File Inspection</a></li>-->
+                        <li><a class="dropdown-item" href="/FAMN/eservice/IP4SG/MN_Dnr?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY">Domain Name Reservation </a></li>
+                      </ul></li>
+
+                    <li class="nav-item dropdown"><a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">
+                      Payment </a>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/FAMN/eservice/IP4SG/MN_Payment/PreCart?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY">Pending Payment</a></li>
+                        <li><a class="dropdown-item" href="/FAMN/eservice/IP4SG/MN_PaymentHistory?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY">Payment History</a></li>
+                        <li><a class="dropdown-item" href="/FAMN/eservice/IP4SG/MN_DeferredPayment?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY">Deferred Payment</a></li>
+                        <li><a class="dropdown-item" href="/FAPF/eservice/IP4SG/PT_PctRegistration?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY">Payment of PCT Fees</a></li>
+                      </ul></li>
+                    <!-- // After Login -->
+                    <li class="nav-item dropdown"><a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">
+                      Search</a>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/FAMN/eservice/IP4SG/MN_BasicSearch?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY">Basic Search</a></li>
+                        <li><a class="dropdown-item" href="/FAMN/eservice/IP4SG/MN_AdvancedSearch?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY">Advanced Search</a></li>
+                        <li><a class="dropdown-item" href="/FAMN/eservice/IP4SG/MN_TmSimilarMarkSearch?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY">TM Similar Mark Search</a></li>
+                        <li><a class="dropdown-item" href="/FAMN/eservice/IP4SG/MN_TmIcgsSearch?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY">TM Goods / Services Search</a></li>
+                          
+                      </ul></li>
+                    <li class="nav-item dropdown"><a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">
+                      Journals </a>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/FAMN/eservice/IP4SG/MN_Journals?journalType=All&amp;OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY">
+                          All</a></li>
+                        <li><a class="dropdown-item" href="/FAMN/eservice/IP4SG/MN_Journals?journalType=Patents Journal A&amp;OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY">
+                          Patents Journal A</a></li>
+                        <li><a class="dropdown-item" href="/FAMN/eservice/IP4SG/MN_Journals?journalType=Patents Journal B&amp;OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY">
+                          Patents Journal B</a></li>
+                        <li><a class="dropdown-item" href="/FAMN/eservice/IP4SG/MN_Journals?journalType=Trade Marks&amp;OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY">
+                          Trade Marks</a></li>
+                        <li><a class="dropdown-item" href="/FAMN/eservice/IP4SG/MN_Journals?journalType=Registered Designs&amp;OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY">
+                          Registered Designs</a></li>
+                        <li><a class="dropdown-item" href="/FAMN/eservice/IP4SG/MN_Journals?journalType=Geographical Indications&amp;OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY">
+                          Geographical Indications</a></li>
+                        <li><a class="dropdown-item" href="/FAMN/eservice/IP4SG/MN_Journals?journalType=Plant Varieties Protection&amp;OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY">Plant
+                          Varieties Protection</a></li>
+                      </ul></li>
+                    
+                    <li class="nav-item dropdown"><a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown"> HMD
+                    </a>
+                      <ul class="dropdown-menu">
+                        
+                        <li><a class="dropdown-item" href="/FAOT/eservice/IP4SG/HM_CaseManagerFe?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY">HMD Case Search</a></li>
+                        
+                        
+                      </ul>
+                    </li>
+                    
+                  </ul>
+                  <ul class="navbar-nav ml-auto user-menu-float">
+                    <ul style="margin-left: 0px;" class="post-login-icon">
+                      
+                        <li><a class="" href="/FACR/eservice/IP4SG/CR_CorrespondenceFolder?fGuid=FEEAB3BF-A05B-4E38-BE65-FE9FCC4561AB&amp;OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY"> <img src="/FAMN/img/icon-mail.png" class="img-fluid" alt=""><span class="badge badge-orange">86</span></a></li>
+                      
+                      <li><a class="" href="/FAMN/eservice/IP4SG/MN_Payment/PreCart?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY"> <img src="/FAMN/img/icon-cart.png" class="img-fluid" alt=""><span class="badge badge-orange">0</span></a></li>
+                    </ul>
+                    <div class="dropdown user-menu">
+                      <a class="dropdown-toggle" href="#" id="userMenu" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">cindyng</a>
+                      <ul class="dropdown-menu" id="userDropdown" aria-labelledby="userMenu">
+                        <li><a href="/FAMN/eservice/IP4SG/MN_UserAccount?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY">Edit Profile</a></li>
+                        
+                        <li><a href="/FAMN/eservice/IP4SG/MN_Logout?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY">Logout</a></li>
+                      </ul>
+                    </div>
+                  </ul>
+                
+                
+              </div>
+              <!-- navbar-collapse.// -->
+            </div>
+            <!-- container //end -->
+          </nav>
+
+        </div>
+      </div>
+      <!-- // end mega menu -->
+      
+    </div>
+  </header>
+  <!--- Header End -->
+
+  <form id="mainForm" name="mainForm" method="post" action="/FAMN/eservicecontinue/IP4SG/MN_Home/1/HomePage?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY">
+    <input type="hidden" name="sopEngineTabRef" value="16848113690435239">
+    <input type="hidden" name="act" id="act">
+    
+    <input type="hidden" name="okFamilyName" id="okFamilyName" value="69768420">
+    <input type="hidden" name="eMailAddress" id="eMailAddress">
+    <input type="hidden" name="iPhoneNumber" id="iPhoneNumber">
+    
+    <input type="text" style="display: none;" autocomplete="off"><!-- To fix the form with one input, press enter will submit form -->
+    
+    <input type="hidden" name="multiTabId" id="multiTabId" value="0d813a66-c398-4f52-a1be-b832f39e918f">
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+  @media (max-width: 991px) {
+    .navbar-collapse {
+      background-color: rgba(0, 0, 0, 0) !important;
+      border: none !important;
+    }
+  }
+  @media (max-width: 991px) {
+    .dropdown-item {
+      background-color: rgba(0, 0, 0, 0) !important;
+      border: none !important;
+    }
+  }
+  @media (max-width: 991px) {
+    .dropdown-menu {
+      background-color: rgba(0, 0, 0, 0) !important;
+      border: none !important;
+    }
+  }
+</style>
+
+
+
+<div style="background-color: rgba(81,91,97,0.1);">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-12 col-lg-12 col-sm-12">
+        <div class="headerLeftDesktop header-title">
+          
+
+
+
+
+
+
+
+  <style type="text/css">
+
+    .text-padding-right {
+      padding-right: 60px;
+    }
+
+  </style>
+  <div class="notification-bar">
+    <input type="hidden" id="slider-pause" value="5000">
+    <a href="#" class="close-btn"><img src="/FAMN/img/land-announcement-close.png" class="img-fluid" alt=""></a>
+    <div class="bx-wrapper" style="max-width: 100%;"><div class="bx-viewport" aria-live="polite" style="width: 100%; overflow: hidden; position: relative; height: 73.7969px;"><div class="slider" style="width: 2215%; position: relative; transition-duration: 0s; transform: translate3d(-2200px, 0px, 0px);"><div style="float: left; list-style: none; position: relative; width: 1100px;" class="bx-clone" aria-hidden="true">
+          <a href="#" target="_blank">
+            
+              
+                <img id="null" class="img-thumbnail showImage" src="/FAMN/eservice/IP4SG/CM_DocDownload?inline=Y&amp;thumbnail=Y" alt="" title="Test 2" style="width: 100%;">
+              
+              
+            
+          </a>
+        </div>
+      
+        <div style="float: left; list-style: none; position: relative; width: 1100px;" aria-hidden="true">
+          <a href="#" target="_blank">
+            
+              
+              
+                <h4>hello world are you okay</h4>
+                <p class="text-padding-right">please respond fast</p>
+              
+            
+          </a>
+        </div>
+      
+        <div style="float: left; list-style: none; position: relative; width: 1100px;" aria-hidden="false">
+          <a href="#" target="_blank">
+            
+              
+                <img id="null" class="img-thumbnail showImage" src="/FAMN/eservice/IP4SG/CM_DocDownload?inline=Y&amp;thumbnail=Y" alt="" title="Test 2" style="width: 100%;">
+              
+              
+            
+          </a>
+        </div>
+      
+    <div style="float: left; list-style: none; position: relative; width: 1100px;" class="bx-clone" aria-hidden="true">
+          <a href="#" target="_blank">
+            
+              
+              
+                <h4>hello world are you okay</h4>
+                <p class="text-padding-right">please respond fast</p>
+              
+            
+          </a>
+        </div></div></div><div class="bx-controls bx-has-controls-direction bx-has-pager"><div class="bx-controls-direction"><a class="bx-prev" href="?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY">Prev</a><a class="bx-next" href="?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY">Next</a></div><div class="bx-pager bx-default-pager"><div class="bx-pager-item"><a href="" data-slide-index="0" class="bx-pager-link">1</a></div><div class="bx-pager-item"><a href="" data-slide-index="1" class="bx-pager-link active">2</a></div></div></div></div>
+    <div class="slider-count"><span id="slider-count-index">2</span> of 2</div>
+  </div>
+
+        </div>
+      </div>
+      
+      <div class="col-xs-12">
+        <div class="dashboard-tile" style="display:none;">
+          <div class="panel-group" id="dashboard" style="display: none;">
+  <div class="panel panel-default" role="tablist">
+    <div class="panel-heading ">
+      <a class=" dashboard collapsed" data-toggle="collapse" href="#9742884163272496">
+        <div class="panel-title">
+          <h4>Dashboard</h4>
+        </div>
+      </a>
+      
+
+    </div>
+    <div id="9742884163272496" class="panel-collapse collapse">
+      <div class="p-5">
+            <div class="ip4sg-tiles" data-type="tile"><style type="text/css">
+    .tooltip1 {
+      position: relative;
+      display: inline-block;
+      /*//border-top: 2px solid yellow;*/
+      /*//border-bottom: 1px dotted black;*/
+      /*//border-bottom: 2px solid yellow;*/
+    }
+
+    .tooltip1 .tooltiptext1 {
+      visibility: hidden;
+      width: 300px;
+      /*//background-color: #EBF4FA;*/
+      background-color: #FFFFFF;
+      /*//color: gray;*/
+      color: #858796;
+      font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+      font-size: 12px;
+      text-align: left;
+      border-radius: 6px;
+      line-height: 15px;
+      padding: 5px 5px;
+      position: absolute;
+      border-style: solid;
+      border-color: yellow;
+      border-width: 2px;
+      padding: 5px;
+      z-index: 1;
+      top: -15px;
+      left: 110%;
+    }
+
+    .tooltip1 .tooltiptext1::after {
+      content: "";
+      position: absolute;
+      top: 15%;
+      right: 100%;
+      /*margin-top: -5px;*/
+      border-width: 10px;
+      border-style: solid;
+      /*border-color: transparent black transparent transparent;*/
+      /*//border-color: transparent #EBF4FA transparent transparent;*/
+      border-color: transparent yellow transparent transparent;
+    }
+    .tooltip1:hover .tooltiptext1 {
+      visibility: visible;
+    }
+
+    .mb-4, .my-4 {
+      margin-bottom: 1.5rem!important;
+    }
+    @media (min-width: 1200px) {
+      .col-xl-3 {
+        flex: 0 0 25%;
+        max-width: 25%;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .col-md-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+      }
+    }
+    .border-left-success {
+      border-left: 0.35rem solid #1cc88a!important;
+    }
+    .border-left-warning {
+      border-left: 0.35rem solid #f6c23e!important;
+    }
+    .border-left-primary {
+      border-left: 0.35rem solid #4e73df!important;
+    }
+    .border-left-info {
+      border-left: 0.35rem solid #36B9CC!important;
+    }
+    .tile-success{
+      color: #1CC88A;
+    }
+    .tile-warning{
+      color: #F6C23E;
+    }
+    .tile-primary{
+      color: #4E73DF;
+    }
+    .tile-info{
+      color: #36B9CC;
+    }
+    .tile-success-light{
+      color: #54C571;
+    }
+    .tile-warning-light{
+      color: #FBB117;
+    }
+    .tile-primary-light{
+      color: #1569C7;
+    }
+    .tile-info-light{
+      color: #36B9CC;
+    }
+    .py-2 {
+      padding-bottom: 1.0rem!important;
+      padding-top: 1.5rem!important;
+    }
+    .h-100 {
+      height: 100%!important;
+    }
+    .shadow {
+      box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15)!important;
+    }
+    .card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      word-wrap: break-word;
+      background-color: #fff;
+      background-clip: border-box;
+      border: 1px solid #e3e6f0;
+      border-radius: 0.35rem;
+    }
+    .text-gray-300 {
+      color: #dddfeb!important;
+    }
+    .fas {
+      font-weight: 900;
+    }
+    .fas {
+      font-family: "Font Awesome 5 Free";
+    }
+    .dropdown-divider {
+      height: 0;
+      margin: 0.5rem 0;
+      overflow: hidden;
+      border-top: 1px solid #eaecf4;
+    }
+    .dropdown-item {
+      display: block;
+      width: 100%;
+      padding: 0.25rem 1.5rem;
+      clear: both;
+      font-weight: 400;
+      color: #3a3b45;
+      text-align: inherit;
+      white-space: nowrap;
+      background-color: transparent;
+      border: 0;
+    }
+    .dropdown-header {
+      display: block;
+      padding: 0.5rem 1.5rem;
+      margin-bottom: 0;
+      font-size: 1rem;
+      color: #858796;
+      white-space: nowrap;
+    }
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      z-index: 1000;
+      display: none;
+      float: left;
+      min-width: 10rem;
+      padding: 0.5rem 0;
+      margin: 0.125rem 0 0;
+      font-size: 1rem;
+      color: #858796;
+      text-align: left;
+      list-style: none;
+      background-color: #fff;
+      background-clip: padding-box;
+      border: 1px solid #e3e6f0;
+      border-radius: 0.35rem;
+    }
+  </style>
+  <div class="row">
+    
+  </div>
+
+
+<style type="text/css">
+  .btn.active{box-shadow: inset 0 3px 5px rgb(0 0 0 / 50%);}
+</style>
+<div id="dashCompModal" class="modal fade zoom" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document" style="left: -150px">
+    <div class="modal-content" style="width: 900px;">
+      <div class="modal-header" style="display:block; border-bottom:1px solid #dee2e6; padding-bottom:1px;">
+        <h4 style="font-size:20px; font-weight:500;">
+          Configure Dashboard Component
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-top: -9px">
+            <span aria-hidden="true">×</span>
+          </button>
+        </h4>
+      </div>
+      <div class="modal-body" style="margin-left: 50px; padding-top:1rem;">
+        <h3><u>Properties</u></h3>
+        <div class="form-group row">
+          <div class="col-sm-3" style="margin-top: 5px;">
+            <label for="seqNo" class="required">Order</label>
+          </div>
+          <div class="col-sm-7">
+            <input type="hidden" id="cmDashCmptDefGUID" name="cmDashCmptDefGUID" value="">
+            <input type="text" id="seqNo" name="seqNo" class="form-control" value="" data-tilesorder="false" disabled="">
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-3" style="margin-top: 5px;">
+            <label for="type" class="required">Type</label>
+          </div>
+          <div class="col-sm-7">
+            <select class="form-control" id="type" disabled="">
+              <option>Tile: Pending Task</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-3" style="margin-top: 5px;">
+            <label for="cmptName" class="required">Name</label>
+          </div>
+          <div class="col-sm-7">
+            <input type="text" id="cmptName" name="cmptName" class="form-control" value="" placeholder="Enter Name" maxlength="30">
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-3" style="margin-top: 5px;">
+            <label for="cmptDesc" class="required">Description<br>(Tooltip)</label>
+          </div>
+          <div class="col-sm-7">
+            <textarea id="cmptDesc" name="cmptDesc" cols="40" rows="3" class="form-control" value="" placeholder="Enter Description" maxlength="50"></textarea>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-3" style="margin-top: 5px;">
+            <label for="labeldata" class="required">Show Data Label</label>
+          </div>
+          <div class="col-sm-7">
+            <input id="labeldata" type="checkbox" name="" style="margin-top: 10px;" checked="">
+          </div>
+        </div>
+        <h3><u>Parameters</u></h3>
+        <input type="checkbox" name="isDefaultParam" value="Y" style="margin-right: 10px">
+        <label class="">Set below inputs as default parameters</label>
+        <div class="row searchFormDiv" id="defaultSection"></div>
+        <div class="row searchFormDiv" id="cmptParam"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/FADA/js/html2canvas.min.js?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY"></script>
+<script src="/FADA/js/jspdf.min.js?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY"></script>
+<script src="/FADA/js/bootstrap-datepicker.min.js?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY"></script>
+<script src="/FADA/js/jsp/dashboard/view/dashboard.js?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY"></script>
+<script src="/FADA/js/jsp/dashboard/config/config.js?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY"></script>
+<link rel="stylesheet" href="/FADA/css/fontawesome5.min.css">
+<link rel="stylesheet" href="/FADA/css/solid.min.css"></div>
+                </div>
+    </div>
+  </div>
+</div>
+        </div>
+      </div>
+      
+
+
+      <!-- Info center -->
+      
+
+
+
+<div class="col-xs-12">
+  <div class="info-centre">
+    <!-- <img src="assets/images/test-info-center.jpg" class="img-fluid"  alt=""> -->
+    <div class="tablanding">
+      <ul class="nav nav-tabs" role="tablist" id="ip4landing1">
+        <li class="col-md-4 col-xs-12" role="presentation"><a style="font-weight: bold;" href="#patentcontent" role="tab" data-toggle="tab">Patent</a></li>
+        <li class="active col-md-4 col-xs-12" role="presentation"><a style="font-weight: bold;" href="#tmcontent" role="tab" data-toggle="tab">Trade Mark</a></li>
+        <li class="col-md-4 col-xs-12" role="presentation"><a style="font-weight: bold;" href="#designcontent" role="tab" data-toggle="tab">Design</a></li>
+      </ul>
+      <div class="tab-content">
+        <!--Patent Content-->
+        <div class="tab-pane fade" role="tabpanel" id="patentcontent">
+          <div class="row step-row" style="margin-bottom: 30px;">
+            <div class=" ">
+              <div class="step-info-box">
+                <h3 class="bg-number">1</h3>
+                <p class="step-number">Step 1</p>
+                <a href="/FAMN/eservice/IP4SG/MN_BasicSearch?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY">Prior Art Search</a>
+              </div>
+            </div>
+
+            <div class=" ">
+
+              <div class="step-info-box">
+                <h4>Domestic Route</h4>
+                <h3 class="bg-number">2</h3>
+                <p class="step-number">Step 2</p>
+                <a class="prerequisitePanel" href="javascript:void(0);" data-value="PF1" data-value-details="Y">Request for Grant of Patent</a>
+              </div>
+              <br><br>
+
+              <div class="step-info-box">
+                <h4>PCT National<br> Phase Route</h4>
+                <h3 class="bg-number">2A</h3>
+                <p class="step-number">Step 2A</p>
+                <a class="prerequisitePanel" href="javascript:void(0);" data-value="IA" data-value-details="Y">International Application</a> <br> <br>
+
+                <h3 class="bg-number">2B</h3>
+                <p class="step-number">Step 2B</p>
+                <a class="prerequisitePanel" href="javascript:void(0);" data-value="PF37" data-value-details="Y">Entry into National Phase </a>
+              </div>
+
+            </div>
+
+            <div class=" ">
+              <div class="step-info-box">
+                <h3 class="bg-number">3A</h3>
+                <p class="step-number">Step 3A</p>
+                <a class="prerequisitePanel" href="javascript:void(0);" data-value="PF12" data-value-details="Y">Request for Examination</a> <br> <br>
+
+                <h3 class="bg-number">3B</h3>
+                <p class="step-number">Step 3B</p>
+                <a class="prerequisitePanel" href="javascript:void(0);" data-value="PF11" data-value-details="Y">Request for Search and Examination</a>
+              </div>
+            </div>
+
+            <div class=" ">
+              <div class="step-info-box">
+                <h3 class="bg-number">4</h3>
+                <p class="step-number">Step 4</p>
+                <a class="prerequisitePanel" href="javascript:void(0);" data-value="PF14" data-value-details="Y">Request for Certificate of Grant</a>
+              </div>
+            </div>
+
+            <div class=" ">
+              <div class="step-info-box">
+                <h3 class="bg-number">5</h3>
+                <p class="step-number">Step 5</p>
+                <a class="prerequisitePanel" href="javascript:void(0);" data-value="PF15" data-value-details="N">Renew Patent</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TM Content -->
+        <div class="tab-pane active in fade" role="tabpanel" id="tmcontent">
+          <div class="row step-row" style="margin-bottom: 30px;">
+            <div class=" ">
+              <div class="step-info-box">
+                <h3 class="bg-number">1</h3>
+                <p class="step-number">Step 1</p>
+                <a href="/FAMN/eservice/IP4SG/MN_TmSimilarMarkSearch?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY">Search for similar trade marks</a>
+              </div>
+            </div>
+
+            <div class=" ">
+              <div class="step-info-box">
+                <h3 class="bg-number">2</h3>
+                <p class="step-number">Step 2</p>
+                <a class="prerequisitePanel" href="javascript:void(0);" data-value="TM4" data-value-details="Y">Apply for trade mark protection in Singapore</a>
+              </div>
+            </div>
+
+            <div class=" ">
+              <div class="step-info-box">
+                <h3 class="bg-number">3</h3>
+                <p class="step-number">Step 3</p>
+                <a class="prerequisitePanel" href="javascript:void(0);" data-value="MM2" data-value-details="Y">Apply for trade mark protection overseas (Optional)</a>
+              </div>
+            </div>
+
+            <div class=" ">
+              <div class="step-info-box">
+                <h3 class="bg-number">4</h3>
+                <p class="step-number">Step 4</p>
+                <a class="prerequisitePanel" href="javascript:void(0);" data-value="TM19" data-value-details="N">Renew trade mark</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Design Content -->
+        <div class="tab-pane fade" role="tabpanel" id="designcontent">
+          <div class="row step-row" style="margin-bottom: 30px;">
+            <div class=" ">
+              <div class="step-info-box">
+                <h3 class="bg-number">1</h3>
+                <p class="step-number">Step 1</p>
+                <a href="/FAMN/eservice/IP4SG/MN_BasicSearch?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY">Search for Similar Designs</a>
+              </div>
+            </div>
+            <div class=" ">
+              <div class="step-info-box">
+                <h3 class="bg-number">2</h3>
+                <p class="step-number">Step 2</p>
+                <a class="prerequisitePanel" href="javascript:void(0);" data-value="D3" data-value-details="Y">Apply for Registration of a Design in Singapore</a>
+              </div>
+            </div>
+
+            <div class=" ">
+              <div class="step-info-box">
+                <h3 class="bg-number">3</h3>
+                <p class="step-number">Step 3</p>
+                <a class="prerequisitePanel" href="javascript:void(0);" data-value="D8" data-value-details="Y">Renew Design</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      <!-- search -->
+      
+
+
+<div class="col-xs-12">
+  <div class="search-panel">
+    <div class="row">
+      <div class="col-md-2 col-xs-12">
+        <h4>IP Search</h4>
+      </div>
+      <div class="col-md-10 col-xs-12">
+        <ul class="search-links">
+          <li><a href="/FAMN/eservice/IP4SG/MN_AdvancedSearch?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY">Advanced Search</a></li>
+          <li><a href="/FAMN/eservice/IP4SG/MN_TmSimilarMarkSearch?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY">Trade Mark Similar Mark Search</a></li>
+          <li><a href="/FAMN/eservice/IP4SG/MN_TmIcgsSearch?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY">Trade Mark Goods and Services Search</a></li>
+        </ul>
+      </div>
+      <div class="col-xs-12">
+        <label style="font-size:17px; color:white; font-style:italic;">Select the most relevant field for faster search results.</label>
+      </div>
+      <!--search field -->
+      <div class="col-md-10 col-xs-12">
+        <div class="input-group" style="display: flex;">
+          <input maxlength="50" style="font-size: 17px;" id="basicSearchFilter" name="basicSearchFilter" type="text" placeholder="Type your search text here" class="form-control" aria-label="Text input with dropdown button" autocomplete="off">
+          <div class="input-group-append" style="width:47.5%;">
+            <div class="input-group-append" style="background: #485055;">
+              
+
+
+<select class="form-control" name="basicSearchSuggestion" id="basicSearchSuggestion" style="border-top-left-radius:0;border-bottom-left-radius:0;font-size: 17px;">
+  
+  <option value="" style="font-weight: bolder;">Please Select</option>
+  <option value="allIpNbr" style="font-weight: bolder;">All IP Numbers</option>
+  <option value="tmAppNbr">&nbsp;&nbsp; Trade Mark Application No.</option>
+  <option value="ptAppNbr">&nbsp;&nbsp; Patent Application No.</option>
+  <option value="rdAppNbr">&nbsp;&nbsp; Design Application No.</option>
+  <option value="giNo">&nbsp;&nbsp; Geographical Indication No.</option>
+  
+  <option value="tmIaNo">&nbsp;&nbsp; Trade Mark International Application No.</option>
+  <option value="tmIrNo">&nbsp;&nbsp; Trade Mark International Registration No.</option>
+  <option value="rdIrNo">&nbsp;&nbsp; Design International Registration No.</option>
+  <option value="pctNo">&nbsp;&nbsp; PCT No.</option>
+  <option value="caseNo">&nbsp;&nbsp; Case No.</option>
+  <option value="allNameNip" style="font-weight: bolder;">All Entity Names And All IP Names</option>
+  <option value="allName" style="font-weight: bolder;">All Entity Names</option>
+  <option value="appPropName">&nbsp;&nbsp; Applicant / Proprietor / Registrant Name </option>
+  <option value="agentRepName">&nbsp;&nbsp; Agent / Representative Name</option>
+  <option value="ptInvName">&nbsp;&nbsp; Patent Inventor Name</option>
+  <option value="allIpDesc" style="font-weight: bolder;">All IP Names</option>
+  <option value="tmDesc">&nbsp;&nbsp; Trade Mark Description</option>
+  <option value="ptTitleDesc">&nbsp;&nbsp; Patent Title of Invention</option>
+  <option value="rdArt">&nbsp;&nbsp; Design Article / Non-Physical Product Name</option>
+  <option value="giRep">&nbsp;&nbsp; GI Representation</option>
+  
+</select>&nbsp;
+            </div>
+            <button class="btn btn-secondary search-inputbtn" type="button" id="clickTmUploadBtn"><img src="/FAMN/img/srcimage.png"></button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2 col-xs-12" style="padding-left: 0;">
+        <button class="btn button-primary btn-block" type="button" id="basicSearchBtn">
+          <i class="fa fa-search"></i>
+        </button>
+      </div>
+    </div>
+    <div class="row" style="display: none;">
+      <div class="col-md-4">
+        
+
+
+
+
+<input type="hidden" name="uploadImgData" id="uploadImgData" value="">
+<div id="uploadImgDiv">
+  <span>Upload an image for your trade mark</span>
+  <div class="row" id="cropperImgDiv" style="margin-bottom: 15px;">
+    
+    <input type="hidden" name="imgData">
+    <div class="col-md">
+      <div class="img-container h-auto" id="dropbox" style="border: 0; padding: 0;">
+        <img id="tm-img" src="/FAMN/img/blank.png" alt="Your Trade Mark image" class="cropper-hidden"><div class="cropper-container cropper-bg" touch-action="none" style="width: 200px; height: 100px;"><div class="cropper-wrap-box"><div class="cropper-canvas" style="width: 100px; height: 100px; transform: translateX(50px);"><img src="https://192.168.88.230/FAMN/img/blank.png" alt="Your Trade Mark image" class="cropper-hide" style="width: 100px; height: 100px; transform: none;"></div></div><div class="cropper-drag-box cropper-crop" data-cropper-action="crop"></div><div class="cropper-crop-box cropper-hidden"><span class="cropper-view-box"><img src="https://192.168.88.230/FAMN/img/blank.png" alt="Your Trade Mark image"></span><span class="cropper-dashed dashed-h"></span><span class="cropper-dashed dashed-v"></span><span class="cropper-center"></span><span class="cropper-face cropper-move" data-cropper-action="all"></span><span class="cropper-line line-e" data-cropper-action="e"></span><span class="cropper-line line-n" data-cropper-action="n"></span><span class="cropper-line line-w" data-cropper-action="w"></span><span class="cropper-line line-s" data-cropper-action="s"></span><span class="cropper-point point-e" data-cropper-action="e"></span><span class="cropper-point point-n" data-cropper-action="n"></span><span class="cropper-point point-w" data-cropper-action="w"></span><span class="cropper-point point-s" data-cropper-action="s"></span><span class="cropper-point point-ne" data-cropper-action="ne"></span><span class="cropper-point point-nw" data-cropper-action="nw"></span><span class="cropper-point point-sw" data-cropper-action="sw"></span><span class="cropper-point point-se" data-cropper-action="se"></span></div></div>
+      </div>
+      <label class="btn button-secondary btn-block mt-1 mx-auto" for="inputImage" title="Upload image file"> <input type="file" class="sr-only" id="inputImage" name="file" accept="image/*"> Upload your Image
+      </label>
+    </div>
+  </div>
+  <div class="row mt-1" id="actions" style="margin-bottom: 15px;">
+    <div class="col docs-buttons">
+      <!-- <h3>Toolbar:</h3> -->
+      <button type="button" class="btn btn-success mb-1 px-3" title="Crop" data-method="getCroppedCanvas" data-option="{ &quot;maxWidth&quot;: 4096, &quot;maxHeight&quot;: 4096 }" id="crop">
+        <svg class="bi bi-crop" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3.5.5A.5.5 0 0 1 4 1v13h13a.5.5 0 0 1 0 1H3.5a.5.5 0 0 1-.5-.5V1a.5.5 0 0 1 .5-.5z"></path>
+          <path fill-rule="evenodd" d="M.5 3.5A.5.5 0 0 1 1 3h2.5a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5zm5.5 0a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V4H6.5a.5.5 0 0 1-.5-.5zM14.5 14a.5.5 0 0 1 .5.5V17a.5.5 0 0 1-1 0v-2.5a.5.5 0 0 1 .5-.5z"></path>
+        </svg>
+      </button>
+      <div class="btn-group mb-1">
+        <button type="button" class="btn btn-primary" data-method="zoom" data-option="0.1" title="Zoom In">
+          <svg class="bi bi-plus-circle" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M8 3.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H4a.5.5 0 0 1 0-1h3.5V4a.5.5 0 0 1 .5-.5z"></path>
+            <path fill-rule="evenodd" d="M7.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0V8z"></path>
+            <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
+          </svg>
+        </button>
+        <button type="button" class="btn btn-primary" data-method="zoom" data-option="-0.1" title="Zoom Out">
+          <svg class="bi bi-dash-circle" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
+            <path fill-rule="evenodd" d="M3.5 8a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.5-.5z"></path>
+          </svg>
+        </button>
       </div>
 
-       <!-- --//-- --> 
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="form-group">
-                        <div class="responsive-table">
-                            <table class="table default-table">
-                                <thead>
-                                    <tr>
-                                        <th><input type="checkbox"></th>
-                                        <!-- <th>Status</th> -->
-                                        <th>Sender Name</th>
-                                        <th>Sent / Received</th>
-                                        <th>IPOS Reference No.</th>
-                                        <th>Type</th>
-                                        <th>Application No.</th>
-                                        <th>Subject</th>
-                                        <th>Applicant Name</th>
-                                        <th>Due Date</th>
-                                        <th>Correspondence Type</th>
-                                        <!-- <th>Size(kb)</th> -->
-                                        <th>Assigned To</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><input type="checkbox"></td>
-                                        <!-- <td></td> -->
-                                        <td style="font-weight: bold">IPOS</td>
-                                        <td style="font-weight: bold">07/08/2020</td>
-                                        <td style="font-weight: bold">2020/567890987V</td>
-                                        <td style="font-weight: bold">Patents</td>
-                                        <td style="font-weight: bold">102020198732T</td>
-                                        <td style="font-weight: bold"><a href="#">PF14 - Notification of Grant</a></td>
-                                        <td style="font-weight: bold">Ken Lim</td>
-                                        <td style="font-weight: bold">NA</td>
-                                        <td style="font-weight: bold">Notification</td>
-                                        <!-- <td>92.37</td> -->
-                                        <td></td>
-                                    </tr>
-                                    <tr style="background-color: #F0F8FF">
-                                        <td><input type="checkbox"></td>
-                                        <!-- <td></td> -->
-                                        <td>IPOS</td>
-                                        <td>31/07/2020</td>
-                                        <td>2020/567890987V</td>
-                                        <td>Patents</td>
-                                        <td>1020208732T</td>
-                                        <td><a href="#">PF11 - Notice of Eligibility for Grant</a></td>
-                                        <td>Ken Lim</td>
-                                        <td>NA</td>
-                                        <td>Notification</td>
-                                        <!-- <td>92.37</td> -->
-                                        <td></td>
-                                    </tr>
-                                    <tr style="background-color: #F0F8FF">
-                                        <td><input type="checkbox"></td>
-                                        <!-- <td></td> -->
-                                        <td>IPOS</td>
-                                        <td>31/07/2020</td>
-                                        <td>2020/567890987V</td>
-                                        <td>Patents</td>
-                                        <td>1020208732T</td>
-                                        <td><a href="#">PF11 - Request for a Search and Exam Report Sent to Examiner</a></td>
-                                        <td>Ken Lim</td>
-                                        <td>NA</td>
-                                        <td>Notification</td>
-                                        <!-- <td>92.37</td> -->
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="checkbox"></td>
-                                        <!-- <td></td> -->
-                                        <td style="font-weight: bold">IPOS</td>
-                                        <td style="font-weight: bold">07/08/2020</td>
-                                        <td style="font-weight: bold">2020/567890987V</td>
-                                        <td style="font-weight: bold">Patents</td>
-                                        <td style="font-weight: bold">1029298732T</td>
-                                        <td style="font-weight: bold"><a href="#">PF1 - Preliminary Examination Cleared</a></td>
-                                        <td style="font-weight: bold">Ken Lim</td>
-                                        <td style="font-weight: bold">NA</td>
-                                        <td style="font-weight: bold">Notification</td>
-                                        <!-- <td>92.37</td> -->
-                                        <td></td>
-                                    </tr>
-                                    <tr style="background-color: #F0F8FF">
-                                        <td><input type="checkbox"></td>
-                                        <!-- <td></td> -->
-                                        <td>IPOS</td>
-                                        <td>31/07/2020</td>
-                                        <td>2020/567890987V</td>
-                                        <td>Patents</td>
-                                        <td>1020208732T</td>
-                                        <td><a href="#">PF1 - Notification of Filing Date</a></td>
-                                        <td>Ken Lim</td>
-                                        <td>NA</td>
-                                        <td>Notification</td>
-                                        <!-- <td>92.37</td> -->
-                                        <td></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+      <!-- <div class="btn-group mb-1">
+        <button type="button" class="btn btn-primary" data-method="move" data-option="-10" data-second-option="0" title="Move Left">
+          <svg class="bi bi-arrow-left-short" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M7.854 4.646a.5.5 0 0 1 0 .708L5.207 8l2.647 2.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 0 1 .708 0z" />
+                                        <path fill-rule="evenodd" d="M4.5 8a.5.5 0 0 1 .5-.5h6.5a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5z" />
+                                    </svg>
+        </button>
+        <button type="button" class="btn btn-primary" data-method="move" data-option="10" data-second-option="0" title="Move Right">
+          <svg class="bi bi-arrow-right-short" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M8.146 4.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.793 8 8.146 5.354a.5.5 0 0 1 0-.708z" />
+                                        <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5H11a.5.5 0 0 1 0 1H4.5A.5.5 0 0 1 4 8z" />
+                                    </svg>
+        </button>
+        <button type="button" class="btn btn-primary" data-method="move" data-option="0" data-second-option="-10" title="Move Up">
+          <svg class="bi bi-arrow-up-short" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M8 5.5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5z" />
+                                        <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8 5.707 5.354 8.354a.5.5 0 1 1-.708-.708l3-3z" />
+                                    </svg>
+        </button>
+        <button type="button" class="btn btn-primary" data-method="move" data-option="0" data-second-option="10" title="Move Down">
+          <svg class="bi bi-arrow-down-short" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M4.646 7.646a.5.5 0 0 1 .708 0L8 10.293l2.646-2.647a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 0-.708z" />
+                                        <path fill-rule="evenodd" d="M8 4.5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5z" />
+                                    </svg>
+        </button>
+      </div> -->
+
+      <div class="btn-group mb-1">
+        <button type="button" class="btn btn-primary" data-method="rotate" data-option="-90" title="Rotate Left">
+          <svg class="bi bi-arrow-counterclockwise" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M12.83 6.706a5 5 0 0 0-7.103-3.16.5.5 0 1 1-.454-.892A6 6 0 1 1 2.545 5.5a.5.5 0 1 1 .91.417 5 5 0 1 0 9.375.789z"></path>
+            <path fill-rule="evenodd" d="M7.854.146a.5.5 0 0 0-.708 0l-2.5 2.5a.5.5 0 0 0 0 .708l2.5 2.5a.5.5 0 1 0 .708-.708L5.707 3 7.854.854a.5.5 0 0 0 0-.708z"></path>
+          </svg>
+        </button>
+        <button type="button" class="btn btn-primary" data-method="rotate" data-option="90" title="Rotate Right">
+          <svg class="bi bi-arrow-clockwise" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M3.17 6.706a5 5 0 0 1 7.103-3.16.5.5 0 1 0 .454-.892A6 6 0 1 0 13.455 5.5a.5.5 0 0 0-.91.417 5 5 0 1 1-9.375.789z"></path>
+            <path fill-rule="evenodd" d="M8.147.146a.5.5 0 0 1 .707 0l2.5 2.5a.5.5 0 0 1 0 .708l-2.5 2.5a.5.5 0 1 1-.707-.708L10.293 3 8.147.854a.5.5 0 0 1 0-.708z"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- <div class="btn-group mb-1">
+        <button type="button" class="btn btn-primary" data-method="crop" title="Show Crop Box">
+          <svg class="bi bi-bounding-box-circles" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M12.5 2h-9V1h9v1zm-10 1.5v9h-1v-9h1zm11 9v-9h1v9h-1zM3.5 14h9v1h-9v-1z" />
+                                        <path fill-rule="evenodd" d="M14 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 1a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0 11a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 1a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM2 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 1a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0 11a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 1a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
+                                    </svg>
+        </button>
+        <button type="button" class="btn btn-primary" data-method="clear" title="Clear Crop Box">
+          <svg class="bi bi-x-square" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                                        <path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z" />
+                                        <path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z" />
+                                    </svg>
+        </button>
+      </div> -->
+
+      <!--            <button type="button" class="btn btn-secondary mb-1" title="Grayscale" id="grayscale">
+                                <svg class="bi bi-brush" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15.213 1.018a.572.572 0 0 1 .756.05.57.57 0 0 1 .057.746C15.085 3.082 12.044 7.107 9.6 9.55c-.71.71-1.42 1.243-1.952 1.596-.508.339-1.167.234-1.599-.197-.416-.416-.53-1.047-.212-1.543.346-.542.887-1.273 1.642-1.977 2.521-2.35 6.476-5.44 7.734-6.411z"/>
+                                    <path d="M7 12a2 2 0 0 1-2 2c-1 0-2 0-3.5-.5s.5-1 1-1.5 1.395-2 2.5-2a2 2 0 0 1 2 2z"/>
+                                </svg>
+                            </button>-->
+
+      <button type="button" class="btn btn-secondary mb-1 disabled" title="Reset" id="reset">
+        <svg class="bi bi-bootstrap-reboot" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M1.161 8a6.84 6.84 0 1 0 6.842-6.84.58.58 0 0 1 0-1.16 8 8 0 1 1-6.556 3.412l-.663-.577a.58.58 0 0 1 .227-.997l2.52-.69a.58.58 0 0 1 .728.633l-.332 2.592a.58.58 0 0 1-.956.364l-.643-.56A6.812 6.812 0 0 0 1.16 8zm5.48-.079V5.277h1.57c.881 0 1.416.499 1.416 1.32 0 .84-.504 1.324-1.386 1.324h-1.6zm0 3.75V8.843h1.57l1.498 2.828h1.314L9.377 8.665c.897-.3 1.427-1.106 1.427-2.1 0-1.37-.943-2.246-2.456-2.246H5.5v7.352h1.141z"></path>
+        </svg>
+      </button>
+  
+      <button type="button" class="btn btn-secondary" style="height: 42px; display: none;" id="cancelEditImgBtn">Cancel</button>
+      <button type="button" class="btn btn-primary" style="height: 42px;" id="saveImgBtn">Save</button>
 
 
-                        <div class="responsive-table">
-                            <table class="table default-table">
-                                <thead>
-                                    <tr>
-                                        <th>S/N</th>
-                                        <th>Name</th>
-                                        <th>Document Type</th>
-                                        <th>No. Of Pages</th>
-                                        <th>Remarks</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td><a href="#">Search Report.pdf</a></td>
-                                        <td>Local Attachment</td>
-                                        <td>7</td>
-                                        <td>2 figure(s) detected</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td><a href="#">Examination Report.pdf</a></td>
-                                        <td>Local Attachment</td>
-                                        <td>5</td>
-                                        <td>-</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
+      <!-- Show the cropped image in modal -->
+      <div class="modal fade docs-cropped" id="getCroppedCanvasModal" role="dialog" aria-hidden="true" aria-labelledby="getCroppedCanvasTitle" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="getCroppedCanvasTitle">Cropped</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
             </div>
-
-
-            <br />
-
-            <form id="ip4Form" action="pf1_payment.html">
-
-
-                <div class="row">
-
-                    <div class="col-xs-2 text-left">
-                        <a class="btn button-primary" href="pf1_step5.html">Previous</a>
-                    </div>
-                    <div class="col-xs-10 text-right">
-                        <button class="btn button-secondary" onclick="saveDraft()">Save as Draft</button>
-                        <button type="button" class="btn button-primary" id="printBtn">
-                            <i class="fa fa-print" aria-hidden="true"></i> Print
-                        </button>
-                        <button class="btn button-primary" formaction="pf1_cart.html" >Add to Cart</button>
-                        <button class="btn button-primary" id="paymentBtn">Make Payment</button>
-                    </div>
-                </div>
-
-                <!-- </div> -->
-
-                
-
-                <br />
-
-            </form>
-
-        </div>
-    </div>
-    <br />
-
-    <!-- Footer-->
-    <div class="footer hidden-print">
-        <div class="container">
-            <div class="row">
-                <!--div class="col-md-6 copyright">
-              &copy; Copyright
-              <script type="text/javascript">document.write(new Date().getFullYear());</script>	IP4SG
-            </div-->
-                <div class="col-md-6 footerlinks">
-                    <!--ul class="footer-link visible-xs visible-sm">
-                <li><a href="./">Contact Info</a></li>
-                <li class="seperator">|</li>
-                <li><a href="./">Feedback</a></li>
-                <li class="seperator">|</li>
-                <li><a href="./">Sitemap</a></li>
-              </ul-->
-                    <ul class="footer-link" align="left">
-                        <li><a href="./">Privacy Statement</a></li>
-                        <li class="seperator">|</li>
-                        <li><a href="./">Terms of Use</a></li>
-                        <li class="seperator">|</li>
-                        <li><a href="./">Rate this Service</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-6 copyright" align="right">
-                    &copy; Copyright
-                    <script type="text/javascript">document.write(new Date().getFullYear());</script> Government of
-                    Singapore
-                </div>
+            <div class="modal-body"></div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <a class="btn btn-primary" id="download" href="javascript:void(0);" download="cropped.jpg">Download</a>
             </div>
+          </div>
         </div>
+      </div>
+      <!-- /.modal -->
     </div>
+  </div>
+  <p>Size limit: 2 MB Format: .jpg, .jpeg, .png, .gif, .tif, .tiff, .bmp</p>
+</div>
 
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/components.js"></script>
-    <script src="assets/js/global.js"></script>
-    <script src="assets/js/custom.js"></script>
-    <script src="myassets/js/customAlert.js"></script>
-    <script src="assets/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
-    <script src="assets/dropzone/dist/dropzone.js"></script>
+<div id="showImageDiv" style="display:none;">
+  <div class="row">
+    <div class="col-sm-6">
+      <figure class="figure">
+        <img id="cropperedImg" src="" class="figure-img img-fluid rounded" style="max-width: 200px;max-height: 200px;border: 1px solid">
+      </figure>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <button type="button" class="btn btn-primary" style="height: 42px;" id="editImgBtn">Edit</button>
+    </div>
+  </div>
+</div>
 
-    <!-- Save & Submit Btns -->
-    <script type="text/javascript">
 
-        $("#printBtn").click(function(e)
-        {
-            window.print()
-           /*  window.open("./myassets/pdf/pf1_summary.pdf") */
-        })
 
-        function saveDraft() {
-            alert("Your application has been saved as a draft with E-filing No. E1234567890");
-            $("#efileNo").show()
-            event.preventDefault();
-            return false;
-        }
+      </div>
+    </div>
+    <!-- Search Panel End -->
+  </div>
+</div>
 
-        function addToCart() {
-            alert("What would you like to do next?")
-            event.preventDefault();
-            return false;
-        }
-    </script>
+      
+        <div class="col-xs-12">
+          <div class="panel-group" id="deadlinesPanel" style="">
+  <div class="panel panel-default" role="tablist">
+    <div class="panel-heading ">
+      <a class=" deadlinesPanel " data-toggle="collapse" href="#9742884190721452">
+        <div class="panel-title">
+          <h4>Deadlines</h4>
+        </div>
+      </a>
+      
 
-    <!-- Date Picker Initializing -->
-    <script type="text/javascript">
+    </div>
+    <div id="9742884190721452" class="panel-collapse collapse in">
+      <div class="p-5">
+            
 
-        $(document).ready(function () {
 
-            $('#datetimepicker').datetimepicker({
-                weekStart: 1,
-                todayBtn: 1,
-                autoclose: 1,
-                todayHighlight: 1,
-                startView: 2,
-                forceParse: 0,
-                showMeridian: 1
-            });
-            $('.date').datetimepicker({
-                weekStart: 1,
-                todayBtn: 1,
-                autoclose: 1,
-                todayHighlight: 1,
-                startView: 2,
-                minView: 2,
-                forceParse: 0
-            });
-            $('#timeonly').datetimepicker({
-                weekStart: 1,
-                todayBtn: 1,
-                autoclose: 1,
-                todayHighlight: 1,
-                startView: 1,
-                minView: 0,
-                maxView: 1,
-                forceParse: 0
-            });
-        })
-    <style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+  /* Increase the padding on the header cells */
+  #deadlinesList thead th {
+    padding-right: 20px;
+  }
+
+  /* Adjust the positioning of the sorting icons */
+  #deadlinesList .sorting:before,
+  #deadlinesList .sorting_asc:before,
+  #deadlinesList .sorting_desc:before {
+    right: 10px;
+  }
+</style>
+
+<div class="responsive-table">
+  <div id="deadlinesList_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+    <div class="row">
+      <div class="col-sm-12">
         
-        </style>
-</script>
-</body>
+        
+          <div class="text-right" style="margin:0 auto;width:30%;height:0px">
+          </div>
+        
+        <div id="deadlinesList_wrapper" class="dataTables_wrapper no-footer"><div class="dataTables_length" id="deadlinesList_length"><label>Show <select name="deadlinesList_length" aria-controls="deadlinesList" class=""><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div><div id="deadlinesList_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="deadlinesList"></label></div><div id="deadlinesList_processing" class="dataTables_processing" role="status" style="display: none;"><div><div></div><div></div><div></div><div></div></div></div><table id="deadlinesList" class="table border default-table dataTable no-footer" style="font-size: small" role="" aria-describedby="deadlinesList_info">
+          <thead>
+          <tr role="row"><th class="sorting_disabled" rowspan="1" colspan="1" aria-label="S/N">S/N</th><th class="sorting" tabindex="0" aria-controls="deadlinesList" rowspan="1" colspan="1" aria-label="Application No.: activate to sort column ascending">Application No.</th><th class="sorting" tabindex="0" aria-controls="deadlinesList" rowspan="1" colspan="1" aria-label="Applicant Name: activate to sort column ascending">Applicant Name</th><th class="sorting" tabindex="0" aria-controls="deadlinesList" rowspan="1" colspan="1" aria-label="My Reference: activate to sort column ascending">My Reference</th><th class="sorting" tabindex="0" aria-controls="deadlinesList" rowspan="1" colspan="1" aria-label="IP Type: activate to sort column ascending">IP Type</th><th class="sorting" tabindex="0" aria-controls="deadlinesList" rowspan="1" colspan="1" aria-label="Transaction Type: activate to sort column ascending">Transaction Type</th><th class="sorting sorting_asc" tabindex="0" aria-controls="deadlinesList" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Deadline: activate to sort column descending">Deadline</th><th class="sorting_disabled" rowspan="1" colspan="1" aria-label="Action Required">Action Required</th></tr>
+          </thead>
+          <tbody>
+          <tr class="odd"><td data-title="S/N">1</td><td data-title="Application No.">10202250855T</td><td data-title="Applicant Name">applepear</td><td data-title="My Reference">-</td><td data-title="IP Type">Patent</td><td data-title="Transaction Type">Request for Grant of Patent(PF1) - Filing Date Deficiency</td><td class="sorting_1" data-title="Deadline">29/05/2023</td><td data-title="Action Required"><a href="/FACR/eservice/IP4SG/CR_ReplyMessage?p_appNo=10202250855T&amp;p_iposRefNo=2023/00002906XPF1S&amp;cmFeCustDeadLineGUID=10e32c94-99d4-4db0-a089-c775a0b4ab9c" class="subject">Reply via correspondence</a><br><br><a href="/FAMN/eservice/IP4SG/CF_Cm4Registration?p_appNo=10202250855T&amp;p_iposRefNo=2023/00002906XPF1S&amp;cmFeCustDeadLineGUID=10e32c94-99d4-4db0-a089-c775a0b4ab9c" class="subject">File Correction</a><br></td></tr><tr class="even"><td data-title="S/N">2</td><td data-title="Application No.">10202200801D</td><td data-title="Applicant Name">Gervaise</td><td data-title="My Reference">-</td><td data-title="IP Type">Patent</td><td data-title="Transaction Type">Request for Grant of Patent(PF1) - Statement of Inventorship</td><td class="sorting_1" data-title="Deadline">17/06/2023</td><td data-title="Action Required"><a href="null&amp;cmFeCustDeadLineGUID=3528bf07-ec5e-4fcf-89df-6b6772fa047e" class="subject">File Statement of Inventorship</a><br></td></tr><tr class="odd"><td data-title="S/N">3</td><td data-title="Application No.">10202300007Y</td><td data-title="Applicant Name">apple</td><td data-title="My Reference">-</td><td data-title="IP Type">Patent</td><td data-title="Transaction Type">Deadline for Action</td><td class="sorting_1" data-title="Deadline">05/07/2023</td><td data-title="Action Required"><a href="/FACR/eservice/IP4SG/CR_ReplyMessage?p_appNo=10202300007Y&amp;p_iposRefNo=2023/00000164PF11Q&amp;cmFeCustDeadLineGUID=9a92bdcd-26cc-4024-a8c6-3589e6d10791" class="subject">Reply via correspondence</a><br></td></tr><tr class="even"><td data-title="S/N">4</td><td data-title="Application No.">10202300007Y</td><td data-title="Applicant Name">apple</td><td data-title="My Reference">-</td><td data-title="IP Type">Patent</td><td data-title="Transaction Type">Deadline for Action</td><td class="sorting_1" data-title="Deadline">05/07/2023</td><td data-title="Action Required"><a href="/FACR/eservice/IP4SG/CR_ReplyMessage?p_appNo=10202300007Y&amp;p_iposRefNo=2023/00000156PF11R&amp;cmFeCustDeadLineGUID=071c30be-fced-4093-9c65-20e2bc2a3c13" class="subject">Reply via correspondence</a><br></td></tr><tr class="odd"><td data-title="S/N">5</td><td data-title="Application No.">10202250635N</td><td data-title="Applicant Name">dowoon</td><td data-title="My Reference">10202250635N</td><td data-title="IP Type">Patent</td><td data-title="Transaction Type">Deadline for Action</td><td class="sorting_1" data-title="Deadline">08/07/2023</td><td data-title="Action Required"><a href="/FACR/eservice/IP4SG/CR_ReplyMessage?p_appNo=10202250635N&amp;p_iposRefNo=2023/00003844PF17S&amp;cmFeCustDeadLineGUID=ab8327f0-a537-4905-bf49-34e4f2bc438f" class="subject">Reply via correspondence</a><br></td></tr><tr class="even"><td data-title="S/N">6</td><td data-title="Application No.">10202251038W</td><td data-title="Applicant Name">test</td><td data-title="My Reference">-</td><td data-title="IP Type">Patent</td><td data-title="Transaction Type">Deadline for Action</td><td class="sorting_1" data-title="Deadline">27/07/2023</td><td data-title="Action Required"><a href="/FACR/eservice/IP4SG/CR_ReplyMessage?p_appNo=10202251038W&amp;p_iposRefNo=2022/00054120XPF1U&amp;cmFeCustDeadLineGUID=5b87ae4b-9a46-4e62-b1d1-1293994b48ae" class="subject">Reply via correspondence</a><br></td></tr><tr class="odd"><td data-title="S/N">7</td><td data-title="Application No.">10202200801D</td><td data-title="Applicant Name">Gervaise</td><td data-title="My Reference">-</td><td data-title="IP Type">Patent</td><td data-title="Transaction Type">Application to Amend Specification After Grant(PF17) - Deficiency</td><td class="sorting_1" data-title="Deadline">02/08/2023</td><td data-title="Action Required"><a href="/FACR/eservice/IP4SG/CR_ReplyMessage?p_appNo=10202200801D&amp;p_iposRefNo=2023/00003793PF17T&amp;cmFeCustDeadLineGUID=66c688a7-3515-4f88-bc18-e6981fd078e1" class="subject">Reply via correspondence</a><br><br><a href="/FAMN/eservice/IP4SG/CF_Cm4Registration?p_appNo=10202200801D&amp;p_iposRefNo=2023/00003793PF17T&amp;cmFeCustDeadLineGUID=66c688a7-3515-4f88-bc18-e6981fd078e1" class="subject">File Correction</a><br></td></tr><tr class="even"><td data-title="S/N">8</td><td data-title="Application No.">11202300079S</td><td data-title="Applicant Name">NATIVE INGREDIENTS AND HEALTH RESEARCH ORGANISATION PTY LTD</td><td data-title="My Reference">-</td><td data-title="IP Type">Patent</td><td data-title="Transaction Type">Deadline for Action</td><td class="sorting_1" data-title="Deadline">11/10/2023</td><td data-title="Action Required"><a href="/FACR/eservice/IP4SG/CR_ReplyMessage?p_appNo=11202300079S&amp;p_iposRefNo=2023/00002767PF10X&amp;cmFeCustDeadLineGUID=3678e0b6-ec0c-411f-8ae1-5869f6e06cae" class="subject">Reply via correspondence</a><br></td></tr><tr class="odd"><td data-title="S/N">9</td><td data-title="Application No.">10202251040T</td><td data-title="Applicant Name">test</td><td data-title="My Reference">-</td><td data-title="IP Type">Patent</td><td data-title="Transaction Type">Deadline for Action</td><td class="sorting_1" data-title="Deadline">19/10/2023</td><td data-title="Action Required"><a href="/FACR/eservice/IP4SG/CR_ReplyMessage?p_appNo=10202251040T&amp;p_iposRefNo=2022/00054124XPF1W&amp;cmFeCustDeadLineGUID=aa6afa59-aebb-4b4c-9feb-106817125948" class="subject">Reply via correspondence</a><br></td></tr><tr class="even"><td data-title="S/N">10</td><td data-title="Application No.">10202251081T</td><td data-title="Applicant Name">test1</td><td data-title="My Reference">-</td><td data-title="IP Type">Patent</td><td data-title="Transaction Type">Deadline for Action</td><td class="sorting_1" data-title="Deadline">26/10/2023</td><td data-title="Action Required"><a href="/FACR/eservice/IP4SG/CR_ReplyMessage?p_appNo=10202251081T&amp;p_iposRefNo=2022/00055121XPF1Y&amp;cmFeCustDeadLineGUID=e165ae5c-ab88-4b42-99fc-61e636e94ae6" class="subject">Reply via correspondence</a><br></td></tr><tr class="odd"><td data-title="S/N">11</td><td data-title="Application No.">10202251038W</td><td data-title="Applicant Name">test</td><td data-title="My Reference">-</td><td data-title="IP Type">Patent</td><td data-title="Transaction Type">Request for Grant of Patent(PF1) - Statement of Inventorship</td><td class="sorting_1" data-title="Deadline">27/11/2023</td><td data-title="Action Required"><a href="/FAPF/eservice/IP4SG/PT_Pf8Registration?p_appNo=10202251038W&amp;p_iposRefNo=2022/00054120XPF1U&amp;cmFeCustDeadLineGUID=70181967-793a-4e9a-9e49-8e0fde9ce027" class="subject">File Statement of Inventorship</a><br></td></tr><tr class="even"><td data-title="S/N">12</td><td data-title="Application No.">10202251038W</td><td data-title="Applicant Name">test</td><td data-title="My Reference">-</td><td data-title="IP Type">Patent</td><td data-title="Transaction Type">Request for Grant of Patent(PF1) - Priority Claim Deficiency</td><td class="sorting_1" data-title="Deadline">27/11/2023</td><td data-title="Action Required"><a href="/FACR/eservice/IP4SG/CR_ReplyMessage?p_appNo=10202251038W&amp;p_iposRefNo=2022/00054120XPF1U&amp;cmFeCustDeadLineGUID=ac619784-b34f-4e71-844b-5f1b4782d1ff" class="subject">Reply via correspondence</a><br><br><a href="/FAPF/eservice/IP4SG/PT_Pf13Registration?p_appNo=10202251038W&amp;p_iposRefNo=2022/00054120XPF1U&amp;cmFeCustDeadLineGUID=ac619784-b34f-4e71-844b-5f1b4782d1ff" class="subject">File Amendment</a><br><br><a href="/FAMN/eservice/IP4SG/CF_Cm4Registration?p_appNo=10202251038W&amp;p_iposRefNo=2022/00054120XPF1U&amp;cmFeCustDeadLineGUID=ac619784-b34f-4e71-844b-5f1b4782d1ff" class="subject">File Correction</a><br></td></tr><tr class="odd"><td data-title="S/N">13</td><td data-title="Application No.">10202251040T</td><td data-title="Applicant Name">test</td><td data-title="My Reference">-</td><td data-title="IP Type">Patent</td><td data-title="Transaction Type">Request for Grant of Patent(PF1) - Statement of Inventorship</td><td class="sorting_1" data-title="Deadline">19/02/2024</td><td data-title="Action Required"><a href="/FAPF/eservice/IP4SG/PT_Pf8Registration?p_appNo=10202251040T&amp;p_iposRefNo=2022/00054124XPF1W&amp;cmFeCustDeadLineGUID=e44e01e4-747f-4171-ac7b-f6ffce5b6ee6" class="subject">File Statement of Inventorship</a><br></td></tr><tr class="even"><td data-title="S/N">14</td><td data-title="Application No.">10202251040T</td><td data-title="Applicant Name">test</td><td data-title="My Reference">-</td><td data-title="IP Type">Patent</td><td data-title="Transaction Type">Request for Grant of Patent(PF1) - Priority Claim Deficiency</td><td class="sorting_1" data-title="Deadline">19/02/2024</td><td data-title="Action Required"><a href="/FACR/eservice/IP4SG/CR_ReplyMessage?p_appNo=10202251040T&amp;p_iposRefNo=2022/00054124XPF1W&amp;cmFeCustDeadLineGUID=19b04a20-6195-48c6-8df9-b70e290a71f6" class="subject">Reply via correspondence</a><br><br><a href="/FAPF/eservice/IP4SG/PT_Pf13Registration?p_appNo=10202251040T&amp;p_iposRefNo=2022/00054124XPF1W&amp;cmFeCustDeadLineGUID=19b04a20-6195-48c6-8df9-b70e290a71f6" class="subject">File Amendment</a><br><br><a href="/FAMN/eservice/IP4SG/CF_Cm4Registration?p_appNo=10202251040T&amp;p_iposRefNo=2022/00054124XPF1W&amp;cmFeCustDeadLineGUID=19b04a20-6195-48c6-8df9-b70e290a71f6" class="subject">File Correction</a><br></td></tr><tr class="odd"><td data-title="S/N">15</td><td data-title="Application No.">10202251081T</td><td data-title="Applicant Name">test1</td><td data-title="My Reference">-</td><td data-title="IP Type">Patent</td><td data-title="Transaction Type">Request for Grant of Patent(PF1) - Statement of Inventorship</td><td class="sorting_1" data-title="Deadline">26/02/2024</td><td data-title="Action Required"><a href="/FAPF/eservice/IP4SG/PT_Pf8Registration?p_appNo=10202251081T&amp;p_iposRefNo=2022/00055121XPF1Y&amp;cmFeCustDeadLineGUID=c6eb8f05-0005-4ef5-816e-98be8b73d96b" class="subject">File Statement of Inventorship</a><br></td></tr><tr class="even"><td data-title="S/N">16</td><td data-title="Application No.">10202251081T</td><td data-title="Applicant Name">test1</td><td data-title="My Reference">-</td><td data-title="IP Type">Patent</td><td data-title="Transaction Type">Request for Grant of Patent(PF1) - Priority Claim Deficiency</td><td class="sorting_1" data-title="Deadline">26/02/2024</td><td data-title="Action Required"><a href="/FACR/eservice/IP4SG/CR_ReplyMessage?p_appNo=10202251081T&amp;p_iposRefNo=2022/00055121XPF1Y&amp;cmFeCustDeadLineGUID=67c6a44f-30b6-4eb3-a3f2-642eb485cd71" class="subject">Reply via correspondence</a><br><br><a href="/FAPF/eservice/IP4SG/PT_Pf13Registration?p_appNo=10202251081T&amp;p_iposRefNo=2022/00055121XPF1Y&amp;cmFeCustDeadLineGUID=67c6a44f-30b6-4eb3-a3f2-642eb485cd71" class="subject">File Amendment</a><br><br><a href="/FAMN/eservice/IP4SG/CF_Cm4Registration?p_appNo=10202251081T&amp;p_iposRefNo=2022/00055121XPF1Y&amp;cmFeCustDeadLineGUID=67c6a44f-30b6-4eb3-a3f2-642eb485cd71" class="subject">File Correction</a><br></td></tr><tr class="odd"><td data-title="S/N">17</td><td data-title="Application No.">10202200801D</td><td data-title="Applicant Name">Gervaise</td><td data-title="My Reference">-</td><td data-title="IP Type">Patent</td><td data-title="Transaction Type">Request for Examination Report</td><td class="sorting_1" data-title="Deadline">17/02/2025</td><td data-title="Action Required"><a href="/FAPF/eservice/IP4SG/PT_Pf11Registration?p_appNo=10202200801D&amp;p_iposRefNo=2022/00002815XPF1V&amp;cmFeCustDeadLineGUID=e97251b5-6d18-413d-bd96-df8fb324a378" class="subject">Request for Search and Examination</a><br><br><a href="/FAPF/eservice/IP4SG/PT_Pf12Registration?p_appNo=10202200801D&amp;p_iposRefNo=2022/00002815XPF1V&amp;cmFeCustDeadLineGUID=e97251b5-6d18-413d-bd96-df8fb324a378" class="subject">Request for Examination</a><br></td></tr><tr class="even"><td data-title="S/N">18</td><td data-title="Application No.">10202251038W</td><td data-title="Applicant Name">test</td><td data-title="My Reference">-</td><td data-title="IP Type">Patent</td><td data-title="Transaction Type">Request for Search &amp; Examination</td><td class="sorting_1" data-title="Deadline">27/07/2025</td><td data-title="Action Required"><a href="/FAPF/eservice/IP4SG/PT_Pf11Registration?p_appNo=10202251038W&amp;p_iposRefNo=2022/00054120XPF1U&amp;cmFeCustDeadLineGUID=3047151a-3098-4a48-84c7-a2cac77ab017" class="subject">Request for Search and Examination</a><br><br><a href="/FAPF/eservice/IP4SG/PT_Pf12Registration?p_appNo=10202251038W&amp;p_iposRefNo=2022/00054120XPF1U&amp;cmFeCustDeadLineGUID=3047151a-3098-4a48-84c7-a2cac77ab017" class="subject">Request for Examination</a><br></td></tr><tr class="odd"><td data-title="S/N">19</td><td data-title="Application No.">10202251040T</td><td data-title="Applicant Name">test</td><td data-title="My Reference">-</td><td data-title="IP Type">Patent</td><td data-title="Transaction Type">Request for Search &amp; Examination</td><td class="sorting_1" data-title="Deadline">19/10/2025</td><td data-title="Action Required"><a href="/FAPF/eservice/IP4SG/PT_Pf11Registration?p_appNo=10202251040T&amp;p_iposRefNo=2022/00054124XPF1W&amp;cmFeCustDeadLineGUID=72a4cb88-aa6e-4f68-93b4-a63910298c87" class="subject">Request for Search and Examination</a><br><br><a href="/FAPF/eservice/IP4SG/PT_Pf12Registration?p_appNo=10202251040T&amp;p_iposRefNo=2022/00054124XPF1W&amp;cmFeCustDeadLineGUID=72a4cb88-aa6e-4f68-93b4-a63910298c87" class="subject">Request for Examination</a><br></td></tr><tr class="even"><td data-title="S/N">20</td><td data-title="Application No.">10202251081T</td><td data-title="Applicant Name">test1</td><td data-title="My Reference">-</td><td data-title="IP Type">Patent</td><td data-title="Transaction Type">Request for Search &amp; Examination</td><td class="sorting_1" data-title="Deadline">26/10/2025</td><td data-title="Action Required"><a href="/FAPF/eservice/IP4SG/PT_Pf11Registration?p_appNo=10202251081T&amp;p_iposRefNo=2022/00055121XPF1Y&amp;cmFeCustDeadLineGUID=8f6e3601-3e96-46da-b473-baf57fa4034b" class="subject">Request for Search and Examination</a><br><br><a href="/FAPF/eservice/IP4SG/PT_Pf12Registration?p_appNo=10202251081T&amp;p_iposRefNo=2022/00055121XPF1Y&amp;cmFeCustDeadLineGUID=8f6e3601-3e96-46da-b473-baf57fa4034b" class="subject">Request for Examination</a><br></td></tr></tbody>
+        </table><div class="dataTables_info" id="deadlinesList_info" role="status" aria-live="polite">Showing 1 to 20 of 20 entries</div><div class="dataTables_paginate paging_simple_numbers" id="deadlinesList_paginate"><a class="paginate_button previous disabled" aria-controls="deadlinesList" aria-disabled="true" aria-role="link" data-dt-idx="previous" tabindex="-1" id="deadlinesList_previous">Previous</a><span><a class="paginate_button current" aria-controls="deadlinesList" aria-role="link" aria-current="page" data-dt-idx="0" tabindex="0">1</a></span><a class="paginate_button next disabled" aria-controls="deadlinesList" aria-disabled="true" aria-role="link" data-dt-idx="next" tabindex="-1" id="deadlinesList_next">Next</a></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+                </div>
+    </div>
+  </div>
+</div>
+        </div>
+      
+    </div>
+  </div>
+</div>
+<span id="prePrerequisitePanel-accordion"></span>
 
-</html>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<input type="hidden" name="OWASP_CSRFTOKEN" value="RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY"></form>
+
+<footer class="sgds-footer">
+  <div class="container">
+    <div class="sfContentBlock"><div class="row">
+      <div class="col-12">
+        <p class="title">Intellectual Property Office of Singapore</p>
+      </div>
+      <div class="col-md-8 mb-4">
+        <div class="row footer-nav">
+          <div class="col-lg-3 col-sm-6 mb-3">
+            <a href="https://www.ipos.gov.sg/who-we-are" style="color:#FFFFFF;">About IPOS</a><br>
+            <br>
+            <ul>
+              <li><a href="https://www.ipos.gov.sg/who-we-are">Who We Are</a></li>
+              <li><a href="https://www.ipos.gov.sg/resources">Resources</a></li>
+              <li><a href="https://www.ipos.gov.sg/news">News</a></li>
+              <li><a href="https://www.ipos.gov.sg/news/events">Events</a></li>
+              <li><a href="https://www.ipos.gov.sg/news/insights">Insights</a></li>
+              <li><a href="https://www.ipos.gov.sg/careers">Careers</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-sm-6 mb-3">
+            <a href="https://www.ipos.gov.sg/about-ip" style="color:#FFFFFF;">About IP</a><br>
+            <br>
+            <ul>
+              <li><a href="https://www.ipos.gov.sg/about-ip/trade-marks">Trade Marks</a></li>
+              <li><a href="https://www.ipos.gov.sg/about-ip/patents">Patents</a></li>
+              <li><a href="https://www.ipos.gov.sg/about-ip/copyright">Copyright</a></li>
+              <li><a href="https://www.ipos.gov.sg/about-ip/designs">Designs</a></li>
+              <li><a href="https://www.ipos.gov.sg/about-ip/plant-variety-rights">Plant Variety Rights</a></li>
+              <li><a href="https://www.ipos.gov.sg/about-ip/geographical-indications">Geographical Indications</a></li>
+              <li><a href="https://www.ipos.gov.sg/about-ip/trade-secrets">Trade Secrets</a></li>
+              <li><a href="https://www.ipos.gov.sg/about-ip/other-ip">Other IP</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-sm-6 mb-3">
+            <a href="https://www.ipos.gov.sg/manage-ip" style="color:#FFFFFF;">Manage IP</a><br>
+            <br>
+            <ul>
+              <li><a href="https://www.ipos.gov.sg/manage-ip#administer">Administer IP</a></li>
+              <li><a href="https://www.ipos.gov.sg/manage-ip/monetise-ip">Monetise IP</a></li>
+              <li><a href="https://www.ipos.gov.sg/manage-ip/resolve-ip-disputes">Resolve IP Disputes</a></li>
+              <li><a href="https://www.ipos.gov.sg/manage-ip/develop-capabilities">Develop Capabilities</a></li>
+              <li><a href="https://www.ipos.gov.sg/manage-ip/singapore-ip-strategy-2030">Singapore IP Strategy 2030</a></li>
+              <li><a href="https://www.ipos.gov.sg/manage-ip/growing-with-resilience-through-intangibles">GRIT</a></li>
+              <li><a href="https://www.ipos.gov.sg/manage-ip/unsolicited-ip-services">Unsolicited IP Services</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-sm-6 mb-3">
+            <a href="https://www.ipos.gov.sg/eservices" style="color:#FFFFFF;">eServices</a><br>
+            <br>
+            <a href="https://www.ipos.gov.sg/contact-us" style="color:#FFFFFF;">Contact Us</a><br>
+            <br>
+            <a href="https://ask.gov.sg/agency/IPOS" target="_blank" style="color:#FFFFFF;">FAQs<span class="sgds-icon sgds-icon-external"></span></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="d-flex">
+          <p class="header mr-4">Connect with Us</p>
+          <ul class="social-icons">
+            <li class="icons"><a aria-label="Facebook" href="https://www.facebook.com/IPOSG/" target="_blank"><span class="fa fa-facebook fa-fw"></span></a></li>
+            <li class="icons"><a aria-label="LinkedIn" href="https://www.linkedin.com/company/intellectual-property-office-of-singapore/" target="_blank"><span class="fa fa-linkedin fa-fw"></span></a></li>
+            <li class="icons"><a aria-label="Twitter" href="https://www.twitter.com/ipofficesg/" target="_blank"><span class="fa fa-twitter fa-fw"></span></a></li>
+            <li class="icons"><a aria-label="YouTube" href="https://www.youtube.com/user/IPOSsingapore" target="_blank"><span class="fa fa-youtube fa-fw"></span></a></li>
+          </ul>
+        </div>
+        <div class="d-flex mt-4">
+          <p class="header">Get The App</p>
+          <ul class="d-flex">
+            <li class="icons mb-3"><a aria-label="Apple App Store" href="https://apps.apple.com/us/app/ipos-go/id1475896971" target="_blank"><img src="/FAMN/img/download_on_the_app_store_badge.png" alt="download_on_the_app_store_badge_us-uk_blk_092917(big)" data-displaymode="Original" title="download_on_the_app_store_badge_us-uk_blk_092917(big)"></a></li>
+            <li class="icons"><a aria-label="Google Play Store" href="https://play.google.com/store/apps/details?id=sg.ipos.mobile" target="_blank"><img src="/FAMN/img/google-play-badge.png" alt="google-play-badge" data-displaymode="Original" title="google-play-badge"></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    </div>
+    <hr>
+    <div class="row mt-4 mx-0 copyright-row">
+      <div class="col-md-12">
+        <ul class="nav block-list-md">
+          <li><a href="https://www.reach.gov.sg/" target="_blank">REACH<span class="sgds-icon sgds-icon-external"></span></a></li>
+          <li><a href="https://tech.gov.sg/report_vulnerability" target="_blank">Report Vulnerability<span class="sgds-icon sgds-icon-external"></span></a></li>
+          <li><a href="https://www.ipos.gov.sg/privacy-statement">Privacy Statement</a></li>
+          <li><a href="https://www.ipos.gov.sg/terms-of-use">Terms of Use</a></li>
+          <li><a href="https://www.ipos.gov.sg/data-protection-policy">Data Protection Policy</a></li>
+          <li><a href="https://www.ipos.gov.sg/sitemap">Sitemap</a></li>
+        </ul>
+      </div>
+      <div class="col-md-12 has-text-right ">
+        <p>© 2023, Government of Singapore</p>
+        <span id="lastModifiedDate">PRD-20230525-03</span>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<script>
+var APP_PATH = '/FAMN';
+</script>
+
+<script src="/FAMN/js/jquery.min.js?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY"></script>
+<script src="/FAMN/js/popper.min.js?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY"></script>
+<script src="/FAMN/js/bootstrap.min.js?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY"></script>
+<script src="/FAMN/js/components.min.js?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY"></script>
+<script src="/FAMN/js/bootstrap-datetimepicker.min.js?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY"></script>
+<script src="/FAMN/js/global.min.js?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY"></script>
+
+<script src="/FAMN/js/custom.js?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY"></script>
+<script src="/FAMN/js/jquery.mCustomScrollbar.concat.min.js?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY"></script>
+<script src="/FAMN/js/radioButtonSwitch.js?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY"></script>
+
+<!-- Scroll Up -->
+<script src="/FAMN/js/plugins.js?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY"></script>
+<script src="/FAMN/js/active.js?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY"></script><a id="scrollUp" href="#top" style="position: fixed; z-index: 998; display: none;"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
+<script src="/FAMN/js/cropper.min.js?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY"></script>
+<script src="/FAMN/js/jquery.blockUI.min.js?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY"></script>
+<script src="/FAMN/js/toastr.min.js?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY"></script>
+<script src="/FAMN/js/jquery-ui.min.js?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY"></script>
+<script src="/FAMN/js/app.js?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY"></script>
+
+
+  
+
+
+<input type="hidden" id="timeout" value="30">
+<input type="hidden" id="warning" value="5">
+<input type="hidden" id="appPath" value="/FAMN">
+
+<div id="timeoutDlg" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog" role="document" style="margin-top:10%;width:35%;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" style="float:left;">Session Timeout</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+      <div class="modal-body">
+        <p>Your session will be invalid in <label id="countdownLbl">025:00</label> minute(s). You can extend the session by clicking Extend button.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" id="timeoutLogoutBtn">Logout</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" id="timeoutExtendBtn">Extend</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<script src="/FAMN/js/jsp/commons/timeout.js?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY"></script>
+
+  
+  <script src="/FAMN/js/jquery.bxslider.min.js?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY"></script>
+  <script src="/FAMN/js/datatables.min.js?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY"></script>
+  <script src="/FAMN/js/cropper.min.js?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY"></script>
+  <script src="/FAMN/js/website.js?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY"></script>
+  <script src="/FAMN/js/jsp/commons/similarMarkSearch.js?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY"></script>
+  <script src="/FAMN/js/jsp/commons/cropperUploadImg.js?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY"></script>
+  <script src="/FAMN/js/jsp/main/search/basicSearchCommon.js?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY"></script>
+  <script src="/FAMN/js/jsp/main/home.js?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY"></script>
+  <script src="/FAMN/js/jsp/main/deadline/deadlines.js?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY"></script>
+  <script src="/FAMN/js/jsp/main/dashboard/dashboard.js?OWASP_CSRFTOKEN=RTNB-LFDX-B3G2-QL5B-8BZ6-PO3L-GBSB-GGIY"></script>
+
+
+
+</body></html>
