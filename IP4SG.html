@@ -1,926 +1,458 @@
-<html lang="en"><head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="National Intellectual Property (IP) Registries System">
-  <meta name="robots" content="noindex">
+<!doctype html>
+<html lang="en">
 
-  <title>Correspondence Inbox</title>
-  
-  <script async="" src="https://assets.dcube.cloud/snowplow/2.14.0/sp.js"></script><script src="/FACR/JavaScriptServlet?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O"></script>
-  
+<head>
+    <title>PF1 Demo</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <!-- Internal CSS -->
+    <link rel="stylesheet" href="css/style.css">
 
-  <link rel="shortcut icon" type="image/x-icon" href="/FACR/img/favicon.ico">
+    <!-- Bootstrap CSS -->
+    <!--   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
 
-  <link rel="stylesheet" href="/FACR/css/google-fonts.css">
-  <link rel="stylesheet" href="/FACR/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/FACR/css/bootstrap-datetimepicker.css">
-  <link rel="stylesheet" href="/FACR/css/framework.css">
-  <link rel="stylesheet" href="/FACR/css/custom.css">
-  <link rel="stylesheet" href="/FACR/css/section-boxing.css">
-  <link rel="stylesheet" href="/FACR/css/jquery-ui.min.css">
-  <link rel="stylesheet" href="/FACR/css/print.css" media="print">
-  <link rel="stylesheet" href="/FACR/css/jquery.mCustomScrollbar.min.css">
-  <link rel="stylesheet" href="/FACR/css/menukit.css">
-  <link rel="stylesheet" href="/FACR/css/toastr.min.css">
-  <link rel="stylesheet" href="/FACR/css/website.css">
-  
-  
-    <script src="https://assets.dcube.cloud/scripts/wogaa.js"></script><script async="" src="https://assets.dcube.cloud/scripts/wogaa.js?url=https%3A%2F%2F192.168.88.230%2FFACR%2Feservice%2FIP4SG%2FCR_CorrespondenceFolder%3FfGuid%3DFEEAB3BF-A05B-4E38-BE65-FE9FCC4561AB%26OWASP_CSRFTOKEN%3DWCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O"></script>
-  
+    <!-- Asset from Template by GFXDesigner -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,800;1,400;1,500;1,600;1,800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css">
+    <link rel="stylesheet" href="assets/css/framework.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="myassets/css/custom.css">
+    <link rel="stylesheet" href="myassets/css/section-boxing.css">
+    <link rel="stylesheet" href="myassets/css/customAlert.css">
+    <link rel="stylesheet" href="assets/dropzone/dist/dropzone.css">
+    <link href="assets/css/print.css" rel="stylesheet" media="print">
+
+    <!-- AutoComplete CSS-->
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        /*the container must be positioned relative:*/
+
+          .process .step-indicator {
+            height: 71px;
+        }
+
+        .autocomplete-items {
+            position: absolute;
+            border: 1px solid #d4d4d4;
+            border-bottom: none;
+            border-top: none;
+            z-index: 99;
+            /*position the autocomplete items to be the same width as the container:*/
+            top: 100%;
+            left: 0;
+            right: 0;
+        }
+
+        .autocomplete-items div {
+            padding: 10px;
+            cursor: pointer;
+            background-color: #fff;
+            border-bottom: 1px solid #d4d4d4;
+        }
+
+        /*when hovering an item:*/
+        .autocomplete-items div:hover {
+            background-color: #e9e9e9;
+        }
+
+        /*when navigating through the items using the arrow keys:*/
+        .autocomplete-active {
+            background-color: DodgerBlue !important;
+            color: #ffffff;
+
+        }
+/*
+        th, td {
+            font-size:x-small;
+        }*/
+    </style>
+
 </head>
 
 <body>
-  <!-- Header and Header Title-->
-  <header>
     <section class="logo">
-      <div class="container">
-        <div class="row">
-          <div class="logo-ssg">
-            <a href="https://www.gov.sg/" target="_blank" rel="noopener noreferrer" style="color: #484848; text-decoration: none"> <img src="/FACR/img/logo-sg.png" alt="Singapore Logo"> <span>A Singapore Government Agency Website</span></a>
-          </div>
-        </div>
-      </div>
-    </section>
-    <div class="print-header visible-print-block">
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12">
-            <img src="/FACR/img/ipos-digihub-logo.png" class="img-fluid" width="100" height="32" alt="">
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="inside-header" id="mainPageHeader">
-      <div class="header-top hidden-print">
-        <div class="container">
-          <div class="row">
-            
-              <div class="col-sm-6 col-xs-7">
-                <div>
-                  <ul class="list-unstyled main-logo-list">
-                    <li><a class="ip4Logo" href="/FAMN/eservice/IP4SG/MN_Home?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O" style="background-size: 100% 100%;"></a></li>
-                    <!--li><a class="iposLogo" href="./"></a></li-->
-                  </ul>
-                </div>
-              </div>
-            
-            
-            <!-- testing -->
-          </div>
-        </div>
-      </div>
-      <!-- mega menu -->
-      <div class="megamenu-placeholder">
-        <div class="navmenubar">
-          <!-- <p>Mega Menu Placeholder </p> -->
-          <nav class="navbar navbar-expand-lg navbar-dark mainnav">
-            <div class="container" style="position: relative;">
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav5" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="main_nav5">
-                
-                  <ul class="navbar-nav">
-                    <li class="nav-item dropdown"><a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">
-                      Favourites </a>
-                      <ul class="dropdown-menu">
-                        
-                          <li><a class="dropdown-item" href="/app-corr-fe/eservice/IP4SG/CR_ComposeNewMessage?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O">Compose Correspondence</a></li>
-                        
-                        <li><a class="dropdown-item" href="/FAMN/eservice/IP4SG/MN_ManageFavourites?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O">Manage Favourites</a></li>
-                      </ul></li>
-                    <li class="nav-item dropdown"><a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">Correspondence </a>
-                      <ul class="dropdown-menu" id="CorrMenu">
-                        
-                          
-                            
-                          
-                          <li><a class="dropdown-item" href="/FACR/eservice/IP4SG/CR_CorrespondenceFolder?fGuid=FEEAB3BF-A05B-4E38-BE65-FE9FCC4561AB&amp;OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O">Inbox</a></li>
-                        
-                          
-                          <li><a class="dropdown-item" href="/FACR/eservice/IP4SG/CR_CorrespondenceFolder?fGuid=86F2EA39-E791-4542-B158-4D887B9529F8&amp;OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O">Sent</a></li>
-                        
-                          
-                          <li><a class="dropdown-item" href="/FACR/eservice/IP4SG/CR_CorrespondenceFolder?fGuid=74942F4D-1325-47C6-9308-6BAFEB2ED641&amp;OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O">Draft</a></li>
-                        
-                          
-                          <li><a class="dropdown-item" href="/FACR/eservice/IP4SG/CR_CorrespondenceFolder?fGuid=47101F9B-36FD-4B26-B001-1D9D2ED9AEFD&amp;OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O">Archived</a></li>
-                        
-                          
-                          <li><a class="dropdown-item" href="/FACR/eservice/IP4SG/CR_ComposeNewMessage?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O">Compose Correspondence</a></li>
-                        
-                          
-                          <li><a class="dropdown-item" href="/FACR/eservice/IP4SG/CR_ManageSearchCorrespondence?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O">Manage / Search Correspondence</a></li>
-                        
-                          
-                          <li><a class="dropdown-item" href="/FACR/eservice/IP4SG/CR_CorrespondenceSettings?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O">Correspondence Settings</a></li>
-                        
-                          
-                          <li><a class="dropdown-item" href="/FACR/eservice/IP4SG/CR_CorrespondenceAuditTrail?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O">Correspondence Audit Trail</a></li>
-                        
-                      </ul></li>
-                    <li class="nav-item dropdown"><a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown"> IP
-                      Portfolio </a>
-                      <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/FAMN/eservice/IP4SG/MN_MyIPs?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O">IP / Clients' IP</a></li>
-                        <li><a class="dropdown-item" href="/FAMN/eservice/IP4SG/MN_FilingHistory?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O">Filing History / Clients'
-                          Filing History</a></li>
-                        <li><a class="dropdown-item" href="/FAMN/eservice/IP4SG/MN_Deadlines?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O">Deadlines</a></li>
-                        <li><a class="dropdown-item" href="/FAMN/eservice/IP4SG/MN_DnrSearch?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O">Domain Names Reserved</a></li>
-                        
-                         <li><a class="dropdown-item" href="/FADA/eservice/IP4SG/MN_Dashboard?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O">My Dashboard </a></li>
-                        <li><a class="dropdown-item" href="/FADA/eservice/IP4SG/MN_DashConfig?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O">Configure Dashboard </a></li>
-                      	
-                      </ul></li>
-                    <li class="nav-item dropdown"><a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">
-                      Forms </a>
-                      <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/FAMN/eservice/IP4SG/MN_Forms?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O">Forms</a></li>
-                        <li><a class="dropdown-item" href="/FAMN/eservice/IP4SG/MN_Draft?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O">Draft</a></li>
-                        <!--<li><a class="dropdown-item" href="#">Online File Inspection</a></li>-->
-                        <li><a class="dropdown-item" href="/FAMN/eservice/IP4SG/MN_Dnr?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O">Domain Name Reservation </a></li>
-                      </ul></li>
-
-                    <li class="nav-item dropdown"><a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">
-                      Payment </a>
-                      <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/FAMN/eservice/IP4SG/MN_Payment/PreCart?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O">Pending Payment</a></li>
-                        <li><a class="dropdown-item" href="/FAMN/eservice/IP4SG/MN_PaymentHistory?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O">Payment History</a></li>
-                        <li><a class="dropdown-item" href="/FAMN/eservice/IP4SG/MN_DeferredPayment?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O">Deferred Payment</a></li>
-                        <li><a class="dropdown-item" href="/FAPF/eservice/IP4SG/PT_PctRegistration?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O">Payment of PCT Fees</a></li>
-                      </ul></li>
-                    <!-- // After Login -->
-                    <li class="nav-item dropdown"><a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">
-                      Search</a>
-                      <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/FAMN/eservice/IP4SG/MN_BasicSearch?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O">Basic Search</a></li>
-                        <li><a class="dropdown-item" href="/FAMN/eservice/IP4SG/MN_AdvancedSearch?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O">Advanced Search</a></li>
-                        <li><a class="dropdown-item" href="/FAMN/eservice/IP4SG/MN_TmSimilarMarkSearch?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O">TM Similar Mark Search</a></li>
-                        <li><a class="dropdown-item" href="/FAMN/eservice/IP4SG/MN_TmIcgsSearch?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O">TM Goods / Services Search</a></li>
-                          
-                      </ul></li>
-                    <li class="nav-item dropdown"><a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">
-                      Journals </a>
-                      <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/FAMN/eservice/IP4SG/MN_Journals?journalType=All&amp;OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O">
-                          All</a></li>
-                        <li><a class="dropdown-item" href="/FAMN/eservice/IP4SG/MN_Journals?journalType=Patents Journal A&amp;OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O">
-                          Patents Journal A</a></li>
-                        <li><a class="dropdown-item" href="/FAMN/eservice/IP4SG/MN_Journals?journalType=Patents Journal B&amp;OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O">
-                          Patents Journal B</a></li>
-                        <li><a class="dropdown-item" href="/FAMN/eservice/IP4SG/MN_Journals?journalType=Trade Marks&amp;OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O">
-                          Trade Marks</a></li>
-                        <li><a class="dropdown-item" href="/FAMN/eservice/IP4SG/MN_Journals?journalType=Registered Designs&amp;OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O">
-                          Registered Designs</a></li>
-                        <li><a class="dropdown-item" href="/FAMN/eservice/IP4SG/MN_Journals?journalType=Geographical Indications&amp;OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O">
-                          Geographical Indications</a></li>
-                        <li><a class="dropdown-item" href="/FAMN/eservice/IP4SG/MN_Journals?journalType=Plant Varieties Protection&amp;OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O">Plant
-                          Varieties Protection</a></li>
-                      </ul></li>
-                    
-                    <li class="nav-item dropdown"><a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown"> HMD
+        <div class="container" style="width: 100% !important; max-width: 100% !important; padding-left: 30px;">
+            <div class="row">
+                <div class="logo-ssg">
+                    <a href="https://www.gov.sg/" target="_blank" rel="noreferrer"
+                        style="color:#484848; text-decoration: none">
+                        <img
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAnCAYAAABjYToLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAcASURBVFhH7Zh7bFN1FMfvq4/bdV1Lt8EYj8FQEIUpxMAfqBM0gkLkJcmUSNSoCAnKQxSVQFRiID4mMAbBBxBFYrIgAQkqb3EB55gJMh6Dscm6Utqtt+3a3tv23us5N7826x5th48/1E9y9rvn/O7W78753fP73VL/8z//VWgy3jKuwuK3OZp6maZoCwlpKJR6XaLUUyfD0qdlbY5qCEXAZG0yA25ZWEP+iGKTXnmHp5gyEqKccuzCiZB4YmuH7zD64wwGeUdIuAiXLjA/2N8jzFEwYhzFKLt5mhlJQhqSqop7gx2Hj0dC55Zn2yYU6XQTdRRtItOUX5EPR1S16nZn05fghsDSCuxrxlgwK1ghGfHDzWAGMAnsJpiwymIvGc5yg8fqDVM6iwyryqWTorQ4k9KmFOYaNHw2pdJL8TpGURyO9THps9GcfnnXrCHbA74n5psty400NdqnyFdBxPE9wcCV5RbrjPEG41S8J0qpoR0B/4LXfO4fwO0A61FcSmHaOtKpX/A0PZGEekWQ5aaZN2+seMDIBx7hTRPvNRpew0yhkFNieHdjNOJ9OjtncTyWThyWplfW2mxNOpouJm6P/CyJdR/7ffvX+NoPrLLaxiy05FTAEykua/d8UGrgS7IYJm8YpxuXzTDSh35hywM8fz+KG2swTK8Nxb5rUiLt8GewrEkwZLxl+rNsToRSms8MHLTuUixSB+vINZTTTSu35a5+xet5BzOJ992m00+eazJP/UjwbkAfxb1hy3kL/4TmdiGlsO/D4uxSp2Nuv5Yrz81xO1e65JiTTCUxkGF1+EHzTOay05K4H2NWli16z2Zfsd7vLdduAnCd2VkmqyEaORr3x7J8CVwm9UAkpbAxBkP+EEZ/DS6rsxTuiIVhsBclcT4abSzW6e14rafpohpRbNEmgAKWu6OEM476XYmdJiFqblb28+t8XmwbGgvNOQ/BgL+flLWUwvJoetHO/rnHHIXFn+PY9UnEDG4LCCenGPkZJNSNe3n9hJqwWENcKodhrVaGGRAv8SiD7m4YbGBG9OOkXWOiqobrI5IAi/zgGSm852g4tO+QGDy03tf++TSXc8NOe/9nsWx4b0hVRCyV9osEjqJzrkYjbcTVKDXyJW5FbsRrG8Pkw5ADpkc/TkphVR2+VwodjXMedrdUTnM7PgGrnNvWWv6kx7meoeljPxUULoyLQo6Gw5fuN5rGE7dXjAxtaVdkbMZxMFuZl3KRz1MPw1WwWrBfwc69brU2NRYOK3vVYtvVubTQUIUD4WA9Pn0kpHEtFmudAn2NuN3wyPJlcplEulKGwdxgDrA22CuHrTDbT1pp9gWc7MwSr3vXh/1yZxFXA/fQ9/3eE6P1+ntIqBv7Qh0XYAiC4ZaWIO0aA7SufLmgaCHPUrUMRQ/Wop2oDPiqZvHmAcVcsgDc2JdlW++CzGKvSlAdDl8YwulK8DSyOSicgRCuQVGbJGQiTDtz5bJcJXGTwM4Ppwf/TJN5HglpYLw+KjVM5k2Pk5AGZnFbJHgxl2WHlt10rYaQBwzXW1L3T7klIS2FxZONNP0pcZNojkUby33CwXf75T7DUnRi8cbjG+x5L3WOI2cj0jlKVpvqo5HdVaK/GUI3wLBxR3E+TtpjD2TrR9gvJxE3AS72FW2eT7bk5S/Crk/CWvwpj6tib37B0s5xBLMFO8gH1ZHQKXCvgOHZLEAsiZSlbB4yxNaTKGRrwLf37X72x7p++DpB+Hq7PX921zhS7vd+BaJwsWNzxVMtPlgorhsphbGyrsenCUsVVBQBtxwS0sCdwE/F2rrGcb1Nv9m6bn2g/Qi4l8CwdJglLF+P57GMFn9XDoZDdQuyLaXETdAci92Yx2ePJm5C0FR3y2ZSPuyHDWB4BktJujWmax80ottZaXzr9ZW1Awdrx5fOgODDPE01mWjavKTNc7xBkbAFYHZawfDJ84El9aveSJcxBV8kyHWCFlbBD+iGIxb1zPO6voGtqxxEYXawR8WzhMIyEoWkEybDllJBrhNMYvS46SbAJ3FB242NcFQ+IMsyZgiPSriWcDvD5pmxoDhp+9jOoL/5RbPlUSPNFJAQPvYOKFe7nWWH4YK/L9pRcdYv1MFU/IkTwLCMCtgtkVYYoI5kuJqRBsP8eLMs4riiTQHftjv1+qGPupwbnWKoQVXV32AKM4X7Xq+vZZmSkbBvpZBQqs9SB3PcgxiA7BnhHEVNdP2+VlDlJhCFZ6vrYNiTVLznz5JpuwhP97RsqhbFNcSn3KqWFPyBpUNReBL5y+hLH/ODuIqqYOBNfC/EEwLEsEFiT+rz4k5HJqWMgyWK7BeD5z0x9ZfTktTiUmOYLXwvhBf1v5a+fneB4D+D31fg2R7L16dvcf4JUGBfMv5vgKL+ABc6C2QpTdaQAAAAAElFTkSuQmCC">
+                        <span>A Singapore Government Agency Website</span>
                     </a>
-                      <ul class="dropdown-menu">
-                        
-                        <li><a class="dropdown-item" href="/FAOT/eservice/IP4SG/HM_CaseManagerFe?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O">HMD Case Search</a></li>
-                        
-                        
-                      </ul>
-                    </li>
-                    
-                  </ul>
-                  <ul class="navbar-nav ml-auto user-menu-float">
-                    <ul style="margin-left: 0px;" class="post-login-icon">
-                      
-                        <li><a class="" href="/FACR/eservice/IP4SG/CR_CorrespondenceFolder?fGuid=FEEAB3BF-A05B-4E38-BE65-FE9FCC4561AB&amp;OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O"> <img src="/FACR/img/icon-mail.png" class="img-fluid" alt=""><span class="badge badge-orange">86</span></a></li>
-                      
-                      <li><a class="" href="/FAMN/eservice/IP4SG/MN_Payment/PreCart?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O"> <img src="/FACR/img/icon-cart.png" class="img-fluid" alt=""><span class="badge badge-orange">0</span></a></li>
-                    </ul>
-                    <div class="dropdown user-menu">
-                      <a class="dropdown-toggle" href="#" id="userMenu" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">cindyng</a>
-                      <ul class="dropdown-menu" id="userDropdown" aria-labelledby="userMenu">
-                        <li><a href="/FAMN/eservice/IP4SG/MN_UserAccount?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O">Edit Profile</a></li>
-                        
-                        <li><a href="/FAMN/eservice/IP4SG/MN_Logout?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O">Logout</a></li>
-                      </ul>
-                    </div>
-                  </ul>
-                
-                
-              </div>
-              <!-- navbar-collapse.// -->
-            </div>
-            <!-- container //end -->
-          </nav>
-
-        </div>
-      </div>
-      <!-- // end mega menu -->
-      
-        <div class="container">
-          <div class="row" id="mainPageRow">
-            <div class="col-xs-12">
-              <div class="headerLeftDesktop header-title">
-                <div class="header-title-content">
-                  <div class="row">
-                    <div class="col-md-12 text-center">
-                      <h1>Correspondence Inbox</h1>
-                    </div>
-                  </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Header and Header Title-->
+    <!-- Print Header-->
+    <div class="print-header visible-print-block">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12"><img src="assets//images/ip4-logo.jpg"></div>
+
+            </div>
+        </div>
+    </div>
+    <div class="inside-header">
+        <div class="header-top hidden-print">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4 col-xs-12">
+                        <div><a class="ip4Logo" href="./"></a></div>
+                    </div>
+                    <div class="col-sm-8 col-xs-12 text-right">
+                        <div class="dropdown user-menu"><a class="dropdown-toggle" href="#" id="userMenu"
+                                data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome!
+                                Joseph</a>
+                            <ul class="dropdown-menu" id="userDropdown" aria-labelledby="userMenu">
+                                <li><a href="./">Edit Profile</a></li>
+                                <li><a href="./">My Dashboard</a></li>
+                                <li><a href="./">Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="headerLeftDesktop header-title">
+                        <div class="header-title-content">
+                            <div class="row">
+                                <div class="col-md-8">
+<!--                                     <h1>Correspondence</h1> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container bg-light">
+
+        <div class="content">
+
+            <!-- Main Content -->
+            <h4>Inbox</h4>
+
+            <!-- Start copy from here --> 
+            <div class="row">
+                <div class="col-sm-12">
+                <div class="form-group text-right">
+                <button type="button" class="btn btn-secondary btn-sm">Delete</button>
+                <button type="button" class="btn btn-primary btn-sm">Mark as Read</button>
+                <button type="button" class="btn btn-primary btn-sm">Mark as Unread</button>
+                <button type="button" class="btn btn-primary btn-sm">Archive</button>
+                <button type="button" class="btn btn-primary btn-sm">Download Correspondence</button>
               </div>
+          </div>
+          <div class="col-sm-12">
+            <div class="form-group form-inline text-right inbox-action">
+                <label>Move To </label>
+                <select class="form-control" id="moveTo" name="moveTo">
+                  <option value="">Please Select</option>
+                </select>
+                <button type="button" class="btn btn-primary btn-sm">Move</button>
+                <label> Assign To </label>
+                <select class="form-control" id="assignTo" name="assignTo">
+                  <option value="">Please Select</option>
+                </select>
+                <button type="button" class="btn btn-primary btn-sm">Assign</button>
+              </div>
+          </div>
+      </div>
+
+       <!-- --//-- --> 
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="responsive-table">
+                            <table class="table default-table">
+                                <thead>
+                                    <tr>
+                                        <th><input type="checkbox"></th>
+                                        <!-- <th>Status</th> -->
+                                        <th>Sender Name</th>
+                                        <th>Sent / Received</th>
+                                        <th>IPOS Reference No.</th>
+                                        <th>Type</th>
+                                        <th>Application No.</th>
+                                        <th>Subject</th>
+                                        <th>Applicant Name</th>
+                                        <th>Due Date</th>
+                                        <th>Correspondence Type</th>
+                                        <!-- <th>Size(kb)</th> -->
+                                        <th>Assigned To</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="checkbox"></td>
+                                        <!-- <td></td> -->
+                                        <td style="font-weight: bold">IPOS</td>
+                                        <td style="font-weight: bold">07/08/2020</td>
+                                        <td style="font-weight: bold">2020/567890987V</td>
+                                        <td style="font-weight: bold">Patents</td>
+                                        <td style="font-weight: bold">102020198732T</td>
+                                        <td style="font-weight: bold"><a href="#">PF14 - Notification of Grant</a></td>
+                                        <td style="font-weight: bold">Ken Lim</td>
+                                        <td style="font-weight: bold">NA</td>
+                                        <td style="font-weight: bold">Notification</td>
+                                        <!-- <td>92.37</td> -->
+                                        <td></td>
+                                    </tr>
+                                    <tr style="background-color: #F0F8FF">
+                                        <td><input type="checkbox"></td>
+                                        <!-- <td></td> -->
+                                        <td>IPOS</td>
+                                        <td>31/07/2020</td>
+                                        <td>2020/567890987V</td>
+                                        <td>Patents</td>
+                                        <td>1020208732T</td>
+                                        <td><a href="#">PF11 - Notice of Eligibility for Grant</a></td>
+                                        <td>Ken Lim</td>
+                                        <td>NA</td>
+                                        <td>Notification</td>
+                                        <!-- <td>92.37</td> -->
+                                        <td></td>
+                                    </tr>
+                                    <tr style="background-color: #F0F8FF">
+                                        <td><input type="checkbox"></td>
+                                        <!-- <td></td> -->
+                                        <td>IPOS</td>
+                                        <td>31/07/2020</td>
+                                        <td>2020/567890987V</td>
+                                        <td>Patents</td>
+                                        <td>1020208732T</td>
+                                        <td><a href="#">PF11 - Request for a Search and Exam Report Sent to Examiner</a></td>
+                                        <td>Ken Lim</td>
+                                        <td>NA</td>
+                                        <td>Notification</td>
+                                        <!-- <td>92.37</td> -->
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox"></td>
+                                        <!-- <td></td> -->
+                                        <td style="font-weight: bold">IPOS</td>
+                                        <td style="font-weight: bold">07/08/2020</td>
+                                        <td style="font-weight: bold">2020/567890987V</td>
+                                        <td style="font-weight: bold">Patents</td>
+                                        <td style="font-weight: bold">1029298732T</td>
+                                        <td style="font-weight: bold"><a href="#">PF1 - Preliminary Examination Cleared</a></td>
+                                        <td style="font-weight: bold">Ken Lim</td>
+                                        <td style="font-weight: bold">NA</td>
+                                        <td style="font-weight: bold">Notification</td>
+                                        <!-- <td>92.37</td> -->
+                                        <td></td>
+                                    </tr>
+                                    <tr style="background-color: #F0F8FF">
+                                        <td><input type="checkbox"></td>
+                                        <!-- <td></td> -->
+                                        <td>IPOS</td>
+                                        <td>31/07/2020</td>
+                                        <td>2020/567890987V</td>
+                                        <td>Patents</td>
+                                        <td>1020208732T</td>
+                                        <td><a href="#">PF1 - Notification of Filing Date</a></td>
+                                        <td>Ken Lim</td>
+                                        <td>NA</td>
+                                        <td>Notification</td>
+                                        <!-- <td>92.37</td> -->
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                        <div class="responsive-table">
+                            <table class="table default-table">
+                                <thead>
+                                    <tr>
+                                        <th>S/N</th>
+                                        <th>Name</th>
+                                        <th>Document Type</th>
+                                        <th>No. Of Pages</th>
+                                        <th>Remarks</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td><a href="#">Search Report.pdf</a></td>
+                                        <td>Local Attachment</td>
+                                        <td>7</td>
+                                        <td>2 figure(s) detected</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td><a href="#">Examination Report.pdf</a></td>
+                                        <td>Local Attachment</td>
+                                        <td>5</td>
+                                        <td>-</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      
-    </div>
-  </header>
-  <!--- Header End -->
-
-  <form id="mainForm" name="mainForm" method="post" action="/FACR/eservicecontinue/IP4SG/CR_CorrespondenceFolder/1/FormPage?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O">
-    <input type="hidden" name="sopEngineTabRef" value="16847214612626539">
-    <input type="hidden" name="act" id="act">
-    
-    <input type="hidden" name="okFamilyName" id="okFamilyName" value="69768420">
-    <input type="hidden" name="eMailAddress" id="eMailAddress">
-    <input type="hidden" name="iPhoneNumber" id="iPhoneNumber">
-    
-    <input type="text" style="display: none;" autocomplete="off"><!-- To fix the form with one input, press enter will submit form -->
-    
-
-  
 
 
+            <br />
+
+            <form id="ip4Form" action="pf1_payment.html">
 
 
+                <div class="row">
 
+                    <div class="col-xs-2 text-left">
+                        <a class="btn button-primary" href="pf1_step5.html">Previous</a>
+                    </div>
+                    <div class="col-xs-10 text-right">
+                        <button class="btn button-secondary" onclick="saveDraft()">Save as Draft</button>
+                        <button type="button" class="btn button-primary" id="printBtn">
+                            <i class="fa fa-print" aria-hidden="true"></i> Print
+                        </button>
+                        <button class="btn button-primary" formaction="pf1_cart.html" >Add to Cart</button>
+                        <button class="btn button-primary" id="paymentBtn">Make Payment</button>
+                    </div>
+                </div>
 
+                <!-- </div> -->
 
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="/FACR/css/datatables.min.css">
-<input type="hidden" id="isCp" name="isCp" value="false">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<input type="hidden" id="isSendSuccess" name="isSendSuccess" value="">
-<input type="hidden" id="isDefaultFolder" name="isDefaultFolder" value="Y">
-<input type="hidden" id="corrFolderGUID" name="corrFolderGUID" value="FEEAB3BF-A05B-4E38-BE65-FE9FCC4561AB">
-<input type="hidden" id="folderName" name="folderName" value="Inbox">
-<input type="hidden" id="isDefault" name="isDefault" value="N">
-<div class="container bg-light">
-  <div class="content">
-    
-    <div class="panel-group" id="searchFilter" style="">
-  <div class="panel panel-default" role="tablist">
-    <div class="panel-heading ">
-      <a class=" searchFilter collapsed" data-toggle="collapse" href="#3003329403242429">
-        <div class="panel-title">
-          <h4>Search</h4>
-        </div>
-      </a>
-      
-
-    </div>
-    <div id="3003329403242429" class="panel-collapse collapse">
-      <div class="p-5">
-      
-      <div class="form-group row">
-        <label class="col-md-3 control-label" for="corrType">Correspondence Type</label>
-        <div class="col-md-5 form-inline">
-          <select id="corrType" name="corrType" class="form-control">
-    <option value="">All</option>
-    <option value="ACK">Acknowledgement</option>
-    <option value="CER">Certificate</option>
-    <option value="COR">Correspondence</option>
-    <option value="DEF">Deficiency</option>
-    <option value="FIR">First and Only Notice (FON)</option>
-    <option value="NOT">Notification</option>
-    <option value="OTH">Others</option>
-    <option value="REM">Reminder</option>
-    <option value="TRA">Transaction</option>
-</select>
-        </div>
-      </div>
-      <div class="form-group row">
-        <label class="col-md-3 control-label" for="regType">Type</label>
-        <div class="col-md-5 form-inline">
-          <select id="regType" name="regType" class="form-control">
-    <option value="">All</option>
-    <option value="COMM">Common</option>
-    <option value="RD">Design</option>
-    <option value="GI">Geographical Indication</option>
-    <option value="HMD">Hearings &amp; Mediation</option>
-    <option value="PT">Patent</option>
-    <option value="PVP">Plant Varieties Protection</option>
-    <option value="TM">Trade Mark</option>
-</select>
-        </div>
-      </div>
-      <div class="form-group row">
-        <label class="col-md-3 control-label" for="appNumber">Application Number</label>
-        <div class="col-md-3">
-          <input class="form-control" type="text" id="appNumber" name="appNumber" maxlength="15" autocomplete="off">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label class="col-md-3 control-label" for="irNumber">IR Number</label>
-        <div class="col-md-3">
-          <input class="form-control" type="text" id="irNumber" name="irNumber" maxlength="20" autocomplete="off">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label class="col-md-3 control-label" for="iaNumber">IA Number</label>
-        <div class="col-md-3">
-          <input class="form-control" type="text" id="iaNumber" name="iaNumber" maxlength="20" autocomplete="off">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label class="col-md-3 control-label" for="caseNumber">Case Number</label>
-        <div class="col-md-3">
-          <input class="form-control" type="text" id="caseNumber" name="caseNumber" maxlength="20" autocomplete="off">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label class="col-md-3 control-label" for="nscCaseNumber">NSC Case Number</label>
-        <div class="col-md-3">
-          <input class="form-control" type="text" id="nscCaseNumber" name="nscCaseNumber" maxlength="20" autocomplete="off">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label class="col-md-3 control-label" for="conCaseNumber">Contravention Case Number</label>
-        <div class="col-md-3">
-          <input class="form-control" type="text" id="conCaseNumber" name="conCaseNumber" maxlength="20" autocomplete="off">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label class="col-md-3 control-label" for="eFileRefNumber">e-File Reference no.</label>
-        <div class="col-md-3">
-          <input class="form-control" type="text" id="eFileRefNumber" name="eFileRefNumber" maxlength="100" autocomplete="off">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label class="col-md-3 control-label" for="senderName">Sender Name</label>
-        <div class="col-md-5">
-          <input class="form-control" type="text" id="senderName" name="senderName" maxlength="256" autocomplete="off">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label class="col-md-3 control-label" for="appName">Applicant Name</label>
-        <div class="col-md-5">
-          <input class="form-control" type="text" id="appName" name="appName" maxlength="256" autocomplete="off">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label class="col-md-3 control-label" for="subTitle">Subject Title</label>
-        <div class="col-md-5">
-          <input class="form-control" type="text" id="subTitle" name="subTitle" maxlength="256" autocomplete="off">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label class="col-md-3 control-label" for="myReference">My Reference</label>
-        <div class="col-md-5">
-          <input class="form-control" type="text" id="myReference" name="myReference" maxlength="100" autocomplete="off">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label class="col-md-3" for="iposReference">IPOS Reference</label>
-        <div class="col-md-5 form-inline">
-          <input class="form-control" type="text" id="iposReference" name="iposReference" maxlength="100" autocomplete="off">
-        </div>
-      </div>
-      
-      <div class="form-group row">
-        <label class="col-md-3 control-label">Due Date</label>
-        <div class="col-md-2" style="padding-right: 0px;">
-          <div class="input-group date dateonly hasDatepicker" data-date="" data-date-format="dd/mm/yyyy" data-link-field="fordate" data-link-format="dd/mm/yyyy" style="width: 190px" id="dp1684721479797">
-            <input readonly="readonly" id="dueDateFrom" name="dueDateFrom" type="text" class="form-control" style="border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-right: 0px; background-color: #ffffff" aria-invalid="false" autocomplete="off"> <span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span></span>
-          <div class="ui-datepicker-inline ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all" style="display: block;"><div class="ui-datepicker-header ui-widget-header ui-helper-clearfix ui-corner-all"><a class="ui-datepicker-prev ui-corner-all" data-handler="prev" data-event="click" title="Prev"><span class="ui-icon ui-icon-circle-triangle-w">Prev</span></a><a class="ui-datepicker-next ui-corner-all" data-handler="next" data-event="click" title="Next"><span class="ui-icon ui-icon-circle-triangle-e">Next</span></a><div class="ui-datepicker-title"><span class="ui-datepicker-month">May</span>&nbsp;<span class="ui-datepicker-year">2023</span></div></div><table class="ui-datepicker-calendar"><thead><tr><th scope="col" class="ui-datepicker-week-end"><span title="Sunday">Su</span></th><th scope="col"><span title="Monday">Mo</span></th><th scope="col"><span title="Tuesday">Tu</span></th><th scope="col"><span title="Wednesday">We</span></th><th scope="col"><span title="Thursday">Th</span></th><th scope="col"><span title="Friday">Fr</span></th><th scope="col" class="ui-datepicker-week-end"><span title="Saturday">Sa</span></th></tr></thead><tbody><tr><td class=" ui-datepicker-week-end ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="1">1</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="2">2</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="3">3</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="4">4</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="5">5</a></td><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="6">6</a></td></tr><tr><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="7">7</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="8">8</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="9">9</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="10">10</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="11">11</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="12">12</a></td><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="13">13</a></td></tr><tr><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="14">14</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="15">15</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="16">16</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="17">17</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="18">18</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="19">19</a></td><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="20">20</a></td></tr><tr><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="21">21</a></td><td class=" ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today" data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default ui-state-highlight ui-state-active ui-state-hover" href="#" aria-current="true" data-date="22">22</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="23">23</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="24">24</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="25">25</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="26">26</a></td><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="27">27</a></td></tr><tr><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="28">28</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="29">29</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="30">30</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="31">31</a></td><td class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td><td class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td><td class=" ui-datepicker-week-end ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td></tr></tbody></table></div></div>
-        </div>
-        <div class="col-md-1 text-center" style="margin-top: 12px; padding-left: 22px; padding-right: 10px; width: 30px;flex:0;">
-          <span style="background-color: #0275d8; padding: 12px; color: white; border: 1px solid black; border-left: 0px; border-right: 0px"><strong>TO</strong></span>
-        </div>
-        <div class="col-md-2" style="padding-left: 36px;">
-          <div class="input-group date dateonly hasDatepicker" data-date="" data-date-format="dd/mm/yyyy" data-link-field="fordate" data-link-format="dd/mm/yyyy" style="width: 190px" id="dp1684721479798">
-            <input readonly="readonly" id="dueDateTo" name="dueDateTo" type="text" class="form-control" style="border-top-left-radius: 0px; border-bottom-left-radius: 0px; border-left: 0px; background-color: #ffffff" autocomplete="off"> <span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span></span>
-          <div class="ui-datepicker-inline ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all" style="display: block;"><div class="ui-datepicker-header ui-widget-header ui-helper-clearfix ui-corner-all"><a class="ui-datepicker-prev ui-corner-all" data-handler="prev" data-event="click" title="Prev"><span class="ui-icon ui-icon-circle-triangle-w">Prev</span></a><a class="ui-datepicker-next ui-corner-all" data-handler="next" data-event="click" title="Next"><span class="ui-icon ui-icon-circle-triangle-e">Next</span></a><div class="ui-datepicker-title"><span class="ui-datepicker-month">May</span>&nbsp;<span class="ui-datepicker-year">2023</span></div></div><table class="ui-datepicker-calendar"><thead><tr><th scope="col" class="ui-datepicker-week-end"><span title="Sunday">Su</span></th><th scope="col"><span title="Monday">Mo</span></th><th scope="col"><span title="Tuesday">Tu</span></th><th scope="col"><span title="Wednesday">We</span></th><th scope="col"><span title="Thursday">Th</span></th><th scope="col"><span title="Friday">Fr</span></th><th scope="col" class="ui-datepicker-week-end"><span title="Saturday">Sa</span></th></tr></thead><tbody><tr><td class=" ui-datepicker-week-end ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="1">1</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="2">2</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="3">3</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="4">4</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="5">5</a></td><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="6">6</a></td></tr><tr><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="7">7</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="8">8</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="9">9</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="10">10</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="11">11</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="12">12</a></td><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="13">13</a></td></tr><tr><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="14">14</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="15">15</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="16">16</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="17">17</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="18">18</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="19">19</a></td><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="20">20</a></td></tr><tr><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="21">21</a></td><td class=" ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today" data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default ui-state-highlight ui-state-active ui-state-hover" href="#" aria-current="true" data-date="22">22</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="23">23</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="24">24</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="25">25</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="26">26</a></td><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="27">27</a></td></tr><tr><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="28">28</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="29">29</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="30">30</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="31">31</a></td><td class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td><td class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td><td class=" ui-datepicker-week-end ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td></tr></tbody></table></div></div>
-        </div>
-      </div>
-      <div class="form-group row" style="margin-top: 1px;">
-        <label class="col-sm-3 control-label" style="text-align: right;"></label>
-        <div class="col-sm-9">
-          <input type="hidden" name="dueDateFromErrorMsg" id="dueDateFromErrorMsg">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label class="col-md-3 control-label">Sent/Received Date</label>
-        <div class="col-md-2" style="padding-right: 0px;">
-          <div class="input-group date dateonly hasDatepicker" data-date="" data-date-format="dd/mm/yyyy" data-link-field="fordate" data-link-format="dd/mm/yyyy" style="width: 190px" id="dp1684721479799">
-            <input readonly="readonly" id="sentDateFrom" name="sentDateFrom" type="text" class="form-control" style="border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-right: 0px; background-color: #ffffff" autocomplete="off"> <span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span></span>
-          <div class="ui-datepicker-inline ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all" style="display: block;"><div class="ui-datepicker-header ui-widget-header ui-helper-clearfix ui-corner-all"><a class="ui-datepicker-prev ui-corner-all" data-handler="prev" data-event="click" title="Prev"><span class="ui-icon ui-icon-circle-triangle-w">Prev</span></a><a class="ui-datepicker-next ui-corner-all" data-handler="next" data-event="click" title="Next"><span class="ui-icon ui-icon-circle-triangle-e">Next</span></a><div class="ui-datepicker-title"><span class="ui-datepicker-month">May</span>&nbsp;<span class="ui-datepicker-year">2023</span></div></div><table class="ui-datepicker-calendar"><thead><tr><th scope="col" class="ui-datepicker-week-end"><span title="Sunday">Su</span></th><th scope="col"><span title="Monday">Mo</span></th><th scope="col"><span title="Tuesday">Tu</span></th><th scope="col"><span title="Wednesday">We</span></th><th scope="col"><span title="Thursday">Th</span></th><th scope="col"><span title="Friday">Fr</span></th><th scope="col" class="ui-datepicker-week-end"><span title="Saturday">Sa</span></th></tr></thead><tbody><tr><td class=" ui-datepicker-week-end ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="1">1</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="2">2</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="3">3</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="4">4</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="5">5</a></td><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="6">6</a></td></tr><tr><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="7">7</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="8">8</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="9">9</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="10">10</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="11">11</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="12">12</a></td><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="13">13</a></td></tr><tr><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="14">14</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="15">15</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="16">16</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="17">17</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="18">18</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="19">19</a></td><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="20">20</a></td></tr><tr><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="21">21</a></td><td class=" ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today" data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default ui-state-highlight ui-state-active ui-state-hover" href="#" aria-current="true" data-date="22">22</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="23">23</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="24">24</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="25">25</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="26">26</a></td><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="27">27</a></td></tr><tr><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="28">28</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="29">29</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="30">30</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="31">31</a></td><td class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td><td class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td><td class=" ui-datepicker-week-end ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td></tr></tbody></table></div></div>
-        </div>
-        <div class="col-md-1 text-center" style="margin-top: 12px; padding-left: 22px; padding-right: 10px; width: 30px;flex:0;">
-          <span style="background-color: #0275d8; padding: 12px; color: white; border: 1px solid black; border-left: 0px; border-right: 0px"><strong>TO</strong></span>
-        </div>
-        <div class="col-md-2" style="padding-left: 36px;">
-          <div class="input-group date dateonly hasDatepicker" data-date="" data-date-format="dd/mm/yyyy" data-link-field="fordate" data-link-format="dd/mm/yyyy" style="width: 190px" id="dp1684721479800">
-            <input readonly="readonly" id="sentDateTo" name="sentDateTo" type="text" class="form-control" style="border-top-left-radius: 0px; border-bottom-left-radius: 0px; border-left: 0px; background-color: #ffffff" autocomplete="off"> <span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span></span>
-          <div class="ui-datepicker-inline ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all" style="display: block;"><div class="ui-datepicker-header ui-widget-header ui-helper-clearfix ui-corner-all"><a class="ui-datepicker-prev ui-corner-all" data-handler="prev" data-event="click" title="Prev"><span class="ui-icon ui-icon-circle-triangle-w">Prev</span></a><a class="ui-datepicker-next ui-corner-all" data-handler="next" data-event="click" title="Next"><span class="ui-icon ui-icon-circle-triangle-e">Next</span></a><div class="ui-datepicker-title"><span class="ui-datepicker-month">May</span>&nbsp;<span class="ui-datepicker-year">2023</span></div></div><table class="ui-datepicker-calendar"><thead><tr><th scope="col" class="ui-datepicker-week-end"><span title="Sunday">Su</span></th><th scope="col"><span title="Monday">Mo</span></th><th scope="col"><span title="Tuesday">Tu</span></th><th scope="col"><span title="Wednesday">We</span></th><th scope="col"><span title="Thursday">Th</span></th><th scope="col"><span title="Friday">Fr</span></th><th scope="col" class="ui-datepicker-week-end"><span title="Saturday">Sa</span></th></tr></thead><tbody><tr><td class=" ui-datepicker-week-end ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="1">1</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="2">2</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="3">3</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="4">4</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="5">5</a></td><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="6">6</a></td></tr><tr><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="7">7</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="8">8</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="9">9</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="10">10</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="11">11</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="12">12</a></td><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="13">13</a></td></tr><tr><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="14">14</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="15">15</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="16">16</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="17">17</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="18">18</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="19">19</a></td><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="20">20</a></td></tr><tr><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="21">21</a></td><td class=" ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today" data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default ui-state-highlight ui-state-active ui-state-hover" href="#" aria-current="true" data-date="22">22</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="23">23</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="24">24</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="25">25</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="26">26</a></td><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="27">27</a></td></tr><tr><td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="28">28</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="29">29</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="30">30</a></td><td class=" " data-handler="selectDay" data-event="click" data-month="4" data-year="2023"><a class="ui-state-default" href="#" aria-current="false" data-date="31">31</a></td><td class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td><td class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td><td class=" ui-datepicker-week-end ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td></tr></tbody></table></div></div>
-        </div>
-      </div>
-      <div class="form-group row" style="margin-top: 1px;">
-        <label class="col-sm-3 control-label" style="text-align: right;"></label>
-        <div class="col-sm-9">
-          <input type="hidden" name="sentDateFromErrorMsg" id="sentDateFromErrorMsg">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label class="col-md-3 control-label">Correspondence Status</label>
-        <div class="col-md-5 form-inline">
-          
-          <select id="corrStatus" name="corrStatus" class="form-control">
-    <option value="">All</option>
-    <option value="DOWNLOADED">Downloaded</option>
-    <option value="READ">Read</option>
-    <option value="RECALLED">Recalled</option>
-    <option value="REPLIED">Replied</option>
-    <option value="SENT">Sent</option>
-    <option value="UNREAD">Unread</option>
-</select>
-        </div>
-      </div>
-      
-      <div class="form-group">
-        <div class="text-right">
-          <button type="button" id="searchSection" class="btn button-primary">Search</button>
-          <button type="button" id="resetSection" class="btn button-secondary">Reset</button>
-        </div>
-      </div>
-          </div>
-    </div>
-  </div>
-</div>
-
-    <div class="panel-group" id="folderPannel" style="">
-  <div class="panel panel-default" role="tablist">
-    <div class="panel-heading ">
-      <a class=" folderPannel " data-toggle="collapse" href="#3003329411504811">
-        <div class="panel-title">
-          <h4>Inbox</h4>
-        </div>
-      </a>
-      
-
-    </div>
-    <div id="3003329411504811" class="panel-collapse collapse in">
-      <div class="p-5">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="form-group text-right" id="btnBar">
-            <button id="deleteBtn" data-value="Inbox" type="button" class="btn btn-secondary btn-sm">Delete</button>
-            
-              <button id="readBtn" type="button" class="btn btn-primary btn-sm">Mark as Read</button>
-            
-            
-              <button id="unReadBtn" type="button" class="btn btn-primary btn-sm">Mark as Unread</button>
-            
-            
-              
-                <input type="hidden" name="archiveFolderGuid" value="47101F9B-36FD-4B26-B001-1D9D2ED9AEFD">
-                <button id="archivedBtn" type="button" class="btn btn-primary btn-sm">Archive</button>
-              
-            
-            
-              <button id="downloadBtn" type="button" class="btn btn-primary btn-sm">Download</button>
-            
-            
-              <button id="export-corr" type="button" class="btn btn-primary btn-sm" data-toggle="modal">Export (csv)</button>
-              
-                <button id="move-corr" type="button" class="btn btn-primary btn-sm" data-toggle="modal">Move</button>
-              
-              
                 
-              
-            
-          </div>
+
+                <br />
+
+            </form>
+
         </div>
-        <input name="errorMsg" id="errorMsg" type="hidden">
-      </div>
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="form-group">
-            <div class="responsive-table" style="overflow-x: scroll">
-              <input name="viewCustPortalGUID" id="viewCustPortalGUID" type="hidden">
-              <div id="corrListing_wrapper" class="dataTables_wrapper no-footer"><div class="dataTables_length" id="corrListing_length"><label>Show <select name="corrListing_length" aria-controls="corrListing" class=""><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div><div id="corrListing_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="corrListing"></label></div><br><br>Correspondence items are arranged from the newest to the oldest. You may click on the respective header to sort the correspondence accordingly.<div id="corrListing_processing" class="dataTables_processing" role="status" style="display: none;"><div><div></div><div></div><div></div><div></div></div></div><table id="corrListing" class="table default-table dataTable no-footer" style="font-size: x-small" role="grid" aria-describedby="corrListing_info">
-                  <thead>
-                  <tr role="row"><th class="sorting_disabled" rowspan="1" colspan="1" aria-label="
-                      
-                    ">
-                      <input type="checkbox" name="corrCustPortalGuidAll">
-                    </th><th class="sorting" tabindex="0" aria-controls="corrListing" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending">Status</th><th id="sentDateTh" class="sorting" tabindex="0" aria-controls="corrListing" rowspan="1" colspan="1" aria-label="Sent / Received: activate to sort column ascending">Sent / Received</th><th id="myRefTh" class="sorting" tabindex="0" aria-controls="corrListing" rowspan="1" colspan="1" aria-label="My Reference: activate to sort column ascending">My Reference</th><th id="typeTh" class="sorting" tabindex="0" aria-controls="corrListing" rowspan="1" colspan="1" aria-label="Type: activate to sort column ascending">Type</th><th class="sorting_disabled" rowspan="1" colspan="1" aria-label="Application No.">Application No.</th><th class="sorting" tabindex="0" aria-controls="corrListing" rowspan="1" colspan="1" aria-label="Subject: activate to sort column ascending">Subject</th><th id="appNameTh" class="sorting_disabled" rowspan="1" colspan="1" aria-label="Applicant Name">Applicant Name</th><th id="dueDateTh" class="sorting" tabindex="0" aria-controls="corrListing" rowspan="1" colspan="1" aria-label="Due Date: activate to sort column ascending">Due Date</th><th id="corrTypeTh" class="sorting" tabindex="0" aria-controls="corrListing" rowspan="1" colspan="1" aria-label="Correspondence Type: activate to sort column ascending">Correspondence Type</th></tr>
-                  </thead>
-                  <tbody>
-                  <tr class="odd"><td><input type="checkbox" name="corrCustPortalGuid" value="6B34792E-CAC1-4D9D-BE22-6C700F29B58C"></td><td><i class="fa fa-folder-open-o" style="font-size: 15px;" title="Read"></i></td><td>17/05/2023</td><td>-</td><td>Trade Mark</td><td>40202300681U</td><td><a href="javascript:void(0);" class="corrSubject" data-value="6B34792E-CAC1-4D9D-BE22-6C700F29B58C">Ad Hoc Correspondence Letter</a></td><td>test</td><td>-</td><td>Correspondence</td></tr><tr class="even"><td><input type="checkbox" name="corrCustPortalGuid" value="6B7F094F-0F82-4DDB-B370-E285791273AC"></td><td><i class="fa fa-folder-open-o" style="font-size: 15px;" title="Read"></i></td><td>10/05/2023</td><td>-</td><td>Patent</td><td>10202200801D</td><td><a href="javascript:void(0);" class="corrSubject" data-value="6B7F094F-0F82-4DDB-B370-E285791273AC">Deficiency Reminder</a></td><td>Gervaise</td><td>02/08/2023</td><td>Reminder</td></tr><tr class="odd"><td><input type="checkbox" name="corrCustPortalGuid" value="F7B4250B-D728-42FA-B365-6BAB943EEA05"></td><td><i class="fa fa-folder-open-o" style="font-size: 15px;" title="Read"></i></td><td>09/05/2023</td><td>-</td><td>Trade Mark</td><td>40202300286T</td><td><a href="javascript:void(0);" class="corrSubject" data-value="F7B4250B-D728-42FA-B365-6BAB943EEA05">Ad Hoc Correspondence Letter</a></td><td>test</td><td>-</td><td>Correspondence</td></tr><tr class="even"><td><input type="checkbox" name="corrCustPortalGuid" value="A9E88251-0B73-48EE-AE1D-0C57DD9AE14B"></td><td><i class="fa fa-folder-open-o" style="font-size: 15px;" title="Read"></i></td><td>05/05/2023</td><td>-</td><td>Patent</td><td>10202300253R</td><td><a href="javascript:void(0);" class="corrSubject" data-value="A9E88251-0B73-48EE-AE1D-0C57DD9AE14B">SECT34 Clearance - National Security Clearance Letter</a></td><td>Bo Bo</td><td>-</td><td>Notification</td></tr><tr class="odd"><td><input type="checkbox" name="corrCustPortalGuid" value="A1F9387B-A95C-4ABB-B589-39BFE2BE6F14"></td><td><i class="fa fa-folder-open-o" style="font-size: 15px;" title="Read"></i></td><td>05/05/2023</td><td>-</td><td>Patent</td><td>10202300253R</td><td><a href="javascript:void(0);" class="corrSubject" data-value="A1F9387B-A95C-4ABB-B589-39BFE2BE6F14">PF1 - FE Clear Report</a></td><td>Bo Bo</td><td>-</td><td>Notification</td></tr><tr class="even"><td><input type="checkbox" name="corrCustPortalGuid" value="5A2A2ADC-E02B-4404-AFB1-55093EA14057"></td><td><i class="fa fa-folder-open-o" style="font-size: 15px;" title="Read"></i></td><td>05/05/2023</td><td>-</td><td>Patent</td><td>10202300253R</td><td><a href="javascript:void(0);" class="corrSubject" data-value="5A2A2ADC-E02B-4404-AFB1-55093EA14057">PF1 - Notification of Filing Date</a></td><td>Bo Bo</td><td>-</td><td>Notification</td></tr><tr class="odd"><td><input type="checkbox" name="corrCustPortalGuid" value="0366E172-5266-48E6-BF1D-0FD9666B223C"></td><td><i class="fa fa-folder-open-o" style="font-size: 15px;" title="Read"></i></td><td>03/05/2023</td><td>10202250635N</td><td>Patent</td><td>10202250635N</td><td><a href="javascript:void(0);" class="corrSubject" data-value="0366E172-5266-48E6-BF1D-0FD9666B223C">PF17 - Grant of Leave to Amend the Specification after Grant</a></td><td>dowoon</td><td>03/08/2023</td><td>Notification</td></tr><tr class="even"><td><input type="checkbox" name="corrCustPortalGuid" value="84CE5378-73D4-49B0-8632-D5A1736F636C"></td><td><i class="fa fa-folder-open-o" style="font-size: 15px;" title="Read"></i></td><td>03/05/2023</td><td>dd</td><td>Common</td><td>10202203914H</td><td><a href="javascript:void(0);" class="corrSubject" data-value="84CE5378-73D4-49B0-8632-D5A1736F636C">Ad Hoc Correspondence Letter</a></td><td>Smokey test for 230622 SIT</td><td>-</td><td>Correspondence</td></tr><tr class="odd"><td><input type="checkbox" name="corrCustPortalGuid" value="D0E4EEC3-19B2-4B18-80E0-77D4D72246C2"></td><td><i class="fa fa-mail-forward" style="font-size: 15px;" title="Replied"></i></td><td>03/05/2023</td><td>-</td><td>Common</td><td>10202203914H</td><td><a href="javascript:void(0);" class="corrSubject" data-value="D0E4EEC3-19B2-4B18-80E0-77D4D72246C2">CM1 - Appoint or Change of Agent's Particulars</a></td><td>Smokey test for 230622 SIT</td><td>-</td><td>Notification</td></tr><tr class="even"><td><input type="checkbox" name="corrCustPortalGuid" value="02348750-F24E-4B5A-9451-C0C5FEA655B9"></td><td><i class="fa fa-mail-forward" style="font-size: 15px;" title="Replied"></i></td><td>03/05/2023</td><td>-</td><td>Patent</td><td>10202203914H</td><td><a href="javascript:void(0);" class="corrSubject" data-value="02348750-F24E-4B5A-9451-C0C5FEA655B9">PF17 - Deficiency</a></td><td>Smokey test for 230622 SIT</td><td>03/07/2023</td><td>Deficiency</td></tr><tr class="odd"><td><input type="checkbox" name="corrCustPortalGuid" value="E1BC5507-25ED-48A1-A8AB-0FDACBBBD36C"></td><td><i class="fa fa-folder-open-o" style="font-size: 15px;" title="Read"></i></td><td>03/05/2023</td><td>ss</td><td>Common</td><td>11202250289X</td><td><a href="javascript:void(0);" class="corrSubject" data-value="E1BC5507-25ED-48A1-A8AB-0FDACBBBD36C">Ad Hoc Correspondence Letter</a></td><td>INNOVGAS PTY LTD</td><td>-</td><td>Correspondence</td></tr><tr class="even"><td><input type="checkbox" name="corrCustPortalGuid" value="5CCBE7C5-809E-48D1-B2BF-828BC93E9CE2"></td><td><i class="fa fa-mail-forward" style="font-size: 15px;" title="Replied"></i></td><td>03/05/2023</td><td>-</td><td>Patent</td><td>11202250289X</td><td><a href="javascript:void(0);" class="corrSubject" data-value="5CCBE7C5-809E-48D1-B2BF-828BC93E9CE2">PF17 - Deficiency</a></td><td>INNOVGAS PTY LTD</td><td>03/07/2023</td><td>Deficiency</td></tr><tr class="odd"><td><input type="checkbox" name="corrCustPortalGuid" value="B8AEA614-75A8-4D68-8D27-DB08E98EF31D"></td><td><i class="fa fa-mail-forward" style="font-size: 15px;" title="Replied"></i></td><td>03/05/2023</td><td>-</td><td>Common</td><td>11202250289X</td><td><a href="javascript:void(0);" class="corrSubject" data-value="B8AEA614-75A8-4D68-8D27-DB08E98EF31D">CM1 - Appoint or Change of Agent's Particulars</a></td><td>INNOVGAS PTY LTD</td><td>-</td><td>Notification</td></tr><tr class="even"><td><input type="checkbox" name="corrCustPortalGuid" value="83A16FF5-980F-4D3E-8990-4A7BC8BAD27C"></td><td><i class="fa fa-mail-forward" style="font-size: 15px;" title="Replied"></i></td><td>03/05/2023</td><td>-</td><td>Patent</td><td>11202250289X</td><td><a href="javascript:void(0);" class="corrSubject" data-value="83A16FF5-980F-4D3E-8990-4A7BC8BAD27C">PF17 - Deficiency</a></td><td>INNOVGAS PTY LTD</td><td>03/07/2023</td><td>Deficiency</td></tr><tr class="odd"><td><input type="checkbox" name="corrCustPortalGuid" value="CEB7A4F5-7D00-4EB0-8FFD-C98BC735E497"></td><td><i class="fa fa-folder-open-o" style="font-size: 15px;" title="Read"></i></td><td>03/05/2023</td><td>ff</td><td>Patent</td><td>10202250635N</td><td><a href="javascript:void(0);" class="corrSubject" data-value="CEB7A4F5-7D00-4EB0-8FFD-C98BC735E497">Ad Hoc Correspondence Letter</a></td><td>dowoon</td><td>-</td><td>Correspondence</td></tr><tr class="even"><td><input type="checkbox" name="corrCustPortalGuid" value="72F02A5A-C5B7-4BD7-BB66-6B80CF508998"></td><td><i class="fa fa-folder-open-o" style="font-size: 15px;" title="Read"></i></td><td>03/05/2023</td><td>dd</td><td>Patent</td><td>10202250635N</td><td><a href="javascript:void(0);" class="corrSubject" data-value="72F02A5A-C5B7-4BD7-BB66-6B80CF508998">Ad Hoc Correspondence Letter</a></td><td>dowoon</td><td>-</td><td>Correspondence</td></tr><tr class="odd"><td><input type="checkbox" name="corrCustPortalGuid" value="FA43EA0E-F15A-4EDC-87EE-B97106C5A698"></td><td><i class="fa fa-mail-forward" style="font-size: 15px;" title="Replied"></i></td><td>03/05/2023</td><td>10202250635N</td><td>Patent</td><td>10202250635N</td><td><a href="javascript:void(0);" class="corrSubject" data-value="FA43EA0E-F15A-4EDC-87EE-B97106C5A698">PF17 - Grant of Leave to Amend the Specification after Grant</a></td><td>dowoon</td><td>03/08/2023</td><td>Notification</td></tr><tr class="even"><td><input type="checkbox" name="corrCustPortalGuid" value="E8E5A5F3-F391-4E8A-9A04-8963F5BA1154"></td><td><i class="fa fa-mail-forward" style="font-size: 15px;" title="Replied"></i></td><td>03/05/2023</td><td>-</td><td>Patent</td><td>11202250376J</td><td><a href="javascript:void(0);" class="corrSubject" data-value="E8E5A5F3-F391-4E8A-9A04-8963F5BA1154">PF17 - Deficiency</a></td><td>BECTON, DICKINSON AND COMPANY</td><td>03/07/2023</td><td>Deficiency</td></tr><tr class="odd"><td><input type="checkbox" name="corrCustPortalGuid" value="17D64F89-5660-4552-8D55-C5E51D7CB841"></td><td><i class="fa fa-folder-open-o" style="font-size: 15px;" title="Read"></i></td><td>03/05/2023</td><td>-</td><td>Patent</td><td>11202250376J</td><td><a href="javascript:void(0);" class="corrSubject" data-value="17D64F89-5660-4552-8D55-C5E51D7CB841">PF17 - Deficiency</a></td><td>BECTON, DICKINSON AND COMPANY</td><td>03/07/2023</td><td>Deficiency</td></tr><tr class="even"><td><input type="checkbox" name="corrCustPortalGuid" value="5939B343-D105-4F46-B8D9-1DFC326E7386"></td><td><i class="fa fa-mail-forward" style="font-size: 15px;" title="Replied"></i></td><td>03/05/2023</td><td>-</td><td>Patent</td><td>11202250111X</td><td><a href="javascript:void(0);" class="corrSubject" data-value="5939B343-D105-4F46-B8D9-1DFC326E7386">PF17 - Deficiency</a></td><td>QUALCOMM INCORPORATED,<br>XUE, Yisheng,<br>SUN, Jing<span title="QUALCOMM INCORPORATED,
-XUE, Yisheng,
-SUN, Jing,
-ZHANG, Xiaoxia,
-LIU, Chih-Hao,
-OZTURK, Ozcan,
-KHOSHNEVISAN, Mostafa,
-LUO, Tao,
-MONTOJO, Juan,
-GAAL, Peter,
-GUPTA, Piyush,
-XU, Changlong" class="withOther">, ...</span></td><td>03/07/2023</td><td>Deficiency</td></tr><tr class="odd"><td><input type="checkbox" name="corrCustPortalGuid" value="F408483B-661B-4FDB-9938-B38F7769D1CC"></td><td><i class="fa fa-folder-open-o" style="font-size: 15px;" title="Read"></i></td><td>03/05/2023</td><td>-</td><td>Patent</td><td>10202250635N</td><td><a href="javascript:void(0);" class="corrSubject" data-value="F408483B-661B-4FDB-9938-B38F7769D1CC">PF17 - Refusal</a></td><td>dowoon</td><td>-</td><td>Notification</td></tr><tr class="even"><td><input type="checkbox" name="corrCustPortalGuid" value="29DD84A2-7B58-4D25-88CB-1C6D9214983C"></td><td><i class="fa fa-mail-forward" style="font-size: 15px;" title="Replied"></i></td><td>03/05/2023</td><td>-</td><td>Patent</td><td>10202250635N</td><td><a href="javascript:void(0);" class="corrSubject" data-value="29DD84A2-7B58-4D25-88CB-1C6D9214983C">PF17 - Intention to Refuse Request for Post-grant Amendment of Specification</a></td><td>dowoon</td><td>03/06/2023</td><td>Notification</td></tr><tr class="odd"><td><input type="checkbox" name="corrCustPortalGuid" value="BB3EFE21-23AF-4CD4-9196-479A008A4B10"></td><td><i class="fa fa-mail-forward" style="font-size: 15px;" title="Replied"></i></td><td>03/05/2023</td><td>-</td><td>Patent</td><td>10202250635N</td><td><a href="javascript:void(0);" class="corrSubject" data-value="BB3EFE21-23AF-4CD4-9196-479A008A4B10">PF17 - Deficiency</a></td><td>dowoon</td><td>03/07/2023</td><td>Deficiency</td></tr><tr class="even"><td><input type="checkbox" name="corrCustPortalGuid" value="7BF9F13A-F705-419E-BAF6-54AC97A6EDB3"></td><td><i class="fa fa-mail-forward" style="font-size: 15px;" title="Replied"></i></td><td>03/05/2023</td><td>-</td><td>Patent</td><td>10202250635N</td><td><a href="javascript:void(0);" class="corrSubject" data-value="7BF9F13A-F705-419E-BAF6-54AC97A6EDB3">PF17 - Deficiency</a></td><td>dowoon</td><td>03/07/2023</td><td>Deficiency</td></tr><tr class="odd"><td><input type="checkbox" name="corrCustPortalGuid" value="D6EC733B-3F57-45AD-9CAD-0AAD5DE4A9E3"></td><td><i class="fa fa-mail-forward" style="font-size: 15px;" title="Replied"></i></td><td>03/05/2023</td><td>10202250635N</td><td>Patent</td><td>10202250635N</td><td><a href="javascript:void(0);" class="corrSubject" data-value="D6EC733B-3F57-45AD-9CAD-0AAD5DE4A9E3">PF17 - Grant of Leave to Amend the Specification after Grant</a></td><td>dowoon</td><td>03/08/2023</td><td>Notification</td></tr><tr class="even"><td><input type="checkbox" name="corrCustPortalGuid" value="9EABA025-6322-4BC8-BF74-EC3676F89FFD"></td><td><i class="fa fa-folder-open-o" style="font-size: 15px;" title="Read"></i></td><td>03/05/2023</td><td>sdf</td><td>Patent</td><td>10202250635N</td><td><a href="javascript:void(0);" class="corrSubject" data-value="9EABA025-6322-4BC8-BF74-EC3676F89FFD">Ad Hoc Correspondence Letter</a></td><td>dowoon</td><td>-</td><td>Correspondence</td></tr><tr class="odd"><td><input type="checkbox" name="corrCustPortalGuid" value="9CC7318A-BB00-4A67-87DC-E30E207A0348"></td><td><i class="fa fa-folder-open-o" style="font-size: 15px;" title="Read"></i></td><td>03/05/2023</td><td>sdf</td><td>Patent</td><td>10202250635N</td><td><a href="javascript:void(0);" class="corrSubject" data-value="9CC7318A-BB00-4A67-87DC-E30E207A0348">Ad Hoc Correspondence Letter</a></td><td>dowoon</td><td>-</td><td>Correspondence</td></tr><tr class="even"><td><input type="checkbox" name="corrCustPortalGuid" value="65240675-C4B2-442A-8289-02425B16D15D"></td><td><i class="fa fa-mail-forward" style="font-size: 15px;" title="Replied"></i></td><td>03/05/2023</td><td>adsf</td><td>Patent</td><td>10202250635N</td><td><a href="javascript:void(0);" class="corrSubject" data-value="65240675-C4B2-442A-8289-02425B16D15D">Ad Hoc Correspondence Letter</a></td><td>dowoon</td><td>-</td><td>Correspondence</td></tr><tr class="odd"><td><input type="checkbox" name="corrCustPortalGuid" value="FF641627-EE41-466A-84ED-9CD4BC5D321A"></td><td><i class="fa fa-mail-forward" style="font-size: 15px;" title="Replied"></i></td><td>03/05/2023</td><td>adsf</td><td>Patent</td><td>10202250635N</td><td><a href="javascript:void(0);" class="corrSubject" data-value="FF641627-EE41-466A-84ED-9CD4BC5D321A">Ad Hoc Correspondence Letter</a></td><td>dowoon</td><td>-</td><td>Correspondence</td></tr><tr class="even"><td><input type="checkbox" name="corrCustPortalGuid" value="D81A5670-BA9E-4183-A4AD-4FEB65BCFBA1"></td><td><i class="fa fa-mail-forward" style="font-size: 15px;" title="Replied"></i></td><td>03/05/2023</td><td>10202250635N</td><td>Patent</td><td>10202250635N</td><td><a href="javascript:void(0);" class="corrSubject" data-value="D81A5670-BA9E-4183-A4AD-4FEB65BCFBA1">PF17 - Grant of Leave to Amend the Specification after Grant</a></td><td>dowoon</td><td>03/08/2023</td><td>Notification</td></tr><tr class="odd"><td><input type="checkbox" name="corrCustPortalGuid" value="510BCA5B-E868-475E-BA78-C627E81E5506"></td><td><i class="fa fa-folder-open-o" style="font-size: 15px;" title="Read"></i></td><td>02/05/2023</td><td>-</td><td>Common</td><td>10202200801D</td><td><a href="javascript:void(0);" class="corrSubject" data-value="510BCA5B-E868-475E-BA78-C627E81E5506">CM1 - Appoint or Change of Agent's Particulars</a></td><td>Gervaise</td><td>-</td><td>Notification</td></tr><tr class="even"><td><input type="checkbox" name="corrCustPortalGuid" value="2C13E40F-850C-448C-BE5D-E5851A8378AB"></td><td><i class="fa fa-folder-open-o" style="font-size: 15px;" title="Read"></i></td><td>02/05/2023</td><td>-</td><td>Patent</td><td>10202200801D</td><td><a href="javascript:void(0);" class="corrSubject" data-value="2C13E40F-850C-448C-BE5D-E5851A8378AB">PF17 - Deficiency</a></td><td>Gervaise</td><td>02/08/2023</td><td>Deficiency</td></tr><tr class="odd"><td><input type="checkbox" name="corrCustPortalGuid" value="5EA31E18-1AC2-4907-91FF-4376F8F7844C"></td><td><i class="fa fa-mail-forward" style="font-size: 15px;" title="Replied"></i><i class="fa fa-download" style="font-size: 15px;" title="Downloaded"></i></td><td>02/05/2023</td><td>-</td><td>Patent</td><td>11202250111X</td><td><a href="javascript:void(0);" class="corrSubject" data-value="5EA31E18-1AC2-4907-91FF-4376F8F7844C">PF17 - Deficiency</a></td><td>QUALCOMM INCORPORATED,<br>XUE, Yisheng,<br>SUN, Jing<span title="QUALCOMM INCORPORATED,
-XUE, Yisheng,
-SUN, Jing,
-ZHANG, Xiaoxia,
-LIU, Chih-Hao,
-OZTURK, Ozcan,
-KHOSHNEVISAN, Mostafa,
-LUO, Tao,
-MONTOJO, Juan,
-GAAL, Peter,
-GUPTA, Piyush,
-XU, Changlong" class="withOther">, ...</span></td><td>02/07/2023</td><td>Deficiency</td></tr><tr class="even"><td><input type="checkbox" name="corrCustPortalGuid" value="BC2CACCA-7D78-47FB-B86A-839C186A5CC7"></td><td><i class="fa fa-folder-open-o" style="font-size: 15px;" title="Read"></i></td><td>02/05/2023</td><td>-</td><td>Common</td><td>11202250111X</td><td><a href="javascript:void(0);" class="corrSubject" data-value="BC2CACCA-7D78-47FB-B86A-839C186A5CC7">CM1 - Appoint or Change of Agent's Particulars</a></td><td>QUALCOMM INCORPORATED,<br>XUE, Yisheng,<br>SUN, Jing<span title="QUALCOMM INCORPORATED,
-XUE, Yisheng,
-SUN, Jing,
-ZHANG, Xiaoxia,
-LIU, Chih-Hao,
-OZTURK, Ozcan,
-KHOSHNEVISAN, Mostafa,
-LUO, Tao,
-MONTOJO, Juan,
-GAAL, Peter,
-GUPTA, Piyush,
-XU, Changlong" class="withOther">, ...</span></td><td>-</td><td>Notification</td></tr><tr class="odd"><td><input type="checkbox" name="corrCustPortalGuid" value="EC48E740-A2A2-4017-BDDB-2652BAEB3961"></td><td><i class="fa fa-folder-open-o" style="font-size: 15px;" title="Read"></i></td><td>02/05/2023</td><td>-</td><td>Patent</td><td>11202250111X</td><td><a href="javascript:void(0);" class="corrSubject" data-value="EC48E740-A2A2-4017-BDDB-2652BAEB3961">PF17 - Deficiency</a></td><td>QUALCOMM INCORPORATED,<br>XUE, Yisheng,<br>SUN, Jing<span title="QUALCOMM INCORPORATED,
-XUE, Yisheng,
-SUN, Jing,
-ZHANG, Xiaoxia,
-LIU, Chih-Hao,
-OZTURK, Ozcan,
-KHOSHNEVISAN, Mostafa,
-LUO, Tao,
-MONTOJO, Juan,
-GAAL, Peter,
-GUPTA, Piyush,
-XU, Changlong" class="withOther">, ...</span></td><td>02/07/2023</td><td>Deficiency</td></tr><tr class="even"><td><input type="checkbox" name="corrCustPortalGuid" value="110ABE33-0F34-4FF5-85B7-B3DFB675786B"></td><td><i class="fa fa-folder-open-o" style="font-size: 15px;" title="Read"></i></td><td>02/05/2023</td><td>ss</td><td>Patent</td><td>10202300250W</td><td><a href="javascript:void(0);" class="corrSubject" data-value="110ABE33-0F34-4FF5-85B7-B3DFB675786B">Ad Hoc Correspondence Letter</a></td><td>Zay Ya Zaw</td><td>-</td><td>Correspondence</td></tr><tr class="odd"><td><input type="checkbox" name="corrCustPortalGuid" value="3DF44B35-087B-4B11-AAB4-41DD1343AC7A"></td><td><i class="fa fa-mail-forward" style="font-size: 15px;" title="Replied"></i></td><td>02/05/2023</td><td>ds</td><td>Patent</td><td>10202300250W</td><td><a href="javascript:void(0);" class="corrSubject" data-value="3DF44B35-087B-4B11-AAB4-41DD1343AC7A">Ad Hoc Correspondence Letter</a></td><td>Zay Ya Zaw</td><td>-</td><td>Correspondence</td></tr><tr class="even"><td><input type="checkbox" name="corrCustPortalGuid" value="A7BEC526-F70A-47E8-A26B-DFAFB30B0DA8"></td><td><i class="fa fa-mail-forward" style="font-size: 15px;" title="Replied"></i></td><td>02/05/2023</td><td>sd</td><td>Patent</td><td>10202300250W</td><td><a href="javascript:void(0);" class="corrSubject" data-value="A7BEC526-F70A-47E8-A26B-DFAFB30B0DA8">PF1 - Notification of Filing Date</a></td><td>Zay Ya Zaw</td><td>-</td><td>Notification</td></tr><tr class="odd"><td><input type="checkbox" name="corrCustPortalGuid" value="7AAD7913-D60F-4761-A56B-E0459AB836EF"></td><td><i class="fa fa-mail-forward" style="font-size: 15px;" title="Replied"></i></td><td>02/05/2023</td><td>-</td><td>Patent</td><td>10202300218W</td><td><a href="javascript:void(0);" class="corrSubject" data-value="7AAD7913-D60F-4761-A56B-E0459AB836EF">PF17 - Intention to Refuse Request for Post-grant Amendment of Specification</a></td><td>Huang Zhong</td><td>02/06/2023</td><td>Notification</td></tr><tr class="even"><td><input type="checkbox" name="corrCustPortalGuid" value="B91BC992-EA20-464F-A04C-925770D8E14E"></td><td><i class="fa fa-folder-open-o" style="font-size: 15px;" title="Read"></i></td><td>02/05/2023</td><td>-</td><td>Common</td><td>11202250376J</td><td><a href="javascript:void(0);" class="corrSubject" data-value="B91BC992-EA20-464F-A04C-925770D8E14E">CM1 - Refusal Notification Letter</a></td><td>BECTON, DICKINSON AND COMPANY</td><td>-</td><td>Notification</td></tr><tr class="odd"><td><input type="checkbox" name="corrCustPortalGuid" value="3D2E45D4-52E3-4C70-B5D7-5AE5379D460C"></td><td><i class="fa fa-folder-open-o" style="font-size: 15px;" title="Read"></i></td><td>02/05/2023</td><td>-</td><td>Common</td><td>11202250376J</td><td><a href="javascript:void(0);" class="corrSubject" data-value="3D2E45D4-52E3-4C70-B5D7-5AE5379D460C">CM1 - Appoint or Change of Agent's Particulars</a></td><td>BECTON, DICKINSON AND COMPANY</td><td>-</td><td>Notification</td></tr><tr class="even"><td><input type="checkbox" name="corrCustPortalGuid" value="F22F7FF0-C90B-4A4F-866F-11015C1D63CA"></td><td><i class="fa fa-folder-open-o" style="font-size: 15px;" title="Read"></i></td><td>02/05/2023</td><td>-</td><td>Patent</td><td>11202250376J</td><td><a href="javascript:void(0);" class="corrSubject" data-value="F22F7FF0-C90B-4A4F-866F-11015C1D63CA">PF17 - Deficiency</a></td><td>BECTON, DICKINSON AND COMPANY</td><td>02/07/2023</td><td>Deficiency</td></tr><tr class="odd"><td><input type="checkbox" name="corrCustPortalGuid" value="F7AB205A-477C-4058-957F-E147F8AC84B5"></td><td><i class="fa fa-mail-forward" style="font-size: 15px;" title="Replied"></i></td><td>02/05/2023</td><td>-</td><td>Patent</td><td>10202300218W</td><td><a href="javascript:void(0);" class="corrSubject" data-value="F7AB205A-477C-4058-957F-E147F8AC84B5">PF17 - Deficiency</a></td><td>Huang Zhong</td><td>02/07/2023</td><td>Deficiency</td></tr><tr class="even"><td><input type="checkbox" name="corrCustPortalGuid" value="B413ECF1-EA4C-4151-8CBE-DB2221968FA3"></td><td><i class="fa fa-mail-forward" style="font-size: 15px;" title="Replied"></i></td><td>02/05/2023</td><td>-</td><td>Common</td><td>10202300218W</td><td><a href="javascript:void(0);" class="corrSubject" data-value="B413ECF1-EA4C-4151-8CBE-DB2221968FA3">CM1 - Appoint or Change of Agent's Particulars</a></td><td>Huang Zhong</td><td>-</td><td>Notification</td></tr><tr class="odd"><td><input type="checkbox" name="corrCustPortalGuid" value="4B7638AA-6FD5-426C-800F-3EB01D348FD4"></td><td><i class="fa fa-mail-forward" style="font-size: 15px;" title="Replied"></i></td><td>02/05/2023</td><td>-</td><td>Patent</td><td>10202300218W</td><td><a href="javascript:void(0);" class="corrSubject" data-value="4B7638AA-6FD5-426C-800F-3EB01D348FD4">PF17 - Deficiency</a></td><td>Huang Zhong</td><td>02/07/2023</td><td>Deficiency</td></tr><tr class="even"><td><input type="checkbox" name="corrCustPortalGuid" value="2C8CE83D-2664-4800-B974-B521D7D0B519"></td><td><i class="fa fa-mail-forward" style="font-size: 15px;" title="Replied"></i></td><td>28/04/2023</td><td>10202250635N</td><td>Patent</td><td>10202250635N</td><td><a href="javascript:void(0);" class="corrSubject" data-value="2C8CE83D-2664-4800-B974-B521D7D0B519">PF17 - Send PF17 Request  to Examiner</a></td><td>dowoon</td><td>28/06/2023</td><td>Notification</td></tr><tr class="odd"><td><input type="checkbox" name="corrCustPortalGuid" value="035CA650-512A-4CA2-91E6-53ABDD119CB5"></td><td><i class="fa fa-folder-open-o" style="font-size: 15px;" title="Read"></i></td><td>28/04/2023</td><td>-</td><td>Patent</td><td>10202250635N</td><td><a href="javascript:void(0);" class="corrSubject" data-value="035CA650-512A-4CA2-91E6-53ABDD119CB5">Ad Hoc Correspondence Letter</a></td><td>dowoon</td><td>-</td><td>Correspondence</td></tr><tr class="even"><td><input type="checkbox" name="corrCustPortalGuid" value="26009F71-AE0B-4CB8-83B2-891AB43F9BCF"></td><td><i class="fa fa-mail-forward" style="font-size: 15px;" title="Replied"></i></td><td>28/04/2023</td><td>10202250635N</td><td>Patent</td><td>10202250635N</td><td><a href="javascript:void(0);" class="corrSubject" data-value="26009F71-AE0B-4CB8-83B2-891AB43F9BCF">PF17 - Deficiency</a></td><td>dowoon</td><td>28/06/2023</td><td>Deficiency</td></tr><tr class="odd"><td><input type="checkbox" name="corrCustPortalGuid" value="9F42D46B-FF5B-4CA8-9011-770F1CADF3C5"></td><td><i class="fa fa-folder-open-o" style="font-size: 15px;" title="Read"></i></td><td>28/04/2023</td><td>-</td><td>Common</td><td>10202250635N</td><td><a href="javascript:void(0);" class="corrSubject" data-value="9F42D46B-FF5B-4CA8-9011-770F1CADF3C5">CM1 - Appoint or Change of Agent's Particulars</a></td><td>dowoon</td><td>-</td><td>Notification</td></tr><tr class="even"><td><input type="checkbox" name="corrCustPortalGuid" value="AEA5B1C1-2F9F-45E4-8B03-F13F5E1BDA5D"></td><td><i class="fa fa-folder-open-o" style="font-size: 15px;" title="Read"></i></td><td>28/04/2023</td><td>-</td><td>Patent</td><td>10202250635N</td><td><a href="javascript:void(0);" class="corrSubject" data-value="AEA5B1C1-2F9F-45E4-8B03-F13F5E1BDA5D">PF17 - Deficiency</a></td><td>dowoon</td><td>28/06/2023</td><td>Deficiency</td></tr></tbody>
-                </table><div class="dataTables_info" id="corrListing_info" role="status" aria-live="polite">Showing 1 to 50 of 184 entries</div><div class="dataTables_paginate paging_simple_numbers" id="corrListing_paginate"><a class="paginate_button previous disabled" aria-controls="corrListing" aria-disabled="true" aria-role="link" data-dt-idx="previous" tabindex="-1" id="corrListing_previous">Previous</a><span><a class="paginate_button current" aria-controls="corrListing" aria-role="link" aria-current="page" data-dt-idx="0" tabindex="0">1</a><a class="paginate_button " aria-controls="corrListing" aria-role="link" data-dt-idx="1" tabindex="0">2</a><a class="paginate_button " aria-controls="corrListing" aria-role="link" data-dt-idx="2" tabindex="0">3</a><a class="paginate_button " aria-controls="corrListing" aria-role="link" data-dt-idx="3" tabindex="0">4</a></span><a class="paginate_button next" aria-controls="corrListing" aria-role="link" data-dt-idx="next" tabindex="0" id="corrListing_next">Next</a></div></div>
+    </div>
+    <br />
+
+    <!-- Footer-->
+    <div class="footer hidden-print">
+        <div class="container">
+            <div class="row">
+                <!--div class="col-md-6 copyright">
+              &copy; Copyright
+              <script type="text/javascript">document.write(new Date().getFullYear());</script>	IP4SG
+            </div-->
+                <div class="col-md-6 footerlinks">
+                    <!--ul class="footer-link visible-xs visible-sm">
+                <li><a href="./">Contact Info</a></li>
+                <li class="seperator">|</li>
+                <li><a href="./">Feedback</a></li>
+                <li class="seperator">|</li>
+                <li><a href="./">Sitemap</a></li>
+              </ul-->
+                    <ul class="footer-link" align="left">
+                        <li><a href="./">Privacy Statement</a></li>
+                        <li class="seperator">|</li>
+                        <li><a href="./">Terms of Use</a></li>
+                        <li class="seperator">|</li>
+                        <li><a href="./">Rate this Service</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 copyright" align="right">
+                    &copy; Copyright
+                    <script type="text/javascript">document.write(new Date().getFullYear());</script> Government of
+                    Singapore
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-          </div>
-    </div>
-  </div>
-</div>
-  </div>
-</div>
-
-
-  <div class="modal fade zoom" id="export-corr-modal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
-  <div class="modal-dialog " role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Export Format</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
-      </div>
-
-
-    <div class="modal-body">
-      <div class="form-group">
-        <div class="text-center">
-          <input type="hidden" id="exportType" name="exportType">
-          <button name="exportBtn" value="CSV" type="button" class="btn btn-primary" data-dismiss="modal">Export as CSV</button>
-          <button name="exportBtn" value="TXT" type="button" class="btn btn-primary" data-dismiss="modal">Export as TXT</button>
-        </div>
-      </div>
-    </div>
-  
-    </div>
-  </div>
-</div>
-
-
-  <div class="modal fade zoom" id="move-corr-modal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
-  <div class="modal-dialog " role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Move Correspondence</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
-      </div>
-
-
-    <div class="modal-body">
-      <div class="form-horizontal">
-        <div class="form-group">
-          <label class="col-md-3 control-label">Move To</label>
-          <div class="col-md-9">
-            <select name="movedFolderGuid" class="form-control">
-    <option value="">Please Select</option>
-</select>
-          </div>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="text-right">
-          <button id="moveBtn" type="button" class="btn btn-primary">Move</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  
-    </div>
-  </div>
-</div>
-
-
-  <div class="modal fade zoom" id="assign-corr-modal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
-  <div class="modal-dialog " role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Assign Correspondence</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
-      </div>
-
-
-    <div class="modal-body">
-      <div class="form-horizontal">
-        <div class="form-group">
-          <label class="col-md-3 control-label" for="assignUserId"> Assign To</label>
-          <div class="col-md-6 ">
-            <select class="form-control" id="assignUserId" name="assignUserId">
-            </select>
-          </div>
-          <div class="col-md-2 text-right">
-            <button type="button" class="btn btn-primary" id="add-user">Add+</button>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="form-group">
-            <div class="responsive-table">
-              <table class="table border default-table">
-                <input type="hidden" id="removedUserId" name="removedUserId" value="">
-                <thead>
-                <tr>
-                  <th style="width: 80%">Assigned User</th>
-                  <th style="width: 20%">Action</th>
-                </tr>
-                </thead>
-                <tbody id="assignedUsers-tbody">
-                </tbody>
-              </table>
-              <input type="hidden" name="assignedUserIds" id="assignedUserIds">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="text-right">
-          <button id="assignBtn" type="button" class="btn btn-primary">Save</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  
-    </div>
-  </div>
-</div>
-
-
-<div class="modal fade zoom" id="edit-myReference-modal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
-  <div class="modal-dialog " role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Edit My Reference</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
-      </div>
-
-
-  <input name="editMyReferenceGUID" id="editMyReferenceGUID" type="hidden">
-  <div class="modal-body">
-    <div class="form-horizontal">
-      <div class="form-group">
-        <label class="col-md-3 control-label">My Reference</label>
-        <div class="col-md-9">
-          <input class="form-control" type="text" id="myReferenceModal" name="myReferenceModal" maxlength="100" autocomplete="off">
-        </div>
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="text-right">
-        <button id="updateMyReferenceBtn" type="button" class="btn btn-primary">Update</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-
-    </div>
-  </div>
-</div>
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-<input type="hidden" name="OWASP_CSRFTOKEN" value="WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O"></form>
-
-<footer class="sgds-footer">
-  <div class="container">
-    <div class="sfContentBlock"><div class="row">
-      <div class="col-12">
-        <p class="title">Intellectual Property Office of Singapore</p>
-      </div>
-      <div class="col-md-8 mb-4">
-        <div class="row footer-nav">
-          <div class="col-lg-3 col-sm-6 mb-3">
-            <a href="https://www.ipos.gov.sg/who-we-are" style="color:#FFFFFF;">About IPOS</a><br>
-            <br>
-            <ul>
-              <li><a href="https://www.ipos.gov.sg/who-we-are">Who We Are</a></li>
-              <li><a href="https://www.ipos.gov.sg/resources">Resources</a></li>
-              <li><a href="https://www.ipos.gov.sg/news">News</a></li>
-              <li><a href="https://www.ipos.gov.sg/news/events">Events</a></li>
-              <li><a href="https://www.ipos.gov.sg/news/insights">Insights</a></li>
-              <li><a href="https://www.ipos.gov.sg/careers">Careers</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-3 col-sm-6 mb-3">
-            <a href="https://www.ipos.gov.sg/about-ip" style="color:#FFFFFF;">About IP</a><br>
-            <br>
-            <ul>
-              <li><a href="https://www.ipos.gov.sg/about-ip/trade-marks">Trade Marks</a></li>
-              <li><a href="https://www.ipos.gov.sg/about-ip/patents">Patents</a></li>
-              <li><a href="https://www.ipos.gov.sg/about-ip/copyright">Copyright</a></li>
-              <li><a href="https://www.ipos.gov.sg/about-ip/designs">Designs</a></li>
-              <li><a href="https://www.ipos.gov.sg/about-ip/plant-variety-rights">Plant Variety Rights</a></li>
-              <li><a href="https://www.ipos.gov.sg/about-ip/geographical-indications">Geographical Indications</a></li>
-              <li><a href="https://www.ipos.gov.sg/about-ip/trade-secrets">Trade Secrets</a></li>
-              <li><a href="https://www.ipos.gov.sg/about-ip/other-ip">Other IP</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-3 col-sm-6 mb-3">
-            <a href="https://www.ipos.gov.sg/manage-ip" style="color:#FFFFFF;">Manage IP</a><br>
-            <br>
-            <ul>
-              <li><a href="https://www.ipos.gov.sg/manage-ip#administer">Administer IP</a></li>
-              <li><a href="https://www.ipos.gov.sg/manage-ip/monetise-ip">Monetise IP</a></li>
-              <li><a href="https://www.ipos.gov.sg/manage-ip/resolve-ip-disputes">Resolve IP Disputes</a></li>
-              <li><a href="https://www.ipos.gov.sg/manage-ip/develop-capabilities">Develop Capabilities</a></li>
-              <li><a href="https://www.ipos.gov.sg/manage-ip/singapore-ip-strategy-2030">Singapore IP Strategy 2030</a></li>
-              <li><a href="https://www.ipos.gov.sg/manage-ip/growing-with-resilience-through-intangibles">GRIT</a></li>
-              <li><a href="https://www.ipos.gov.sg/manage-ip/unsolicited-ip-services">Unsolicited IP Services</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-3 col-sm-6 mb-3">
-            <a href="https://www.ipos.gov.sg/eservices" style="color:#FFFFFF;">eServices</a><br>
-            <br>
-            <a href="https://www.ipos.gov.sg/contact-us" style="color:#FFFFFF;">Contact Us</a><br>
-            <br>
-            <a href="https://ask.gov.sg/agency/IPOS" target="_blank" style="color:#FFFFFF;">FAQs<span class="sgds-icon sgds-icon-external"></span></a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 mb-4">
-        <div class="d-flex">
-          <p class="header mr-4">Connect with Us</p>
-          <ul class="social-icons">
-            <li class="icons"><a aria-label="Facebook" href="https://www.facebook.com/IPOSG/" target="_blank"><span class="fa fa-facebook fa-fw"></span></a></li>
-            <li class="icons"><a aria-label="LinkedIn" href="https://www.linkedin.com/company/intellectual-property-office-of-singapore/" target="_blank"><span class="fa fa-linkedin fa-fw"></span></a></li>
-            <li class="icons"><a aria-label="Twitter" href="https://www.twitter.com/ipofficesg/" target="_blank"><span class="fa fa-twitter fa-fw"></span></a></li>
-            <li class="icons"><a aria-label="YouTube" href="https://www.youtube.com/user/IPOSsingapore" target="_blank"><span class="fa fa-youtube fa-fw"></span></a></li>
-          </ul>
-        </div>
-        <div class="d-flex mt-4">
-          <p class="header">Get The App</p>
-          <ul class="d-flex">
-            <li class="icons mb-3"><a aria-label="Apple App Store" href="https://apps.apple.com/us/app/ipos-go/id1475896971" target="_blank"><img src="/FACR/img/download_on_the_app_store_badge.png" alt="download_on_the_app_store_badge_us-uk_blk_092917(big)" data-displaymode="Original" title="download_on_the_app_store_badge_us-uk_blk_092917(big)"></a></li>
-            <li class="icons"><a aria-label="Google Play Store" href="https://play.google.com/store/apps/details?id=sg.ipos.mobile" target="_blank"><img src="/FACR/img/google-play-badge.png" alt="google-play-badge" data-displaymode="Original" title="google-play-badge"></a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    </div>
-    <hr>
-    <div class="row mt-4 mx-0 copyright-row">
-      <div class="col-md-12">
-        <ul class="nav block-list-md">
-          <li><a href="https://www.reach.gov.sg/" target="_blank">REACH<span class="sgds-icon sgds-icon-external"></span></a></li>
-          <li><a href="https://tech.gov.sg/report_vulnerability" target="_blank">Report Vulnerability<span class="sgds-icon sgds-icon-external"></span></a></li>
-          <li><a href="https://www.ipos.gov.sg/privacy-statement">Privacy Statement</a></li>
-          <li><a href="https://www.ipos.gov.sg/terms-of-use">Terms of Use</a></li>
-          <li><a href="https://www.ipos.gov.sg/data-protection-policy">Data Protection Policy</a></li>
-          <li><a href="https://www.ipos.gov.sg/sitemap">Sitemap</a></li>
-        </ul>
-      </div>
-      <div class="col-md-12 has-text-right ">
-        <p>© 2023, Government of Singapore</p>
-        <span id="lastModifiedDate">PRD-20230525-02</span>
-      </div>
     </div>
 
-  </div>
-</footer>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/components.js"></script>
+    <script src="assets/js/global.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script src="myassets/js/customAlert.js"></script>
+    <script src="assets/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="assets/dropzone/dist/dropzone.js"></script>
 
-<script>
-var APP_PATH = '/FACR';
+    <!-- Save & Submit Btns -->
+    <script type="text/javascript">
+
+        $("#printBtn").click(function(e)
+        {
+            window.print()
+           /*  window.open("./myassets/pdf/pf1_summary.pdf") */
+        })
+
+        function saveDraft() {
+            alert("Your application has been saved as a draft with E-filing No. E1234567890");
+            $("#efileNo").show()
+            event.preventDefault();
+            return false;
+        }
+
+        function addToCart() {
+            alert("What would you like to do next?")
+            event.preventDefault();
+            return false;
+        }
+    </script>
+
+    <!-- Date Picker Initializing -->
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $('#datetimepicker').datetimepicker({
+                weekStart: 1,
+                todayBtn: 1,
+                autoclose: 1,
+                todayHighlight: 1,
+                startView: 2,
+                forceParse: 0,
+                showMeridian: 1
+            });
+            $('.date').datetimepicker({
+                weekStart: 1,
+                todayBtn: 1,
+                autoclose: 1,
+                todayHighlight: 1,
+                startView: 2,
+                minView: 2,
+                forceParse: 0
+            });
+            $('#timeonly').datetimepicker({
+                weekStart: 1,
+                todayBtn: 1,
+                autoclose: 1,
+                todayHighlight: 1,
+                startView: 1,
+                minView: 0,
+                maxView: 1,
+                forceParse: 0
+            });
+        })
+    <style>
+        
+        </style>
 </script>
+</body>
 
-<script src="/FACR/js/jquery.min.js?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O"></script>
-<script src="/FACR/js/popper.min.js?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O"></script>
-<script src="/FACR/js/bootstrap.min.js?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O"></script>
-<script src="/FACR/js/components.min.js?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O"></script>
-<script src="/FACR/js/bootstrap-datetimepicker.min.js?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O"></script>
-<script src="/FACR/js/global.min.js?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O"></script>
-
-<script src="/FACR/js/custom.js?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O"></script>
-<script src="/FACR/js/jquery.mCustomScrollbar.concat.min.js?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O"></script>
-<script src="/FACR/js/radioButtonSwitch.js?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O"></script>
-
-<!-- Scroll Up -->
-<script src="/FACR/js/plugins.js?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O"></script>
-<script src="/FACR/js/active.js?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O"></script><a id="scrollUp" href="#top" style="position: fixed; z-index: 998;"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
-<script src="/FACR/js/cropper.min.js?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O"></script>
-<script src="/FACR/js/jquery.blockUI.min.js?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O"></script>
-<script src="/FACR/js/toastr.min.js?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O"></script>
-<script src="/FACR/js/jquery-ui.min.js?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O"></script>
-<script src="/FACR/js/app.js?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O"></script>
-
-
-  
-
-
-<input type="hidden" id="timeout" value="30">
-<input type="hidden" id="warning" value="5">
-<input type="hidden" id="appPath" value="/FAMN">
-
-<div id="timeoutDlg" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
-  <div class="modal-dialog" role="document" style="margin-top:10%;width:35%;">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title" style="float:left;">Session Timeout</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-      </div>
-      <div class="modal-body">
-        <p>Your session will be invalid in <label id="countdownLbl">025:00</label> minute(s). You can extend the session by clicking Extend button.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" id="timeoutLogoutBtn">Logout</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal" id="timeoutExtendBtn">Extend</button>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
-<script src="/FACR/js/jsp/commons/timeout.js?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O"></script>
-
-  
-  <script src="/FACR/js/datatables.min.js?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O"></script>
-  <script src="/FACR/js/jsp/corrlisting/listing.js?OWASP_CSRFTOKEN=WCI1-TTLA-1BB9-ZZ2J-5Z26-4VVY-0YRX-248O"></script>
-
-
-
-<div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div><div class="datetimepicker datetimepicker-dropdown-top-left dropdown-menu" style="top: -10px; left: -127px; z-index: 10009;"><div class="datetimepicker-minutes" style="display: none;"><table class=" table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-left"></span> </th><th colspan="5" class="switch">22 May 2023</th><th class="next" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-right"></span> </th></tr></thead><tbody><tr><td colspan="7"><span class="minute">10:00</span><span class="minute">10:05</span><span class="minute active">10:10</span><span class="minute">10:15</span><span class="minute">10:20</span><span class="minute">10:25</span><span class="minute">10:30</span><span class="minute">10:35</span><span class="minute">10:40</span><span class="minute">10:45</span><span class="minute">10:50</span><span class="minute">10:55</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div><div class="datetimepicker-hours" style="display: none;"><table class=" table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-left"></span> </th><th colspan="5" class="switch">22 May 2023</th><th class="next" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-right"></span> </th></tr></thead><tbody><tr><td colspan="7"><span class="hour">0:00</span><span class="hour">1:00</span><span class="hour">2:00</span><span class="hour">3:00</span><span class="hour">4:00</span><span class="hour">5:00</span><span class="hour">6:00</span><span class="hour">7:00</span><span class="hour">8:00</span><span class="hour">9:00</span><span class="hour active">10:00</span><span class="hour">11:00</span><span class="hour">12:00</span><span class="hour">13:00</span><span class="hour">14:00</span><span class="hour">15:00</span><span class="hour">16:00</span><span class="hour">17:00</span><span class="hour">18:00</span><span class="hour">19:00</span><span class="hour">20:00</span><span class="hour">21:00</span><span class="hour">22:00</span><span class="hour">23:00</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div><div class="datetimepicker-days" style="display: block;"><table class=" table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-left"></span> </th><th colspan="5" class="switch">May 2023</th><th class="next" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-right"></span> </th></tr><tr><th class="dow">Mo</th><th class="dow">Tu</th><th class="dow">We</th><th class="dow">Th</th><th class="dow">Fr</th><th class="dow">Sa</th><th class="dow">Su</th></tr></thead><tbody><tr><td class="day old">24</td><td class="day old">25</td><td class="day old">26</td><td class="day old">27</td><td class="day old">28</td><td class="day old">29</td><td class="day old">30</td></tr><tr><td class="day">1</td><td class="day">2</td><td class="day">3</td><td class="day">4</td><td class="day">5</td><td class="day">6</td><td class="day">7</td></tr><tr><td class="day">8</td><td class="day">9</td><td class="day">10</td><td class="day">11</td><td class="day">12</td><td class="day">13</td><td class="day">14</td></tr><tr><td class="day">15</td><td class="day">16</td><td class="day">17</td><td class="day">18</td><td class="day">19</td><td class="day">20</td><td class="day">21</td></tr><tr><td class="day today active">22</td><td class="day">23</td><td class="day">24</td><td class="day">25</td><td class="day">26</td><td class="day">27</td><td class="day">28</td></tr><tr><td class="day">29</td><td class="day">30</td><td class="day">31</td><td class="day new">1</td><td class="day new">2</td><td class="day new">3</td><td class="day new">4</td></tr></tbody><tfoot><tr><th colspan="7" class="today">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div><div class="datetimepicker-months" style="display: none;"><table class="table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-left"></span> </th><th colspan="5" class="switch">2023</th><th class="next" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-right"></span> </th></tr></thead><tbody><tr><td colspan="7"><span class="month">Jan</span><span class="month">Feb</span><span class="month">Mar</span><span class="month">Apr</span><span class="month active">May</span><span class="month">Jun</span><span class="month">Jul</span><span class="month">Aug</span><span class="month">Sep</span><span class="month">Oct</span><span class="month">Nov</span><span class="month">Dec</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div><div class="datetimepicker-years" style="display: none;"><table class="table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-left"></span> </th><th colspan="5" class="switch">2020-2029</th><th class="next" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-right"></span> </th></tr></thead><tbody><tr><td colspan="7"><span class="year ">2019</span><span class="year">2020</span><span class="year">2021</span><span class="year">2022</span><span class="year active">2023</span><span class="year">2024</span><span class="year">2025</span><span class="year">2026</span><span class="year">2027</span><span class="year">2028</span><span class="year">2029</span><span class="year ">2030</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div></div><div class="datetimepicker datetimepicker-dropdown-top-left dropdown-menu" style="top: -10px; left: -127px; z-index: 10019;"><div class="datetimepicker-minutes" style="display: none;"><table class=" table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-left"></span> </th><th colspan="5" class="switch">22 May 2023</th><th class="next" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-right"></span> </th></tr></thead><tbody><tr><td colspan="7"><span class="minute">10:00</span><span class="minute">10:05</span><span class="minute active">10:10</span><span class="minute">10:15</span><span class="minute">10:20</span><span class="minute">10:25</span><span class="minute">10:30</span><span class="minute">10:35</span><span class="minute">10:40</span><span class="minute">10:45</span><span class="minute">10:50</span><span class="minute">10:55</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div><div class="datetimepicker-hours" style="display: none;"><table class=" table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-left"></span> </th><th colspan="5" class="switch">22 May 2023</th><th class="next" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-right"></span> </th></tr></thead><tbody><tr><td colspan="7"><span class="hour">0:00</span><span class="hour">1:00</span><span class="hour">2:00</span><span class="hour">3:00</span><span class="hour">4:00</span><span class="hour">5:00</span><span class="hour">6:00</span><span class="hour">7:00</span><span class="hour">8:00</span><span class="hour">9:00</span><span class="hour active">10:00</span><span class="hour">11:00</span><span class="hour">12:00</span><span class="hour">13:00</span><span class="hour">14:00</span><span class="hour">15:00</span><span class="hour">16:00</span><span class="hour">17:00</span><span class="hour">18:00</span><span class="hour">19:00</span><span class="hour">20:00</span><span class="hour">21:00</span><span class="hour">22:00</span><span class="hour">23:00</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div><div class="datetimepicker-days" style="display: block;"><table class=" table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-left"></span> </th><th colspan="5" class="switch">May 2023</th><th class="next" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-right"></span> </th></tr><tr><th class="dow">Mo</th><th class="dow">Tu</th><th class="dow">We</th><th class="dow">Th</th><th class="dow">Fr</th><th class="dow">Sa</th><th class="dow">Su</th></tr></thead><tbody><tr><td class="day old">24</td><td class="day old">25</td><td class="day old">26</td><td class="day old">27</td><td class="day old">28</td><td class="day old">29</td><td class="day old">30</td></tr><tr><td class="day">1</td><td class="day">2</td><td class="day">3</td><td class="day">4</td><td class="day">5</td><td class="day">6</td><td class="day">7</td></tr><tr><td class="day">8</td><td class="day">9</td><td class="day">10</td><td class="day">11</td><td class="day">12</td><td class="day">13</td><td class="day">14</td></tr><tr><td class="day">15</td><td class="day">16</td><td class="day">17</td><td class="day">18</td><td class="day">19</td><td class="day">20</td><td class="day">21</td></tr><tr><td class="day today active">22</td><td class="day">23</td><td class="day">24</td><td class="day">25</td><td class="day">26</td><td class="day">27</td><td class="day">28</td></tr><tr><td class="day">29</td><td class="day">30</td><td class="day">31</td><td class="day new">1</td><td class="day new">2</td><td class="day new">3</td><td class="day new">4</td></tr></tbody><tfoot><tr><th colspan="7" class="today">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div><div class="datetimepicker-months" style="display: none;"><table class="table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-left"></span> </th><th colspan="5" class="switch">2023</th><th class="next" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-right"></span> </th></tr></thead><tbody><tr><td colspan="7"><span class="month">Jan</span><span class="month">Feb</span><span class="month">Mar</span><span class="month">Apr</span><span class="month active">May</span><span class="month">Jun</span><span class="month">Jul</span><span class="month">Aug</span><span class="month">Sep</span><span class="month">Oct</span><span class="month">Nov</span><span class="month">Dec</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div><div class="datetimepicker-years" style="display: none;"><table class="table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-left"></span> </th><th colspan="5" class="switch">2020-2029</th><th class="next" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-right"></span> </th></tr></thead><tbody><tr><td colspan="7"><span class="year ">2019</span><span class="year">2020</span><span class="year">2021</span><span class="year">2022</span><span class="year active">2023</span><span class="year">2024</span><span class="year">2025</span><span class="year">2026</span><span class="year">2027</span><span class="year">2028</span><span class="year">2029</span><span class="year ">2030</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div></div><div class="datetimepicker datetimepicker-dropdown-top-left dropdown-menu" style="top: -10px; left: -127px; z-index: 10029;"><div class="datetimepicker-minutes" style="display: none;"><table class=" table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-left"></span> </th><th colspan="5" class="switch">22 May 2023</th><th class="next" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-right"></span> </th></tr></thead><tbody><tr><td colspan="7"><span class="minute">10:00</span><span class="minute">10:05</span><span class="minute active">10:10</span><span class="minute">10:15</span><span class="minute">10:20</span><span class="minute">10:25</span><span class="minute">10:30</span><span class="minute">10:35</span><span class="minute">10:40</span><span class="minute">10:45</span><span class="minute">10:50</span><span class="minute">10:55</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div><div class="datetimepicker-hours" style="display: none;"><table class=" table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-left"></span> </th><th colspan="5" class="switch">22 May 2023</th><th class="next" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-right"></span> </th></tr></thead><tbody><tr><td colspan="7"><span class="hour">0:00</span><span class="hour">1:00</span><span class="hour">2:00</span><span class="hour">3:00</span><span class="hour">4:00</span><span class="hour">5:00</span><span class="hour">6:00</span><span class="hour">7:00</span><span class="hour">8:00</span><span class="hour">9:00</span><span class="hour active">10:00</span><span class="hour">11:00</span><span class="hour">12:00</span><span class="hour">13:00</span><span class="hour">14:00</span><span class="hour">15:00</span><span class="hour">16:00</span><span class="hour">17:00</span><span class="hour">18:00</span><span class="hour">19:00</span><span class="hour">20:00</span><span class="hour">21:00</span><span class="hour">22:00</span><span class="hour">23:00</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div><div class="datetimepicker-days" style="display: block;"><table class=" table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-left"></span> </th><th colspan="5" class="switch">May 2023</th><th class="next" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-right"></span> </th></tr><tr><th class="dow">Mo</th><th class="dow">Tu</th><th class="dow">We</th><th class="dow">Th</th><th class="dow">Fr</th><th class="dow">Sa</th><th class="dow">Su</th></tr></thead><tbody><tr><td class="day old">24</td><td class="day old">25</td><td class="day old">26</td><td class="day old">27</td><td class="day old">28</td><td class="day old">29</td><td class="day old">30</td></tr><tr><td class="day">1</td><td class="day">2</td><td class="day">3</td><td class="day">4</td><td class="day">5</td><td class="day">6</td><td class="day">7</td></tr><tr><td class="day">8</td><td class="day">9</td><td class="day">10</td><td class="day">11</td><td class="day">12</td><td class="day">13</td><td class="day">14</td></tr><tr><td class="day">15</td><td class="day">16</td><td class="day">17</td><td class="day">18</td><td class="day">19</td><td class="day">20</td><td class="day">21</td></tr><tr><td class="day today active">22</td><td class="day">23</td><td class="day">24</td><td class="day">25</td><td class="day">26</td><td class="day">27</td><td class="day">28</td></tr><tr><td class="day">29</td><td class="day">30</td><td class="day">31</td><td class="day new">1</td><td class="day new">2</td><td class="day new">3</td><td class="day new">4</td></tr></tbody><tfoot><tr><th colspan="7" class="today">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div><div class="datetimepicker-months" style="display: none;"><table class="table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-left"></span> </th><th colspan="5" class="switch">2023</th><th class="next" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-right"></span> </th></tr></thead><tbody><tr><td colspan="7"><span class="month">Jan</span><span class="month">Feb</span><span class="month">Mar</span><span class="month">Apr</span><span class="month active">May</span><span class="month">Jun</span><span class="month">Jul</span><span class="month">Aug</span><span class="month">Sep</span><span class="month">Oct</span><span class="month">Nov</span><span class="month">Dec</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div><div class="datetimepicker-years" style="display: none;"><table class="table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-left"></span> </th><th colspan="5" class="switch">2020-2029</th><th class="next" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-right"></span> </th></tr></thead><tbody><tr><td colspan="7"><span class="year ">2019</span><span class="year">2020</span><span class="year">2021</span><span class="year">2022</span><span class="year active">2023</span><span class="year">2024</span><span class="year">2025</span><span class="year">2026</span><span class="year">2027</span><span class="year">2028</span><span class="year">2029</span><span class="year ">2030</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div></div><div class="datetimepicker datetimepicker-dropdown-top-left dropdown-menu" style="top: -10px; left: -127px; z-index: 10039;"><div class="datetimepicker-minutes" style="display: none;"><table class=" table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-left"></span> </th><th colspan="5" class="switch">22 May 2023</th><th class="next" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-right"></span> </th></tr></thead><tbody><tr><td colspan="7"><span class="minute">10:00</span><span class="minute">10:05</span><span class="minute active">10:10</span><span class="minute">10:15</span><span class="minute">10:20</span><span class="minute">10:25</span><span class="minute">10:30</span><span class="minute">10:35</span><span class="minute">10:40</span><span class="minute">10:45</span><span class="minute">10:50</span><span class="minute">10:55</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div><div class="datetimepicker-hours" style="display: none;"><table class=" table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-left"></span> </th><th colspan="5" class="switch">22 May 2023</th><th class="next" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-right"></span> </th></tr></thead><tbody><tr><td colspan="7"><span class="hour">0:00</span><span class="hour">1:00</span><span class="hour">2:00</span><span class="hour">3:00</span><span class="hour">4:00</span><span class="hour">5:00</span><span class="hour">6:00</span><span class="hour">7:00</span><span class="hour">8:00</span><span class="hour">9:00</span><span class="hour active">10:00</span><span class="hour">11:00</span><span class="hour">12:00</span><span class="hour">13:00</span><span class="hour">14:00</span><span class="hour">15:00</span><span class="hour">16:00</span><span class="hour">17:00</span><span class="hour">18:00</span><span class="hour">19:00</span><span class="hour">20:00</span><span class="hour">21:00</span><span class="hour">22:00</span><span class="hour">23:00</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div><div class="datetimepicker-days" style="display: block;"><table class=" table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-left"></span> </th><th colspan="5" class="switch">May 2023</th><th class="next" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-right"></span> </th></tr><tr><th class="dow">Mo</th><th class="dow">Tu</th><th class="dow">We</th><th class="dow">Th</th><th class="dow">Fr</th><th class="dow">Sa</th><th class="dow">Su</th></tr></thead><tbody><tr><td class="day old">24</td><td class="day old">25</td><td class="day old">26</td><td class="day old">27</td><td class="day old">28</td><td class="day old">29</td><td class="day old">30</td></tr><tr><td class="day">1</td><td class="day">2</td><td class="day">3</td><td class="day">4</td><td class="day">5</td><td class="day">6</td><td class="day">7</td></tr><tr><td class="day">8</td><td class="day">9</td><td class="day">10</td><td class="day">11</td><td class="day">12</td><td class="day">13</td><td class="day">14</td></tr><tr><td class="day">15</td><td class="day">16</td><td class="day">17</td><td class="day">18</td><td class="day">19</td><td class="day">20</td><td class="day">21</td></tr><tr><td class="day today active">22</td><td class="day">23</td><td class="day">24</td><td class="day">25</td><td class="day">26</td><td class="day">27</td><td class="day">28</td></tr><tr><td class="day">29</td><td class="day">30</td><td class="day">31</td><td class="day new">1</td><td class="day new">2</td><td class="day new">3</td><td class="day new">4</td></tr></tbody><tfoot><tr><th colspan="7" class="today">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div><div class="datetimepicker-months" style="display: none;"><table class="table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-left"></span> </th><th colspan="5" class="switch">2023</th><th class="next" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-right"></span> </th></tr></thead><tbody><tr><td colspan="7"><span class="month">Jan</span><span class="month">Feb</span><span class="month">Mar</span><span class="month">Apr</span><span class="month active">May</span><span class="month">Jun</span><span class="month">Jul</span><span class="month">Aug</span><span class="month">Sep</span><span class="month">Oct</span><span class="month">Nov</span><span class="month">Dec</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div><div class="datetimepicker-years" style="display: none;"><table class="table-condensed"><thead><tr><th class="prev" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-left"></span> </th><th colspan="5" class="switch">2020-2029</th><th class="next" style="visibility: visible;"><span class="glyphicon glyphicon-arrow-right"></span> </th></tr></thead><tbody><tr><td colspan="7"><span class="year ">2019</span><span class="year">2020</span><span class="year">2021</span><span class="year">2022</span><span class="year active">2023</span><span class="year">2024</span><span class="year">2025</span><span class="year">2026</span><span class="year">2027</span><span class="year">2028</span><span class="year">2029</span><span class="year ">2030</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today">Today</th></tr><tr><th colspan="7" class="clear" style="display: none;">Clear</th></tr></tfoot></table></div></div></body></html>
+</html>
