@@ -74,27 +74,48 @@
       
       </style>
       <style>
-.navbar-nav.ml-auto.user-menu-float {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.navbar-nav.ml-auto.user-menu-float .mailcart {
-  display: flex;
-  align-items: center;
-}
-
-.navbar-nav.ml-auto.user-menu-float .user-menu {
-  margin-left: auto;
-}
-
-.navbar-nav.ml-auto.user-menu-float .mail-button,
-.navbar-nav.ml-auto.user-menu-float .cart-button {
-  margin-left: 10px;
+@media (min-width: 768px) {
+  .navbar-nav.ml-auto.user-menu-float .user-menu {
+    margin-left: 10px;
+    margin-right: 0px;
+  }
+  
+  .navbar-nav.ml-auto.user-menu-float .mail-button,
+  .navbar-nav.ml-auto.user-menu-float .cart-button {
+    margin-left: 0;
+    margin-right: 10px;
+  }
+  
+  .navbar-nav.ml-auto.user-menu-float .dropdown-menu {
+    right: 0;
+    left: auto;
+  }
 }
       </style>
-
-      
+            <style>
+                .navbar-nav.ml-auto.user-menu-float {
+                  display: flex;
+                  justify-content: flex-end;
+                }
+                
+                .navbar-nav.ml-auto.user-menu-float .mailcart {
+                  display: flex;
+                  align-items: center;
+                }
+                
+                .navbar-nav.ml-auto.user-menu-float .user-menu {
+                  margin-left: auto;
+                }
+                
+                .navbar-nav.ml-auto.user-menu-float .mail-button,
+                .navbar-nav.ml-auto.user-menu-float .cart-button {
+                  margin-left: 10px;
+                }
+                .navbar {
+  display: flex;
+  justify-content: space-between;
+}
+                      </style>
 </head>
 
 <body> 
@@ -245,40 +266,12 @@
           <nav class="navbar navbar-expand-lg navbar-dark mainnav">
             
             <div class="container" style="position: relative;">
-              <div class="container-bar " style="position: relative;">
                 
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav5" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               
-              <ul class="navbar-nav ml-auto user-menu-float">
-                <div class="col-8 col-sm-4 col-md-8 col-lg-7 mailcart">
-                  <div class="d-flex align-items-center">
-                    <div class="button mail-button">
-                      <a class="" href="/FACR/eservice/IP4SG/CR_CorrespondenceFolder?fGuid=FEEAB3BF-A05B-4E38-BE65-FE9FCC4561AB&amp;OWASP_CSRFTOKEN=Z8V8-M6FK-HW5W-FT2B-TF7P-1A6M-J2DG-VY3F" data-toggle="link" role="button" aria-haspopup="true" aria-expanded="false">
-                        <img src="/FAMN/img/icon-mail.png" class="img-fluid" alt="">
-                        <span class="badge badge-mail">86</span>
-                      </a>
-                    </div>
-                    <div class="button cart-button">
-                      <a class="" href="/FAMN/eservice/IP4SG/MN_Payment/PreCart?OWASP_CSRFTOKEN=Z8V8-M6FK-HW5W-FT2B-TF7P-1A6M-J2DG-VY3F" data-toggle="link" role="button" aria-haspopup="true" aria-expanded="false">
-                        <img src="/FAMN/img/icon-cart.png" class="img-fluid" alt="">
-                        <span class="badge badge-cart">0</span>
-                      </a>
-                    
-                  </div>
-                
-                <div class="dropdown user-menu col-4 col-sm-4 col-md-4 col-lg-5">
-                  <a class="dropdown-toggle" href="#" id="userMenu" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">cindyng</a>
-                  <ul class="dropdown-menu" id="userDropdown" aria-labelledby="userMenu">
-                    <li><a href="/FAMN/eservice/IP4SG/MN_UserAccount?OWASP_CSRFTOKEN=RZ1Q-F6U5-YCU5-L68S-GE70-89MJ-2KCP-WN2Q">Edit Profile</a></li>
-                    <li><a href="/FAMN/eservice/IP4SG/MN_Logout?OWASP_CSRFTOKEN=RZ1Q-F6U5-YCU5-L68S-GE70-89MJ-2KCP-WN2Q">Logout</a></li>
-                  </ul>
-                </div>
-              </ul>
-            </div>
-            
-          </div>
+
               
               <div class="collapse navbar-collapse justify-content-between" id="main_nav5">
                 
@@ -393,7 +386,34 @@
                   </ul>
                   </div>
                   
-                  
+                  <ul class="navbar-nav ml-auto user-menu-float">
+                    <div class="col-8 col-sm-4 col-md-8 col-lg-7 mailcart">
+                      <div class="d-flex align-items-center">
+                        <div class="button mail-button">
+                          <a class="" href="/FACR/eservice/IP4SG/CR_CorrespondenceFolder?fGuid=FEEAB3BF-A05B-4E38-BE65-FE9FCC4561AB&amp;OWASP_CSRFTOKEN=Z8V8-M6FK-HW5W-FT2B-TF7P-1A6M-J2DG-VY3F" data-toggle="link" role="button" aria-haspopup="true" aria-expanded="false">
+                            <img src="/FAMN/img/icon-mail.png" class="img-fluid" alt="">
+                            <span class="badge badge-mail">86</span>
+                          </a>
+                        </div>
+                        <div class="button cart-button">
+                          <a class="" href="/FAMN/eservice/IP4SG/MN_Payment/PreCart?OWASP_CSRFTOKEN=Z8V8-M6FK-HW5W-FT2B-TF7P-1A6M-J2DG-VY3F" data-toggle="link" role="button" aria-haspopup="true" aria-expanded="false">
+                            <img src="/FAMN/img/icon-cart.png" class="img-fluid" alt="">
+                            <span class="badge badge-cart">0</span>
+                          </a>
+                        
+                      </div>
+                    
+                    <div class="dropdown user-menu col-4 col-sm-4 col-md-4 col-lg-5">
+                      <a class="dropdown-toggle" href="#" id="userMenu" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">cindyng</a>
+                      <ul class="dropdown-menu" id="userDropdown" aria-labelledby="userMenu">
+                        <li><a href="/FAMN/eservice/IP4SG/MN_UserAccount?OWASP_CSRFTOKEN=RZ1Q-F6U5-YCU5-L68S-GE70-89MJ-2KCP-WN2Q">Edit Profile</a></li>
+                        <li><a href="/FAMN/eservice/IP4SG/MN_Logout?OWASP_CSRFTOKEN=RZ1Q-F6U5-YCU5-L68S-GE70-89MJ-2KCP-WN2Q">Logout</a></li>
+                      </ul>
+                    </div>
+                  </ul>
+                </div>
+                
+              </div>
               <!-- navbar-collapse.// -->
             
             <!-- container //end -->
