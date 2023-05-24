@@ -63,14 +63,7 @@
           .button.cart-button {
         margin-right: 0;
       }
-      @media (min-width: 768px) {
-        .usericons {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: flex-end;
-        }
-      }
+    
       
       </style>
       <style>
@@ -92,30 +85,6 @@
   }
 }
       </style>
-            <style>
-                .navbar-nav.ml-auto.user-menu-float {
-                  display: flex;
-                  justify-content: flex-end;
-                }
-                
-                .navbar-nav.ml-auto.user-menu-float .mailcart {
-                  display: flex;
-                  align-items: center;
-                }
-                
-                .navbar-nav.ml-auto.user-menu-float .user-menu {
-                  margin-left: auto;
-                }
-                
-                .navbar-nav.ml-auto.user-menu-float .mail-button,
-                .navbar-nav.ml-auto.user-menu-float .cart-button {
-                  margin-left: 10px;
-                }
-                .navbar {
-  display: flex;
-  justify-content: space-between;
-}
-                      </style>
 </head>
 
 <body> 
@@ -387,7 +356,7 @@
                   </div>
                   
                   <ul class="navbar-nav ml-auto user-menu-float">
-                    <div class="col-8 col-sm-4 col-md-8 col-lg-7 mailcart">
+                    <div class="col-8 col-sm-4 col-md-8 col-lg-8 mailcart">
                       <div class="d-flex align-items-center">
                         <div class="button mail-button">
                           <a class="" href="/FACR/eservice/IP4SG/CR_CorrespondenceFolder?fGuid=FEEAB3BF-A05B-4E38-BE65-FE9FCC4561AB&amp;OWASP_CSRFTOKEN=Z8V8-M6FK-HW5W-FT2B-TF7P-1A6M-J2DG-VY3F" data-toggle="link" role="button" aria-haspopup="true" aria-expanded="false">
@@ -403,7 +372,7 @@
                         
                       </div>
                     
-                    <div class="dropdown user-menu col-4 col-sm-4 col-md-4 col-lg-5">
+                    <div class="dropdown user-menu col-4 col-sm-4 col-md-4 col-lg-4">
                       <a class="dropdown-toggle" href="#" id="userMenu" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">cindyng</a>
                       <ul class="dropdown-menu" id="userDropdown" aria-labelledby="userMenu">
                         <li><a href="/FAMN/eservice/IP4SG/MN_UserAccount?OWASP_CSRFTOKEN=RZ1Q-F6U5-YCU5-L68S-GE70-89MJ-2KCP-WN2Q">Edit Profile</a></li>
